@@ -7,5 +7,14 @@ Route::get('/', function () {
 });
 
 Route::get('/geron',function(){
-    return dd ('geron');
+    return '<h1>bonjour gerant</h1>' ;
+});
+Route::get('/hotel',function(){
+    return view('hotel.index');
+});
+Route::post('/hotel',function(){
+    return view('hotel.store');
+});
+Route::get('/hotel/{hotel}',function(){
+
 });
