@@ -21,7 +21,7 @@ public function  chambres (){
         $this->hasMany(Chambre::class);
 }
 public function Images (){
-    //  $this->hasMany(Image::class);
+     $this->hasMany(Image::class);
 }
 
 
