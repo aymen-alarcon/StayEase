@@ -1,51 +1,56 @@
 <?php
-
 namespace App\Http\Controllers;
+
 use App\Models\Hotel;
 use Illuminate\Http\Request;
-use Illuminate\Http\Request as HttpRequest;
-use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
 
 class HotelController extends Controller
 {
-    public function index(){
+    public function index()
+    {
 
-    return view('index',[
-        'hotels'=> $hotels=Hotel::latest()->pagninate(5)
-    ]);
+        return view('index', [
+            'hotels' => $hotels = Hotel::latest()->pagninate(5),
+        ]);
     }
 
-    public function store( Request $request,Hotel $hotel){
+    public function store(Request $request)
+    {
+        $vData = $request->validate([
+            'name'    => 'required|max:255',
+            'address' => 'required|max:255',
+            'rating'  => 'required|min:1|max:5',
+        ]);
 
+         Hotel::create($vData);
 
-      $request->validate([
-      'name' => 'required|max:255',
-      'address' => 'required|max:255',
-
-      'category_id' => 'required',
-      'workingday' => 'required',
-      'content' => 'required'
-      ]);
-      Hotel::create($request->all());
-    return redirect()->route('hotel.index');
+        return redirect()->route('hotel.index')->with('success', 'Hotel a ete cree');
     }
 
-    public function show(Hotel $hotel){
-    return view('show',compact('hotel'));
-    }
-    public function update(Hotel $hotel,Request $request){
-        $hotel->update($request->validated());
-    return redirect()->back()
-            ->withSucess('Hotel a ete  modifie');
-
-    }
-    public function destroy(Hotel $hotel){
-    $hotel->delete();
-    return redirect()->route('hotel.index');
-    }
-    public function create(){
+    public function create()
+    {
         return view('create');
 
+    }
+    public function show(Hotel $hotel)
+    {
+        return view('show', compact('hotel'));
+    }
+    public function update(Hotel $hotel, Request $request)
+    {
+       $request->validate([
+        'name'=>'required',
+        'adress'=>'required',
+        'rating'=>'required'
+       ]);
+       $hotel->update($request->all());
+       return redirect()->route('hotel.index')->with('sucess');
+
+    }
+    public function destroy(Hotel $hotel)
+    {
+        $hotel->delete();
+        return redirect()->route('hotel.index');
     }
 
 }
