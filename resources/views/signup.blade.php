@@ -64,11 +64,29 @@
     <div class="login-container">
         <div class="login-card">
             <div class="login-header">
-                <h2>Welcome Back</h2>
-                <p>Sign in to your account</p>
+                <h2>You’re welcome to join us</h2>
+                <p>Create your account</p>
             </div>
             
             <form class="login-form" id="loginForm" novalidate>
+                <div class="form-group">
+                    <div class="input-wrapper">
+                        <input type="text" id="email" name="firstname" required autocomplete="First name">
+                        <label for="firstname">First name</label>
+                        <span class="focus-border"></span>
+                    </div>
+                    <span class="error-message" id="emailError"></span>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-wrapper">
+                        <input type="text" id="email" name="lastname" required autocomplete="Last name">
+                        <label for="lastname">Last name</label>
+                        <span class="focus-border"></span>
+                    </div>
+                    <span class="error-message" id="emailError"></span>
+                </div>
+
                 <div class="form-group">
                     <div class="input-wrapper">
                         <input type="email" id="email" name="email" required autocomplete="email">
@@ -90,46 +108,16 @@
                     <span class="error-message" id="passwordError"></span>
                 </div>
 
-                <div class="form-options">
-                    <label class="remember-wrapper">
-                        <input type="checkbox" id="remember" name="remember">
-                        <span class="checkbox-label">
-                            <span class="checkmark"></span>
-                            Remember me
-                        </span>
-                    </label>
-                    <a href="#" class="forgot-password">Forgot password?</a>
-                </div>
-
                 <button type="submit" class="login-btn btn">
-                    <span class="btn-text">Sign In</span>
+                    <span class="btn-text">Sign Up</span>
                     <span class="btn-loader"></span>
                 </button>
             </form>
 
-            <div class="divider">
-                <span>or continue with</span>
-            </div>
-
-            <div class="social-login">
-                <button type="button" class="social-btn google-btn">
-                    <span class="social-icon google-icon"></span>
-                    Google
-                </button>
-                <button type="button" class="social-btn github-btn">
-                    <span class="social-icon github-icon"></span>
-                    GitHub
-                </button>
-            </div>
+            <div class="divider"></div>
 
             <div class="signup-link">
-                <p>Don't have an account? <a href="/signup">Sign up</a></p>
-            </div>
-
-            <div class="success-message" id="successMessage">
-                <div class="success-icon">✓</div>
-                <h3>Login Successful!</h3>
-                <p>Redirecting to your dashboard...</p>
+                <p>You have an account? <a href="/login">Login</a></p>
             </div>
         </div>
     </div>

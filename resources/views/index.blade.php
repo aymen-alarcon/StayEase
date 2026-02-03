@@ -61,6 +61,7 @@
                             <div class="navbar-nav mr-auto py-0">
                                 <a href="index.html" class="nav-item nav-link active">Home</a>
                                 <a href="/Rooms" class="nav-item nav-link">Rooms</a>
+                                <a href="/signup" class="nav-item nav-link">SignUp</a>
                                 <a href="/login" class="nav-item nav-link">Login</a>
                             </div>
                         </div>
