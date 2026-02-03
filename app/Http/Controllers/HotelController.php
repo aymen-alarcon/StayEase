@@ -15,11 +15,21 @@ class HotelController extends Controller
     ]);
     }
 
-    public function store( Request $request){
+    public function store( Request $request,Hotel $hotel){
 
-    Hotel::create($request->validated());
+
+      $request->validate([
+      'name' => 'required|max:255',
+      'address' => 'required|max:255',
+
+      'category_id' => 'required',
+      'workingday' => 'required',
+      'content' => 'required'
+      ]);
+      Hotel::create($request->all());
     return redirect()->route('hotel.index');
     }
+
     public function show(Hotel $hotel){
     return view('show',compact('hotel'));
     }

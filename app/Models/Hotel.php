@@ -8,13 +8,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Hotel extends Model
 {
     protected $fillable = [
-        'name','adress','rating',
+        'name','adress','rating'
 
     ];
 
 
 
-    
+
 public function  chambres (){
         $this->hasMany(Chambre::class);
 }
