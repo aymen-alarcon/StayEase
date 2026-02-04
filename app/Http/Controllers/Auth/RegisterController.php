@@ -46,6 +46,11 @@ class RegisterController extends Controller
             'password' => $request->password
         ]);
 
+        //log
+        Auth::login($user);
+
+        // redirect
+        return redirect('/');
     }
 
     /**
