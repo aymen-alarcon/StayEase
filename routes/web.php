@@ -3,6 +3,7 @@
 use App\Http\Controllers\HotelController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\SessionController;
 
 Route::get('/', function () {
     return view('index');
@@ -36,6 +37,7 @@ Route::get('/admin',function(){
 });
 
 
+
 Route::get('/login', function(){
     return view('login');
 });
@@ -46,3 +48,5 @@ Route::get('/signup', function(){
 
 // Route::get('/signup', [RegisterController::class, 'create']);
 Route::post('/signup', [RegisterController::class, 'store']);
+
+Route::delete('/logout', [SessionController::class, 'destroy']);

@@ -61,8 +61,20 @@
                             <div class="navbar-nav mr-auto py-0">
                                 <a href="index.html" class="nav-item nav-link active">Home</a>
                                 <a href="/Rooms" class="nav-item nav-link">Rooms</a>
+                                @guest
                                 <a href="/signup" class="nav-item nav-link">SignUp</a>
                                 <a href="/login" class="nav-item nav-link">Login</a>
+                                @endguest
+
+                                @auth
+                                <form action="/logout" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="nav-item nav-link" id="logout">
+                                        Log Out
+                                    </button>
+                                </form>    
+                                @endauth
                             </div>
                         </div>
                     </nav>
