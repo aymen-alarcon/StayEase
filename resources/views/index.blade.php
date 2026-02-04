@@ -6,8 +6,7 @@
     <title>Hotelier - Hotel HTML Template</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
-    <meta content="" name="descri    <link rel="stylesheet" href="../../resources/css/style.css">
-
+    <meta content="" name="descri    <lin
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
@@ -59,15 +58,11 @@
                             <div class="navbar-nav mr-auto py-0">
                                 <a href="index.html" class="nav-item nav-link active">Home</a>
                                 <a href="/Rooms" class="nav-item nav-link">Rooms</a>
-                                <a href="/login" class="nav-item nav-link">Login</a>
-       <a href="/Rooms" class="nav-item nav-link">Rooms</a>
+ href="/Rooms" class="nav-item nav-link">Rooms</a>
+ href="/Rooms" class="nav-item nav-link">Rooms</a>
+a href="/Rooms" class="nav-item nav-link">Rooms</a>
                             </div>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-        <!-- Header End -->
+                     <!-- Header End -->
 
         <!-- Carousel Start -->
         <div class="container-fluid p-0 mb-5">
@@ -112,6 +107,13 @@
 
 
         <!-- Booking Start -->
+ton>
+            </div>
+        </div>
+        <!-- Carousel End -->
+
+
+        <!-- Booking Start -->
         <div class="container-fluid booking pb-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container">
                 <div class="bg-white shadow" style="padding: 35px;">
@@ -149,12 +151,7 @@
                         </div>
                         <div class="col-md-2">
                             <button class="btn btn-primary w-100">Submit</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Booking End -->
+                     <!-- Booking End -->
 
 
         <!-- About Start -->
@@ -219,6 +216,13 @@
 
 
         <!-- Room Start -->
+    </div>
+            </div>
+        </div>
+        <!-- About End -->
+
+
+        <!-- Room Start -->
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
@@ -251,7 +255,7 @@
                                 <p class="text-body mb-3">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
                                 <div class="d-flex justify-content-between">
                                     <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
-                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="/Reservation/create/{{ $room->id }}">Book Now</a>
                                 </div>
                             </div>
                         </div>
@@ -281,7 +285,7 @@
                                 <p class="text-body mb-3">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
                                 <div class="d-flex justify-content-between">
                                     <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
-                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="/Reservation/create/{{ $room->id }}">Book Now</a>
                                 </div>
                             </div>
                         </div>
@@ -311,18 +315,11 @@
                                 <p class="text-body mb-3">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
                                 <div class="d-flex justify-content-between">
                                     <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
-                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="/Reservation/create/{{ $room->id }}">Book Now</a>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Room End -->
-
-
-        <!-- Video Start -->
+                     <!-- Room End -->
+          <!-- Video Start -->
         <div class="container-xxl py-5 px-0 wow zoomIn" data-wow-delay="0.1s">
             <div class="row g-0">
                 <div class="col-md-6 bg-dark d-flex align-items-center">
@@ -344,6 +341,12 @@
             </div>
         </div>
 
+       </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content rounded-0">
@@ -356,12 +359,7 @@
                         <div class="ratio ratio-16x9">
                             <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
                                 allow="autoplay"></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Video Start -->
+                     <!-- Video Start -->
 
 
         <!-- Service Start -->
@@ -585,6 +583,12 @@
         
 
         <!-- Footer Start -->
+      </div>
+        </div>
+        <!-- Newsletter Start -->
+        
+
+        <!-- Footer Start -->
         <div class="container-fluid bg-dark text-light footer wow fadeIn" data-wow-delay="0.1s">
             <div class="container pb-5">
                 <div class="row g-5">
@@ -646,16 +650,18 @@
                                 <a href="">Help</a>
                                 <a href="">FQAs</a>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                     <!-- Footer End -->
+ 
+        <!-- Back to Top -->
+  </div>
             </div>
         </div>
         <!-- Footer End -->
 
 
         <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+        <a     <!-- JavaScript Libraries -->
+mary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -666,8 +672,8 @@
     <script src="lib/counterup/counterup.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone    <!-- Template Javascript -->
+c="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>

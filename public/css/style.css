@@ -148,13 +148,6 @@
     color: var(--light);
 }
 
-.booking {
-    position: relative;
-    margin-top: -100px !important;
-    z-index: 1;
-}
-
-
 /*** Section Title ***/
 .section-title {
     position: relative;

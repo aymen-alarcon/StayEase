@@ -19,9 +19,9 @@ class ReservationController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Room $room)
     {
-        return view("Admin.Categories.Create");
+        return view("reservation", compact($room));
     }
 
     /**
