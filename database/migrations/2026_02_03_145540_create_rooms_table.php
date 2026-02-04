@@ -13,12 +13,15 @@ return new class extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
+
             $table->foreignId('hotel_id')->constrained('hotels')->onDelete('cascade');
             $table->string('number');
             $table->decimal('price_per_night',8,2);
             $table->integer('capacity');
             $table->text('description')->nullable();
+
             $table->timestamps();
+
         });
     }
 
@@ -27,6 +30,8 @@ return new class extends Migration
      */
     public function down(): void
     {
+
         Schema::dropIfExists('rooms');
+
     }
 };
