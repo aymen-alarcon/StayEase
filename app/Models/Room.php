@@ -16,6 +16,8 @@ public function properties(){
 return $this->belongsToMany(Property::class, 'rooms_properties');
 }
 
+
+
 }
 
 
