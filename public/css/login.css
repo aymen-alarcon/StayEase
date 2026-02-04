@@ -17,6 +17,12 @@ body {
     line-height: 1.6;
 }
 
+.messageError {
+    margin-top: 10px;
+    height: 30px;
+    border-radius: 8px;
+}
+
 .login-container {
     width: 100%;
     max-width: 420px;

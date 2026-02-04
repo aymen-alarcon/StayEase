@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HotelController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
@@ -46,7 +47,10 @@ Route::get('/signup', function(){
     return view('signup');
 });
 
-// Route::get('/signup', [RegisterController::class, 'create']);
+
 Route::post('/signup', [RegisterController::class, 'store']);
+
+Route::get('/login', [LoginController::class, 'create']);
+Route::post('/login', [LoginController::class, 'store']);
 
 Route::delete('/logout', [SessionController::class, 'destroy']);
