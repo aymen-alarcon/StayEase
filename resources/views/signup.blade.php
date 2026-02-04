@@ -67,8 +67,9 @@
                 <h2>You’re welcome to join us</h2>
                 <p>Create your account</p>
             </div>
-            
-            <form class="login-form" id="loginForm" novalidate>
+
+            <form method="post" class="login-form" id="loginForm" novalidate>
+                @csrf
                 <div class="form-group">
                     <div class="input-wrapper">
                         <input type="text" id="email" name="firstname" required autocomplete="First name">
