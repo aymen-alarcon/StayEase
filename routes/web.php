@@ -8,3 +8,8 @@ Route::get('/', function () {
 });
 
 Route::get("/Admin/Categories/index", [CategoryController::class, "index"])->name("Admin.Categories.Create")->middleware("auth");
+
+Route::get('/login', function(){
+
+    return view('login');
+});
