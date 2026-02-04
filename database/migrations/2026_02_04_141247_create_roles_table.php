@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('images', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+
             $table->id();
-            $table->string("path");
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('image');
+        Schema::dropIfExists('roles');
     }
 };
