@@ -43,7 +43,8 @@ class RegisterController extends Controller
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
             'email' => $request->email,
-            'password' => $request->password
+            'password' => $request->password,
+            'role_id' => $request->role_id
         ]);
 
         //log

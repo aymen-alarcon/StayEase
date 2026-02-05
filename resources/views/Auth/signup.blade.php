@@ -119,7 +119,7 @@
 
                 <div class="form-group">
                     <div class="input-wrapper">
-                        <select class="form-select select" aria-label="Default select example">
+                        <select name="role_id" class="form-select select" aria-label="Default select example">
                             <option selected>Select Your Role</option>
                             <option value="2">Gerant</option>
                             <option value="3">Client</option>
