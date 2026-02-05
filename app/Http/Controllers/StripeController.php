@@ -31,16 +31,23 @@ class StripeController extends Controller
                     'quantity' => 1,
                 ],
             ],
+            'metadata' => [
+                'type' => 'send_money',
+            ],
             'mode' => 'payment',
-            'success_url' => route('stripe.success'),
+            'success_url' => route('stripe.success') . '?session_id={CHECKOUT_SESSION_ID}',
             'cancel_url' => route('stripe.index'),
         ]);
 
         return redirect()->away($session->url);
     }
 
-    public function success()
+    public function success(Request $request)
     {
-        return view('stripe.success');
+        Stripe::setApiKey(config('services.stripe.secret'));
+
+        $session = Session::retrieve($request->session_id);
+
+        return view('stripe.success', compact('session'));
     }
 }

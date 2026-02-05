@@ -20,15 +20,27 @@ class PaymentController extends Controller
      */
     public function create()
     {
-        //
+        return view("stripe.index");
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Payment $payment)
     {
-        //
+        $validate = $request->validate([
+            "method" => "required",
+            "total_price" => "required",
+            "email" => "required",
+            "status" => "required",
+            "name" => "required",
+            "amount" => "required",
+            "currency" => "required",
+        ]);
+
+        $payment->create($validate);
+
+        return redirect()->route("stripe.index");
     }
 
     /**
