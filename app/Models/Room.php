@@ -2,22 +2,23 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Container\Attributes\Tag;
+// use Illuminate\Container\Attributes\Tag;
+
+
+
 
 class Room extends Model
 {
-    protected $fillable =['hotel_id','number','price_per_night','capacity','description'];
+    protected $fillable = ['hotel_id', 'number', 'price_per_night', 'capacity', 'description'];
 
-    public function tags(){
-      return $this->belongsToMany(Tag::class, 'rooms_tags');
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, 'rooms_tags');
+    }
+    public function properties()
+    {
+        return $this->belongsToMany(Property::class, 'rooms_properties');
+    }
 }
-public function properties(){
-return $this->belongsToMany(Property::class, 'rooms_properties');
-}
-
-
-
-}
-
-

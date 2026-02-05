@@ -17,7 +17,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([TagSeeder::class]);
         $this->call([PropertySeeder::class]);
-
-
+        $this->call([RoomSeeder::class]);
     }
 }
