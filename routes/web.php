@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\RoomController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\Auth\RegisterController;
 
@@ -51,3 +52,4 @@ Route::post('/signup', [RegisterController::class, 'store']);
 
 //-------Roome----//
 Route::resource('tags', TagController::class);
+Route::resource('rooms', RoomController::class);

@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Str;
+use App\Models\Room;
 use Illuminate\Http\Request;
 use App\Models\Tag;
-
-
-class TagController extends Controller
+use App\Models\Property;
+class RoomController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('tags.index', ['tags' => Tag::all()]);
+        $rooms = Room::with('tags', 'properties')->get();
+        return view('rooms.index', compact('rooms'));
     }
 
     /**
@@ -22,8 +22,7 @@ class TagController extends Controller
      */
     public function create()
     {
-
-        return view('tags.create');
+        //
     }
 
     /**
@@ -31,18 +30,16 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate(['name' => 'required|string|max:50']);
-        $validated['slug'] = Str::slug($validated['name']);
-        Tag::create($validated);
-        return redirect()->route('tags.index');
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Room $room)
     {
-        //
+        $room->load('tags', 'properties');
+        return view('rooms.show', compact('room'));
     }
 
     /**
@@ -58,17 +55,14 @@ class TagController extends Controller
      */
     public function update(Request $request, string $id)
     {
-
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Tag $tag)
+    public function destroy(string $id)
     {
-        $tag->delete();
-        return redirect()->route('tags.index');
+        //
     }
 }
-
-
