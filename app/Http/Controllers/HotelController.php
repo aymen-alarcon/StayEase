@@ -9,8 +9,9 @@ class HotelController extends Controller
 {
       public function index()
     {
-        $hotels = Hotel::paginate(10);
-        return view("admin.dashboard", compact('hotels'));
+        $hotels = Hotel::where('statut','approve')->get();
+         return view("hotels.index", compact('hotels'));
+
     }
 
     /**
@@ -32,33 +33,21 @@ class HotelController extends Controller
     ]);
 
 
-    $hotel = Hotel::create([
+    $h = Hotel::create([
         'name'        => $request->name,
         'addresse'    => $request->addresse,
         'rating'      => $request->rating,
 
     ]);
-            $hotel->images()->associate($images);
-              $hotel->save();
+            $h->images()->associate($images);
+              $h->save();
 
 
-               return view('gerant');
+               return view('hotels.index');
         }
-
-
-
-
-
-
-
-
-
-
-
     /**
      * Display the specified resource.
      */
-
 
     /**
      * Show the form for editing the specified resource.

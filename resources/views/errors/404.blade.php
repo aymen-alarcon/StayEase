@@ -1,1 +1,1 @@
-<h1>this is costum error</h1>
+<h1>this error 404</h1>

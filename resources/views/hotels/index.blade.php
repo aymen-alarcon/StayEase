@@ -1,13 +1,10 @@
-Hotels orange · HTML
-Copier
-
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nos Hôtels | Administration</title>
+    <title>Nos Hotels | Administration</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -21,15 +18,21 @@ Copier
     <div class="max-w-6xl mx-auto py-12">
         <header class="flex flex-col md:flex-row justify-between items-center mb-16 gap-6">
             <div class="text-center md:text-left">
+                <div class="inline-flex items-center gap-2 bg-orange-100 text-orange-700 px-4 py-2 rounded-full text-sm font-bold mb-3">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                    Espace Gérant
+                </div>
                 <h1 class="text-4xl font-bold text-orange-900 tracking-tight">Catalogue Hôtels</h1>
                 <p class="text-orange-600 mt-2">Gestionnaire d'établissements et de résidences.</p>
             </div>
-            <a href="{{ route('hotels.create') }}"
+            <a href="{{ route('create') }}"
                 class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-2xl font-bold shadow-xl shadow-orange-200 hover:from-orange-600 hover:to-orange-700 transition-all transform hover:-translate-y-1 flex items-center gap-2">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                 </svg>
-                Ajouter un hôtel
+                Ajouter un hotel
             </a>
         </header>
 
@@ -64,7 +67,7 @@ Copier
                         </p>
 
                         <div class="mb-6">
-                            <a href="{{ route('hotels.show', $hotel->id) }}"
+                            <a href="{{ route('show', $hotel->id) }}"
                                class="w-full inline-flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-2xl font-bold hover:from-orange-600 hover:to-orange-700 shadow-lg shadow-orange-200 hover:shadow-orange-300 transition-all active:scale-[0.98]">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
@@ -74,7 +77,7 @@ Copier
                         </div>
 
                         <div class="flex items-center justify-between pt-6 border-t border-orange-50">
-                            <a href="{{ route('hotels.edit', $hotel->id) }}"
+                            <a href="{{ route('edit', $hotel->id) }}"
                                 class="inline-flex items-center gap-2 px-4 py-2 bg-amber-50 text-amber-700 rounded-xl font-bold hover:bg-amber-600 hover:text-white transition-all">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -83,8 +86,8 @@ Copier
                                 Modifier
                             </a>
 
-                            <form action="{{ route('hotels.destroy', $hotel->id) }}" method="POST"
-                                onsubmit="return confirm('Supprimer cet hôtel ?')">
+                            <form action="{{ route('destroy', $hotel->id) }}" method="POST"
+                                onsubmit="return confirm('Supprimer cet hotel ?')">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="p-2 text-orange-200 hover:text-red-500 transition-colors">
@@ -99,7 +102,7 @@ Copier
                 </article>
             @empty
                 <div class="col-span-full text-center py-24 bg-white rounded-[3rem] border-2 border-dashed border-orange-200">
-                    <p class="text-orange-400 font-medium">Aucun etablissement dans la base de donnees.</p>
+                    <p class="text-orange-400 font-medium">Aucun établissement dans la base de données.</p>
                 </div>
             @endforelse
         </div>
