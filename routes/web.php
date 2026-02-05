@@ -38,20 +38,21 @@ Route::get('/admin',function(){
 });
 
 
-
-Route::get('/login', function(){
-    return view('auth.login');
+Route::middleware('guest')->group(function () {
+    Route::get('/login', function(){
+        return view('auth.login');
+    });
+    
+    Route::get('/signup', function(){
+        return view('auth.signup');
+    });
+    
+    Route::post('/signup', [RegisterController::class, 'store']);
+    
+    Route::get('/login', [LoginController::class, 'create']);
+    Route::post('/login', [LoginController::class, 'store']);
 });
 
-
-Route::get('/signup', function(){
-    return view('auth.signup');
+Route::middleware('auth')->group(function() {
+    Route::delete('/logout', [SessionController::class, 'destroy']);
 });
-
-
-Route::post('/signup', [RegisterController::class, 'store']);
-
-Route::get('/login', [LoginController::class, 'create']);
-Route::post('/login', [LoginController::class, 'store']);
-
-Route::delete('/logout', [SessionController::class, 'destroy']);

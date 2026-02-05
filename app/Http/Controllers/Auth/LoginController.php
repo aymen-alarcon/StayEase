@@ -43,8 +43,22 @@ class LoginController extends Controller
                 'password' => 'incorrect password'
             ]);
         }
+        
+        $user = Auth::user();
 
-        return redirect('/login');
+        switch ($user->role->name) {
+            case 'admin':
+                // redirect to admin dashboard
+                break;
+            case 'Gerant':
+                // redirect to client page with message
+                break;
+            case 'Client':
+                // redirect to Clietn page
+            default:
+                return redirect('/');
+                break;
+        }
     }
 
     /**
