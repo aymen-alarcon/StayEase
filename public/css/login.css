@@ -586,3 +586,11 @@ body {
         gap: 16px;
     }
 }
+
+.select {
+    background-color: #705a3b;
+    color: #c7c0b7;
+    border: none;
+    border-radius: 10px;
+    height: 50px;
+}
