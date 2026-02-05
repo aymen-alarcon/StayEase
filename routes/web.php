@@ -3,6 +3,8 @@
 use App\Http\Controllers\HotelController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\StripeController;
+use Laravel\Cashier\Checkout;
 
 Route::get('/', function () {
     return view('index');
@@ -48,6 +50,10 @@ Route::get('/login', function(){
 Route::get('/signup', function(){
     return view('signup');
 });
+
+Route::get('/stripe', [StripeController::class, 'index'])->name('stripe.index');
+Route::post('/checkout', [StripeController::class, 'checkout'])->name('stripe.checkout');
+Route::get('/success', [StripeController::class, 'success'])->name('stripe.success');
 
 // Route::get('/signup', [RegisterController::class, 'create']);
 Route::post('/signup', [RegisterController::class, 'store']);
