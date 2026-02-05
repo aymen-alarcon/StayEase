@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\HotelController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TagController;
+use App\Http\Controllers\HotelController;
 use App\Http\Controllers\Auth\RegisterController;
 
 Route::get('/', function () {
@@ -46,3 +47,7 @@ Route::get('/signup', function(){
 
 // Route::get('/signup', [RegisterController::class, 'create']);
 Route::post('/signup', [RegisterController::class, 'store']);
+
+
+//-------Roome----//
+Route::resource('tags', TagController::class);

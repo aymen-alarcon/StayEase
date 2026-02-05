@@ -15,11 +15,11 @@ class RoomSeeder extends Seeder
     {
 
         $room = Room::create([
-            'hotel_id' => 'requerd',
-            'number' => 'requerd',
-            'price_per_night' => 'requerd',
-            'capacity' => 'requerd',
-            'description' => 'requerd',
+            'hotel_id' => 1,
+            'number' => '101',
+            'price_per_night' => 150.00,
+            'capacity' => 2,
+            'description' => 'Chambre standard confortable',
         ]);
         $room->tags()->attach([1, 2]);
         $room->properties()->attach([1, 3]);
