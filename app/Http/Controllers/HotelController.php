@@ -31,6 +31,7 @@ class HotelController extends Controller
         'images'=>'image|mimes:jpg,jpeg,png|max:2048',
     ]);
 
+
     $hotel = Hotel::create([
         'name'        => $request->name,
         'addresse'    => $request->addresse,
@@ -40,10 +41,13 @@ class HotelController extends Controller
             $hotel->images()->associate($images);
               $hotel->save();
 
+
                return view('gerant');
         }
 
-    
+
+
+
 
 
 
