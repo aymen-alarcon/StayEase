@@ -9,8 +9,8 @@ class HotelController extends Controller
 {
       public function index()
     {
-        $hotels = Hotel::where('statut','approved')->get();
-         return view("hotels.index", compact('hotels'));
+        $hotels = Hotel::where('statut','approved')->where->get();
+         return view("gerant.hotels", compact('hotels'));
 
     }
 
