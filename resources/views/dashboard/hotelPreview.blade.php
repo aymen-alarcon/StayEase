@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -25,10 +25,10 @@
     <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="/css/style1.css" rel="stylesheet">
 </head>
 
 <body>
@@ -137,7 +137,7 @@
                             <h2 style="color: var(--dark); font-weight: 700; margin-bottom: 0.5rem;">Le Luxury Plaza</h2>
                             <p style="color: #999; margin-bottom: 1rem;"><i class="fa fa-map-marker-alt me-2"></i>Paris, France</p>
                             <p style="color: var(--primary); margin-bottom: 1.5rem;"><i class="fa fa-star me-2"></i>4.9/5.0 (324 reviews)</p>
-                            
+
                             <h5 style="color: var(--dark); font-weight: 600; margin-bottom: 1rem;">Description</h5>
                             <p style="color: #666; line-height: 1.6; margin-bottom: 1.5rem;">
                                 Le Luxury Plaza is a world-class 5-star hotel located in the heart of Paris, combining contemporary luxury with Parisian elegance. Our guests enjoy a unique experience with personalized service, premium amenities, and access to the finest dining establishments.
@@ -257,7 +257,7 @@
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="/js/main1.js"></script>
 </body>
 
 </html>

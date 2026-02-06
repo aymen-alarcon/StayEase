@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\SessionController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\StripeController;
+
 use Laravel\Cashier\Checkout;
 
 Route::get('/', function () {
@@ -30,7 +31,9 @@ Route::get('/geron',function(){
 
 
 
-Route::prefix('hotels')->group(function () {
+
+
+Route::prefix('gerant/hotels')->name('hotels.')->group(function () {
     Route::get('/', [HotelController::class, 'index'])->name('index');
     Route::get('/create', [HotelController::class, 'create'])->name('create');
     Route::post('/', [HotelController::class, 'store'])->name('store');
@@ -42,23 +45,26 @@ Route::prefix('hotels')->group(function () {
 
 
 
-Route::prefix('admin')->group( function (){
-    Route::get('/',[AdminController::class,'index'])->
-})
 
-
-Route::get('/admin',function(){
-    return view('admin.dashboard');
+Route::prefix('admin')->group(function () {
+   Route::get('/hotels', [AdminController::class, 'hotels'])->name('hotels.index');
+    Route::post('/hotels/{hotel}/approve', [AdminController::class, 'approve'])->name('hotels.approve');
+    Route::post('/hotels/{hotel}/reject', [AdminController::class, 'reject'])->name('hotels.reject');
 });
+
+
+
+
+
 
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', function(){
-        return view('auth.login');
+        return view('Auth.login');
     });
 
     Route::get('/signup', function(){
-        return view('auth.signup');
+        return view('Auth.signup');
     });
 
 Route::get('/stripe', [StripeController::class, 'index'])->name('stripe.index');
