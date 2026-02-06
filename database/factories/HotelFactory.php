@@ -19,11 +19,14 @@ class HotelFactory extends Factory
 
 
           return [
-            'name' => $this->faker->text(10),
-            'address' => $this->faker->sentence(5),
-            'rating' => $this->faker->numberBetween(1, 5),
-           'user_id'=>$this->faker->numberBetween(1,5)
 
+            'name' => $this->faker->company(),
+            'adresse' => $this->faker->address(),
+            'rating' => $this->faker->numberBetween(1, 5),
+            'created_at' => now(),
+            'updated_at'=> now(),
         ];
+
+
     }
 }
