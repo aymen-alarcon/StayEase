@@ -13,9 +13,6 @@ class HotelSeeder extends Seeder
     public function run(): void
     {
 
-    DB::table('hotels')->insert([
-            'statut' => 'pending']);
-
         Hotel::factory(30)->create();
 
     }
