@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HotelController;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +40,13 @@ Route::prefix('hotels')->group(function () {
     Route::delete('/{hotel}', [HotelController::class, 'destroy'])->name('destroy');
 });
 
+
+
+Route::prefix('admin')->group( function (){
+    Route::get('/',[AdminController::class,'index'])->
+})
+
+
 Route::get('/admin',function(){
     return view('admin.dashboard');
 });
@@ -48,11 +56,11 @@ Route::middleware('guest')->group(function () {
     Route::get('/login', function(){
         return view('auth.login');
     });
-    
+
     Route::get('/signup', function(){
         return view('auth.signup');
     });
-    
+
 Route::get('/stripe', [StripeController::class, 'index'])->name('stripe.index');
 Route::post('/checkout', [StripeController::class, 'checkout'])->name('stripe.checkout');
 Route::get('/success', [StripeController::class, 'success'])->name('stripe.success');
@@ -61,7 +69,7 @@ Route::post("/Payments/Store", [PaymentController::class, "store"]);
 
 
     Route::post('/signup', [RegisterController::class, 'store']);
-    
+
     Route::get('/login', [LoginController::class, 'create']);
     Route::post('/login', [LoginController::class, 'store']);
 });
