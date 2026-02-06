@@ -63,6 +63,7 @@
                     <a href="approvals.html" class="nav-item nav-link"><i class="fa fa-hourglass-half me-2"></i>Pending Hotels</a>
                     <a href="approved.html" class="nav-item nav-link"><i class="fa fa-check-circle me-2"></i>Approved Hotels</a>
                     <a href="rejected.html" class="nav-item nav-link"><i class="fa fa-times-circle me-2"></i>Rejected Hotels</a>
+                    <a href="/Dashboard/Categories/index" class="nav-item nav-link"><i class="fa fa-times-circle me-2"></i>Categories</a>
                     <hr class="my-3" style="border-color: rgba(255,255,255,0.1);">
                     <a href="signin.html" class="nav-item nav-link"><i class="fa fa-sign-out-alt me-2"></i>Log Out</a>
                 </div>
