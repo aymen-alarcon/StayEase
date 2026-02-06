@@ -60,11 +60,11 @@
 
 
                             <div class="mb-3">
-                                <label class="form-label fw-bold">Address</label>
+                                <label class="form-label fw-bold">Addresse</label>
                                 <input type="text"
-                                       name="address"
+                                       name="addresse"
                                        class="form-control"
-                                       value="{{ old('address') }}"
+                                       value="{{ old('addresse') }}"
                                        required>
                             </div>
 
@@ -81,7 +81,7 @@
 
 
                             <div class="mb-4">
-                                <label class="form-label fw-bold">Hotel Images</label>
+                                <label class="form-label fw-bold">Hotel Image</label>
                                 <input type="file"
                                        name="image"
                                        class="form-control"

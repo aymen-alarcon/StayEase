@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Edit Hotel - Gérant Dashboard</title>
+    <title>Edit Hotel - Gerant Dashboard</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -13,16 +13,16 @@
 <body>
 <div class="container-fluid position-relative bg-white d-flex p-0">
 
-    {{-- Sidebar --}}
+
     <div class="sidebar pe-4 pb-3">
         <nav class="navbar bg-light navbar-light">
             <a href="#" class="navbar-brand mx-4 mb-3">
-                <h3 class="text-primary"><i class="fa fa-bed me-2"></i>GÉRANT</h3>
+                <h3 class="text-primary"><i class="fa fa-bed me-2"></i>GERANT</h3>
             </a>
         </nav>
     </div>
 
-    
+
     <div class="content">
 
 
@@ -31,7 +31,7 @@
         </div>
 
 
-        @if($hotel->status === 'pending')
+        @if($hotel->statut === 'pending')
             <div class="container-fluid pt-4 px-4">
                 <div class="alert alert-warning">
                     <i class="fa fa-exclamation-triangle me-2"></i>
@@ -52,46 +52,32 @@
 
 
                             <div class="mb-3">
-                                <label class="form-label fw-bold">Hotel Name *</label>
+                                <label class="form-label fw-bold">Hotel Name </label>
                                 <input type="text" name="name" class="form-control"
                                        value="{{ old('name', $hotel->name) }}" required>
                             </div>
 
 
                             <div class="mb-3">
-                                <label class="form-label fw-bold">Address *</label>
+                                <label class="form-label fw-bold">Addresse </label>
                                 <input type="text" name="address" class="form-control"
-                                       value="{{ old('address', $hotel->address) }}" required>
+                                       value="{{ old('addresse', $hotel->addresse) }}" required>
                             </div>
 
 
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label class="form-label fw-bold">City *</label>
-                                    <input type="text" name="city" class="form-control"
-                                           value="{{ old('city', $hotel->city ?? '') }}" required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label class="form-label fw-bold">Postal Code</label>
-                                    <input type="text" name="postal" class="form-control"
-                                           value="{{ old('postal', $hotel->postal ?? '') }}">
-                                </div>
-                            </div>
+
 
 
                             <div class="mb-3">
-                                <label class="form-label fw-bold">Star Rating *</label>
+                                <label class="form-label fw-bold">Star Rating </label>
                                 <select name="rating" class="form-select" required>
-                                    <option value="3" {{ $hotel->rating == 3 ? 'selected' : '' }}>3 Stars</option>
-                                    <option value="4" {{ $hotel->rating == 4 ? 'selected' : '' }}>4 Stars</option>
-                                    <option value="5" {{ $hotel->rating == 5 ? 'selected' : '' }}>5 Stars</option>
+                                    <option value="3" {{ $hotel->rating == 3  }}>3 Stars</option>
+                                    <option value="4" {{ $hotel->rating == 4  }}>4 Stars</option>
+                                    <option value="5" {{ $hotel->rating == 5  }}>5 Stars</option>
                                 </select>
                             </div>
 
-                            <div class="mb-3">
-                                <label class="form-label fw-bold">Description *</label>
-                                <textarea name="description" class="form-control" rows="4" required>{{ old('description', $hotel->description) }}</textarea>
-                            </div>
+
 
 
                             <div class="mb-4">

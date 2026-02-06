@@ -17,7 +17,7 @@
     <div class="sidebar pe-4 pb-3">
         <nav class="navbar bg-light navbar-light">
             <a href="#" class="navbar-brand mx-4 mb-3">
-                <h3 class="text-primary"><i class="fa fa-bed me-2"></i>GÉRANT</h3>
+                <h3 class="text-primary"><i class="fa fa-bed me-2"></i>GERANT</h3>
             </a>
         </nav>
     </div>
@@ -39,8 +39,8 @@
             <div class="row g-4">
                 @php
                     $total = $hotels->count();
-                    $pending = $hotels->where('status', 'pending')->count();
-                    $approved = $hotels->where('status', 'approved')->count();
+                    $pending = $hotels->where('statut', 'pending')->count();
+                    $approved = $hotels->where('statut', 'approved')->count();
 
                 @endphp
                 <div class="col-sm-6 col-xl-3">
@@ -64,7 +64,7 @@
                         <h6 class="kpi-value" style="color: var(--success);">{{ $approved }}</h6>
                     </div>
                 </div>
-                
+
             </div>
         </div>
 
@@ -97,7 +97,7 @@
                                             <td>{{ $hotel->rating }} ★</td>
                                             <td>
                                                 <span class="badge badge-{{ $hotel->status }}">
-                                                    {{ ucfirst($hotel->status) }}
+                                                    {{ ucfirst($hotel->statut) }}
                                                 </span>
                                             </td>
                                             <td>

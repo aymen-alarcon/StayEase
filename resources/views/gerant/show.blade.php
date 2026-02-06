@@ -17,7 +17,7 @@
     <div class="sidebar pe-4 pb-3">
         <nav class="navbar bg-light navbar-light">
             <a href="#" class="navbar-brand mx-4 mb-3">
-                <h3 class="text-primary"><i class="fa fa-bed me-2"></i>GÉRANT</h3>
+                <h3 class="text-primary"><i class="fa fa-bed me-2"></i>GERANT</h3>
             </a>
         </nav>
     </div>
@@ -32,13 +32,13 @@
             </a>
         </nav>
 
-        {{-- Hotel Header --}}
+
         <div class="container-fluid pt-4 px-4">
             <div class="row g-4">
                 <div class="col-12 d-flex justify-content-between align-items-start">
                     <div>
                         <h5 class="fw-bold text-primary">{{ $hotel->name }}</h5>
-                        <p class="text-secondary mb-0">{{ $hotel->address }}</p>
+                        <p class="text-secondary mb-0">{{ $hotel->addresse }}</p>
                     </div>
                     <div class="d-flex gap-2">
                         <a href="{{ route('hotels.edit', $hotel->id) }}" class="btn btn-primary btn-sm">
@@ -52,13 +52,13 @@
             </div>
         </div>
 
-        {{-- Status & Rating --}}
+
         <div class="container-fluid pt-4 px-4">
             <div class="row g-4">
                 <div class="col-md-6">
                     <div class="table-container p-3">
                         <p class="text-secondary mb-1">Hotel Status</p>
-                        <span class="badge badge-{{ $hotel->status }}">{{ ucfirst($hotel->status) }}</span>
+                        <span class="badge badge-{{ $hotel->statut }}">{{ ucfirst($hotel->statut) }}</span>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -87,17 +87,7 @@
         <div class="container-fluid pt-4 px-4 mb-4">
             <div class="row g-4">
                 <div class="col-lg-8">
-                    <div class="table-container p-3">
-                        <h6 class="fw-bold text-primary mb-2">Description</h6>
-                        <p class="text-secondary">{{ $hotel->description }}</p>
 
-                        <h6 class="fw-bold text-primary mt-3 mb-2">Amenities</h6>
-                        <ul class="text-secondary ps-3">
-                            @foreach($hotel->amenities ?? [] as $amenity)
-                                <li>{{ $amenity }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
                 </div>
 
 
@@ -105,27 +95,17 @@
                     <div class="table-container p-3">
                         <h6 class="fw-bold text-primary mb-2">Hotel Information</h6>
                         <p class="text-secondary mb-1">Address</p>
-                        <p class="text-primary mb-2">{{ $hotel->address }}</p>
+                        <p class="text-primary mb-2">{{ $hotel->addresse }}</p>
 
-                        <p class="text-secondary mb-1">City</p>
-                        <p class="text-primary mb-2">{{ $hotel->city ?? '' }}</p>
 
-                        <p class="text-secondary mb-1">Postal Code</p>
-                        <p class="text-primary mb-2">{{ $hotel->postal ?? '' }}</p>
 
                         <p class="text-secondary mb-1">Star Rating</p>
                         <p class="text-primary mb-2">{{ $hotel->rating }} Stars</p>
 
                         <hr>
 
-                        <h6 class="fw-bold text-primary mb-2">Quick Actions</h6>
-                        <div class="d-grid gap-2">
-                            <a href="{{ route('hotels.edit', $hotel->id) }}" class="btn btn-primary btn-sm">Edit Hotel</a>
-                            <form action="{{ route('support.request', $hotel->id) }}" method="POST">
-                                @csrf
-                                <button type="submit" class="btn btn-sm btn-warning">Request Support</button>
-                            </form>
-                        </div>
+
+
                     </div>
                 </div>
 
@@ -135,7 +115,7 @@
         <div class="container-fluid pt-4 px-4">
             <div class="bg-light rounded-top p-4">
                 <div class="row">
-                    <div class="col-12 text-center text-sm-start">&copy; <a href="#">Hôtel Management Platform</a>, All Right Reserved.</div>
+                    <div class="col-12 text-center text-sm-start">&copy; <a href="#">Hotel Management Platform</a>, All Right Reserved.</div>
                 </div>
             </div>
         </div>
