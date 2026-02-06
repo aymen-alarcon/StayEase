@@ -6,6 +6,7 @@ use App\Http\Controllers\HotelController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\SessionController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\StripeController;
 use Laravel\Cashier\Checkout;
@@ -26,10 +27,6 @@ Route::get('/geron',function(){
 // });
 // Route::get('/hotel/{hotel}',function(){
 
-
-
-
-
 Route::prefix('hotels')->group(function () {
     Route::get('/', [HotelController::class, 'index'])->name('index');
     Route::get('/create', [HotelController::class, 'create'])->name('create');
@@ -40,17 +37,9 @@ Route::prefix('hotels')->group(function () {
     Route::delete('/{hotel}', [HotelController::class, 'destroy'])->name('destroy');
 });
 
-
-
-Route::prefix('admin')->group( function (){
-    Route::get('/',[AdminController::class,'index'])->
-})
-
-
 Route::get('/admin',function(){
-    return view('admin.dashboard');
+    return view('dashboard.index');
 });
-
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', function(){
@@ -77,3 +66,13 @@ Route::post("/Payments/Store", [PaymentController::class, "store"]);
 Route::middleware('auth')->group(function() {
     Route::delete('/logout', [SessionController::class, 'destroy']);
 });
+
+
+
+//
+Route::get("/Dashboard/Categories/index", [CategoryController::class, "index"])->name("categories.index");
+Route::get("/Dashboard/Categories/Create", [CategoryController::class, "create"]);
+Route::post("/Dashboard/Categories/Create/Store", [CategoryController::class, "store"]);
+Route::get("/Dashboard/Categories/Edit/{category}", [CategoryController::class, "edit"]);
+Route::put("/Dashboard/Categories/Update/{category}", [CategoryController::class, "update"]);
+Route::delete("/Dashboard/Categories/Destroy/{category}", [CategoryController::class, "destroy"]);
