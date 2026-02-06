@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-
+use Database\Seeders\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Hotel;
@@ -12,6 +12,8 @@ class HotelSeeder extends Seeder
      */
     public function run(): void
     {
-        Hotel::factory(10)->create();
+
+        Hotel::factory(30)->create();
+
     }
 }

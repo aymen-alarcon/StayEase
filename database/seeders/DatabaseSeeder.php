@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Database\Seeders\TagSeeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,9 +16,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
         $this->call([HotelSeeder::class]);
         $this->call([TagSeeder::class]);
         $this->call([PropertySeeder::class]);
         $this->call([RoomSeeder::class]);
-    }
+
+}
 }
