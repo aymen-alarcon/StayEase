@@ -46,11 +46,16 @@ Route::prefix('gerant/hotels')->name('hotels.')->group(function () {
 
 
 
-Route::prefix('admin')->group(function () {
-   Route::get('/hotels', [AdminController::class, 'hotels'])->name('hotels.index');
-    Route::post('/hotels/{hotel}/approve', [AdminController::class, 'approve'])->name('hotels.approve');
-    Route::post('/hotels/{hotel}/reject', [AdminController::class, 'reject'])->name('hotels.reject');
-});
+
+
+Route::prefix('admin')->name('admin.')->group(function () {
+        Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+        Route::get('/hotels', [AdminController::class, 'hotels'])->name('hotels');
+        Route::get('/', [AdminController::class, 'index'])->name('index');
+        Route::put('/hotels/{hotel}/approve', [AdminController::class, 'approve']) ->name('hotels.approve');
+        Route::put('/hotels/{hotel}/reject', [AdminController::class, 'reject'])->name('hotels.reject');
+    });
+
 
 
 
