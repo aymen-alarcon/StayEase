@@ -44,7 +44,7 @@ class HotelController extends Controller
               $h->save();
 
             // $hotel->images()->associate($images);
-              $hotel->save();
+              $h->save();
 
 
 
