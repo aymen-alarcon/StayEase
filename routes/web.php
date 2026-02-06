@@ -1,8 +1,13 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HotelController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\SessionController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\StripeController;
+use Laravel\Cashier\Checkout;
 
 Route::get('/', function () {
     return view('index');
@@ -39,13 +44,28 @@ Route::get('/admin',function(){
 });
 
 
-Route::get('/login', function(){
-    return view('login');
+Route::middleware('guest')->group(function () {
+    Route::get('/login', function(){
+        return view('auth.login');
+    });
+    
+    Route::get('/signup', function(){
+        return view('auth.signup');
+    });
+    
+Route::get('/stripe', [StripeController::class, 'index'])->name('stripe.index');
+Route::post('/checkout', [StripeController::class, 'checkout'])->name('stripe.checkout');
+Route::get('/success', [StripeController::class, 'success'])->name('stripe.success');
+Route::get("/Payments/Create", [PaymentController::class, "create"])->name("payment.create");
+Route::post("/Payments/Store", [PaymentController::class, "store"]);
+
+
+    Route::post('/signup', [RegisterController::class, 'store']);
+    
+    Route::get('/login', [LoginController::class, 'create']);
+    Route::post('/login', [LoginController::class, 'store']);
 });
 
-Route::get('/signup', function(){
-    return view('signup');
+Route::middleware('auth')->group(function() {
+    Route::delete('/logout', [SessionController::class, 'destroy']);
 });
-
-// Route::get('/signup', [RegisterController::class, 'create']);
-Route::post('/signup', [RegisterController::class, 'store']);

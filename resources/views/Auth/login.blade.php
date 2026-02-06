@@ -68,14 +68,19 @@
                 <p>Sign in to your account</p>
             </div>
             
-            <form class="login-form" id="loginForm" novalidate>
+            <form method="POST" action="/login" class="login-form" id="loginForm">
+                @csrf
                 <div class="form-group">
                     <div class="input-wrapper">
                         <input type="email" id="email" name="email" required autocomplete="email">
                         <label for="email">Email Address</label>
                         <span class="focus-border"></span>
                     </div>
-                    <span class="error-message" id="emailError"></span>
+                    @error('email') 
+                    <span class="alert-danger d-flex justify-content-center messageError">
+                        {{ $message }}
+                    </span> 
+                    @enderror
                 </div>
 
                 <div class="form-group">
@@ -86,6 +91,11 @@
                             <span class="eye-icon"></span>
                         </button>
                         <span class="focus-border"></span>
+                        @error('password') 
+                        <span class="alert-danger d-flex justify-content-center messageError">
+                            {{ $message }}
+                        </span> 
+                        @enderror
                     </div>
                     <span class="error-message" id="passwordError"></span>
                 </div>

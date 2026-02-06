@@ -39,8 +39,13 @@ class HotelController extends Controller
         'rating'      => $request->rating,
 
     ]);
+
             $h->images()->associate($images);
               $h->save();
+
+            // $hotel->images()->associate($images);
+              $hotel->save();
+
 
 
                return view('hotels.index');
