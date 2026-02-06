@@ -11,11 +11,19 @@ class RoomController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $rooms = Room::with('tags', 'properties')->get();
-        return view('rooms.index', compact('rooms'));
+    public function index(Request $request){
+        $query = Room::with('tags', 'properties');
+        if ($tagId = $request->get('tag')) {
+        $query->whereHas('tags', fn($q) => $q->where('id', $tagId));
+      }
+        if ($propertyId = $request->get('property')) {
+        $query->whereHas('properties', fn($q) => $q->where('id',$propertyId));
     }
+        $rooms = $query->get();
+        $allTags = Tag::all();
+        $allProperties = Property::all();
+    return view('rooms.index', compact('rooms', 'allTags','allProperties'));
+}
 
     /**
      * Show the form for creating a new resource.
@@ -66,3 +74,4 @@ class RoomController extends Controller
         //
     }
 }
+
