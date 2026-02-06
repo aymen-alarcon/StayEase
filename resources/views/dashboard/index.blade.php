@@ -63,6 +63,7 @@
                     <a href="approvals.html" class="nav-item nav-link"><i class="fa fa-hourglass-half me-2"></i>Pending Hotels</a>
                     <a href="approved.html" class="nav-item nav-link"><i class="fa fa-check-circle me-2"></i>Approved Hotels</a>
                     <a href="rejected.html" class="nav-item nav-link"><i class="fa fa-times-circle me-2"></i>Rejected Hotels</a>
+                    <a href="/Dashboard/Categories/index" class="nav-item nav-link"><i class="fa fa-times-circle me-2"></i>Categories</a>
                     <hr class="my-3" style="border-color: rgba(255,255,255,0.1);">
                     <a href="signin.html" class="nav-item nav-link"><i class="fa fa-sign-out-alt me-2"></i>Log Out</a>
                 </div>
@@ -177,7 +178,7 @@
                         <div style="background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <h6 class="mb-0" style="color: var(--dark); font-weight: 700;">Recent Hotel Submissions</h6>
-                                <a href="{{ route('hotels.pending') }}" class="btn btn-sm" style="background: var(--primary); color: var(--dark); border: none; border-radius: 8px;">View All</a>
+                                {{-- <a href="{{ route('hotels.pending') }}" class="btn btn-sm" style="background: var(--primary); color: var(--dark); border: none; border-radius: 8px;">View All</a> --}}
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-hover mb-0" style="border: none;">
@@ -241,8 +242,6 @@
             </div>
             <!-- Recent Submissions End -->
 
-
-
             <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light rounded-top p-4">
@@ -252,7 +251,7 @@
                         </div>
                         <div class="col-12 col-sm-6 text-center text-sm-end">
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            Designed By <a href="{{ route('/app') }}">YouCode Team</a>
+                            {{-- Designed By <a href="{{ route('/app') }}">YouCode Team</a> --}}
                         </div>
                     </div>
                 </div>
