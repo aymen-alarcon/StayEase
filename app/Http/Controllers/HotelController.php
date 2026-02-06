@@ -41,7 +41,14 @@ class HotelController extends Controller
             // $hotel->images()->associate($images);
               $hotel->save();
 
-}
+
+               return view('gerant');
+        }
+
+
+
+
+
 
 
 

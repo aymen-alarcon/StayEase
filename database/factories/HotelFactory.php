@@ -16,11 +16,14 @@ class HotelFactory extends Factory
      */
     public function definition(): array
     {
-        return [
 
-            'name' => fake()->name(),
-            'adress'=>fake()->text(),
-            'rating'=>fake()->randomFloat(5,0)
+
+          return [
+            'name' => $this->faker->company(),
+            'address' => $this->faker->address(),
+            'rating' => $this->faker->numberBetween(1, 5),
+           
+
         ];
     }
 }

@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
+
+
             $table->string("path");
 
             $table->foreignId('hotels_id')->constrained()->onDelete('cascade');
+
             $table->timestamps();
 
         });
@@ -26,6 +29,9 @@ return new class extends Migration
      */
     public function down(): void
     {
+
         Schema::dropIfExists('images');
-    }
-};
+
+}
+}
+;
