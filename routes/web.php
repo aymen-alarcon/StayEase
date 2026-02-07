@@ -37,7 +37,7 @@ Route::get('/geron',function(){
 
 
 
-Route::prefix('hotels')->group(function () {
+Route::prefix('gerant')->group(function () {
 
     Route::get('/', [HotelController::class, 'index'])->name('gerant.index');
     Route::get('/create', [HotelController::class, 'create'])->name('gerant.create');
