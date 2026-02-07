@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\SessionController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\StripeController;
+
 use Laravel\Cashier\Checkout;
 
 Route::get('/', function () {
@@ -27,27 +28,57 @@ Route::get('/geron',function(){
 // });
 // Route::get('/hotel/{hotel}',function(){
 
-Route::prefix('hotels')->group(function () {
-    Route::get('/', [HotelController::class, 'index'])->name('index');
-    Route::get('/create', [HotelController::class, 'create'])->name('create');
-    Route::post('/', [HotelController::class, 'store'])->name('store');
-    Route::get('/{hotel}', [HotelController::class, 'show'])->name('show');
-    Route::get('/{hotel}/edit', [HotelController::class, 'edit'])->name('edit');
-    Route::put('/{hotel}', [HotelController::class, 'update'])->name('update');
-    Route::delete('/{hotel}', [HotelController::class, 'destroy'])->name('destroy');
+
+
+
+
+
+
+
+
+
+Route::prefix('gerant')->group(function () {
+
+    Route::get('/', [HotelController::class, 'index'])->name('gerant.index');
+    Route::get('/create', [HotelController::class, 'create'])->name('gerant.create');
+    Route::post('/', [HotelController::class, 'store'])->name('gerant.store');
+    Route::get('/{hotel}', [HotelController::class, 'show'])->name('gerant.show');
+    Route::get('/{hotel}/edit', [HotelController::class, 'edit'])->name('gerant.edit');
+    Route::put('/{hotel}', [HotelController::class, 'update'])->name('gerant.update');
+    Route::delete('/{hotel}', [HotelController::class, 'destroy'])->name('gerant.destroy');
 });
 
-Route::get('/admin',function(){
-    return view('dashboard.index');
-});
+
+
+
+
+
+Route::prefix('admin')->name('admin.')->group(function () {
+        Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+        Route::get('/hotels', [AdminController::class, 'hotels'])->name('admin.hotels');
+        Route::get('/', [AdminController::class, 'index'])->name('index');
+        Route::put('/hotels/{hotel}/approve', [AdminController::class, 'approve']) ->name('hotels.approve');
+        Route::put('/hotels/{hotel}/reject', [AdminController::class, 'reject'])->name('hotels.reject');
+    });
+
+
+
+
+
+
+
+// Route::get('/admin',function(){
+//     return view('dashboard.index');
+// });
+
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', function(){
-        return view('auth.login');
+        return view('Auth.login');
     });
 
     Route::get('/signup', function(){
-        return view('auth.signup');
+        return view('Auth.signup');
     });
 
 Route::get('/stripe', [StripeController::class, 'index'])->name('stripe.index');
