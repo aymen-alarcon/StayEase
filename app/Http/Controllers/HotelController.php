@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Hotel;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
 
 
 class HotelController extends Controller

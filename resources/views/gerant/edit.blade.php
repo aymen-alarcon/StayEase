@@ -16,7 +16,7 @@
 
     <div class="sidebar pe-4 pb-3">
         <nav class="navbar bg-light navbar-light">
-            <a href="#" class="navbar-brand mx-4 mb-3">
+            <a href="{{ route('gerant.index') }}" class="navbar-brand mx-4 mb-3">
                 <h3 class="text-primary"><i class="fa fa-bed me-2"></i>GERANT</h3>
             </a>
         </nav>
@@ -46,7 +46,7 @@
                 <div class="col-lg-8">
                     <div class="table-container p-4">
 
-                        <form action="{{ route('hotels.update', $hotel->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('gerant.update', $hotel->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 
@@ -91,7 +91,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-save me-2"></i>Save Changes
                                 </button>
-                                <a href="{{ route('hotels.index') }}" class="btn btn-light border">Cancel</a>
+                                <a href="{{ route('gerant.index') }}" class="btn btn-light border">Cancel</a>
                             </div>
 
                         </form>
@@ -99,19 +99,13 @@
                     </div>
                 </div>
 
-                {{-- Sidebar Info --}}
+
                 <div class="col-lg-4">
                     <div class="table-container p-3">
                         <h6 class="fw-bold">Hotel Status</h6>
-                        <p>Current Status: <span class="badge">{{ ucfirst($hotel->status) }}</span></p>
+                        <p>Current Status: <span class="badge">{{($hotel->status) }}</span></p>
                         <hr>
-                        <h6 class="fw-bold mt-3">Edit Guidelines</h6>
-                        <ul>
-                            <li>Keep hotel name consistent</li>
-                            <li>Update images if needed</li>
-                            <li>Verify address accuracy</li>
-                            <li>Changes will need re-approval</li>
-                        </ul>
+                       
                     </div>
                 </div>
 

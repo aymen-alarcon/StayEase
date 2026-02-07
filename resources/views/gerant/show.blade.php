@@ -41,10 +41,10 @@
                         <p class="text-secondary mb-0">{{ $hotel->addresse }}</p>
                     </div>
                     <div class="d-flex gap-2">
-                        <a href="{{ route('hotels.edit', $hotel->id) }}" class="btn btn-primary btn-sm">
+                        <a href="{{ route('gerant.edit', $hotel->id) }}" class="btn btn-primary btn-sm">
                             <i class="fa fa-edit me-1"></i>Edit
                         </a>
-                        <a href="{{ route('hotels.index') }}" class="btn btn-sm btn-light border">
+                        <a href="{{ route('gerant.index') }}" class="btn btn-sm btn-light border">
                             <i class="fa fa-arrow-left me-1"></i>Back
                         </a>
                     </div>

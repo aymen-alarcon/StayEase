@@ -75,7 +75,7 @@
                     <div class="table-container p-3">
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <h6 class="mb-0">My Hotels</h6>
-                            <a href="{{ route('hotels.index') }}" class="btn btn-primary btn-sm">View All</a>
+                            <a href="{{ route('gerant.index') }}" class="btn btn-primary btn-sm">View All</a>
                         </div>
 
                         <div class="table-responsive">
@@ -101,11 +101,11 @@
                                                 </span>
                                             </td>
                                             <td>
-                                                <a href="{{ route('hotels.show', $hotel->id) }}" class="btn btn-sm btn-review">View</a>
+                                                <a href="{{ route('gerant.show', $hotel->id) }}" class="btn btn-sm btn-review">View</a>
                                             </td>
                                         </tr>
                                     @endforeach
-                                    @if($hotels->isEmpty())
+                                    @if($hotels)
                                         <tr>
                                             <td colspan="5" class="text-center">No hotels found.</td>
                                         </tr>

@@ -16,7 +16,7 @@
 
     <div class="sidebar pe-4 pb-3">
         <nav class="navbar bg-light navbar-light">
-            <a href="#" class="navbar-brand mx-4 mb-3">
+            <a href="{{route('gerant.index')  }}" class="navbar-brand mx-4 mb-3">
                 <h3 class="text-primary"><i class="fa fa-bed me-2"></i>Gerant</h3>
             </a>
         </nav>
@@ -32,7 +32,7 @@
         <div class="container-fluid pt-4 px-4">
             <div class="alert alert-info">
                 <i class="fa fa-info-circle me-2"></i>
-                Your hotel will be reviewed by admin before publication.
+                Votre hotel sera examine par l administrateur avant sa publication.
             </div>
         </div>
 
@@ -42,7 +42,7 @@
                 <div class="col-lg-8">
                     <div class="table-container p-4">
 
-                        <form action="{{ route('hotels.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('gerant.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
 
 
@@ -95,7 +95,7 @@
                                     <i class="fa fa-check me-2"></i>Submit for Approval
                                 </button>
 
-                                <a href="{{ route('hotels.index') }}"
+                                <a href="{{ route('gerant.index') }}"
                                    class="btn btn-light border">
                                     Cancel
                                 </a>
@@ -109,13 +109,7 @@
 
                 <div class="col-lg-4">
                     <div class="table-container p-3">
-                        <h6 class="fw-bold">Form Guidelines</h6>
-                        <ul>
-                            <li>Use a clear hotel name</li>
-                            <li>Complete address</li>
-                            <li>Good description</li>
-                            <li>High-quality images</li>
-                        </ul>
+                        
                     </div>
                 </div>
 

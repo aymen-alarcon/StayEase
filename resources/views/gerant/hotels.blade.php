@@ -6,7 +6,7 @@
     <title>My Hotels - Gerant Dashboard</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <!-- Favicon -->
+
     <link href="img/favicon.ico" rel="icon">
 
 
@@ -35,7 +35,7 @@
 
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
-                <a href="gerant-dashboard.html" class="navbar-brand mx-4 mb-3">
+                <a href="{{ route('gerant.index') }}" class="navbar-brand mx-4 mb-3">
                     <h3 class="text-primary"><i class="fa fa-bed me-2"></i>GERANT</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
@@ -73,10 +73,10 @@
                 </form>
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        {{-- <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <i class="fa fa-bell me-lg-2"></i>
                             <span class="d-none d-lg-inline-flex">Notifications</span>
-                        </a>
+                        </a> --}}
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">15 minutes ago</a>
                             <a href="#" class="dropdown-item">30 minutes ago</a>
@@ -91,7 +91,7 @@
                     <div class="col-12">
                         <div class="d-flex justify-content-between align-items-center mb-4">
                             <h5 style="color: var(--text-primary); font-weight: 700;">My Hotels</h5>
-                            <a href="gerant-hotel-create.html" class="btn btn-primary">
+                            <a href="{{ route('gerant.create') }}" class="btn btn-primary">
                                 <i class="fa fa-plus me-2"></i>Add New Hotel
                             </a>
                         </div>
@@ -109,7 +109,7 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">Hotel Name</th>
-                                                <th scope="col">City</th>
+                                                <th scope="col">Adresse</th>
                                                 <th scope="col">Rating</th>
                                                 <th scope="col">Statut</th>
                                                 <th scope="col">Actions</th>
@@ -122,8 +122,8 @@
                                                 <td>4.8 ★</td>
                                                 <td><span class="badge badge-approved">Approved</span></td>
                                                 <td>
-                                                    <a href="gerant-hotel-show.html" class="btn btn-sm btn-review me-2">View</a>
-                                                    <a href="gerant-hotel-edit.html" class="btn btn-sm btn-review">Edit</a>
+                                                    <a href="{{ route('gerant.show') }}" class="btn btn-sm btn-review me-2">View</a>
+                                                    <a href="{{ route('gerant.edit') }}" class="btn btn-sm btn-review">Edit</a>
                                                 </td>
                                             </tr>
                                             <tr>
