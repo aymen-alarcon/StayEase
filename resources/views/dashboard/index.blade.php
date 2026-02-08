@@ -34,7 +34,8 @@
 <body>
     <div class="container-fluid position-relative bg-white d-flex p-0">
         <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
@@ -51,7 +52,9 @@
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
                         <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                        <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+                        <div
+                            class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
+                        </div>
                     </div>
                     <div class="ms-3">
                         <h6 class="mb-0">Oughlane</h6>
@@ -59,10 +62,14 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <a href="approvals.html" class="nav-item nav-link"><i class="fa fa-hourglass-half me-2"></i>Pending Hotels</a>
-                    <a href="approved.html" class="nav-item nav-link"><i class="fa fa-check-circle me-2"></i>Approved Hotels</a>
-                    <a href="rejected.html" class="nav-item nav-link"><i class="fa fa-times-circle me-2"></i>Rejected Hotels</a>
+                    <a href="index.html" class="nav-item nav-link active"><i
+                            class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="approvals.html" class="nav-item nav-link"><i class="fa fa-hourglass-half me-2"></i>Pending
+                        Hotels</a>
+                    <a href="approved.html" class="nav-item nav-link"><i class="fa fa-check-circle me-2"></i>Approved
+                        Hotels</a>
+                    <a href="rejected.html" class="nav-item nav-link"><i class="fa fa-times-circle me-2"></i>Rejected
+                        Hotels</a>
                     <hr class="my-3" style="border-color: rgba(255,255,255,0.1);">
                     <a href="signin.html" class="nav-item nav-link"><i class="fa fa-sign-out-alt me-2"></i>Log Out</a>
                 </div>
@@ -104,13 +111,23 @@
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt=""
+                                style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex">Oughlane</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            @auth
                             <a href="#" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
+                            <a href="#" class="dropdown-item"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                Log Out
+                            </a>
+                            <form id="logout-form" action="/logout" method="post" style="display: none;">
+                                @csrf
+                                @method('DELETE')
+                            </form>
+                            @endauth
                         </div>
                     </div>
                 </div>
@@ -174,14 +191,19 @@
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
                     <div class="col-12">
-                        <div style="background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                        <div
+                            style="background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
                             <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0" style="color: var(--dark); font-weight: 700;">Recent Hotel Submissions</h6>
-                                <a href="{{ route('hotels.pending') }}" class="btn btn-sm" style="background: var(--primary); color: var(--dark); border: none; border-radius: 8px;">View All</a>
+                                <h6 class="mb-0" style="color: var(--dark); font-weight: 700;">Recent Hotel Submissions
+                                </h6>
+                                <a href="#" class="btn btn-sm"
+                                    style="background: var(--primary); color: var(--dark); border: none; border-radius: 8px;">View
+                                    All</a>
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-hover mb-0" style="border: none;">
-                                    <thead style="background: linear-gradient(135deg, var(--secondary) 0%, var(--primary-dark) 100%); color: white;">
+                                    <thead
+                                        style="background: linear-gradient(135deg, var(--secondary) 0%, var(--primary-dark) 100%); color: white;">
                                         <tr>
                                             <th scope="col" style="padding: 1rem; border: none;">Hotel Name</th>
                                             <th scope="col" style="padding: 1rem; border: none;">Location</th>
@@ -197,40 +219,52 @@
                                             <td style="padding: 1rem;">Paris, France</td>
                                             <td style="padding: 1rem;">Marie Dupont</td>
                                             <td style="padding: 1rem;">Jan 15, 2024</td>
-                                            <td style="padding: 1rem;"><span class="badge badge-pending">Pending</span></td>
-                                            <td style="padding: 1rem;"><a href="hotel-detail.html" class="btn btn-sm" style="background: var(--primary); color: var(--dark); border: none; border-radius: 6px; padding: 0.3rem 0.6rem;">Review</a></td>
+                                            <td style="padding: 1rem;"><span class="badge badge-pending">Pending</span>
+                                            </td>
+                                            <td style="padding: 1rem;"><a href="hotel-detail.html" class="btn btn-sm"
+                                                    style="background: var(--primary); color: var(--dark); border: none; border-radius: 6px; padding: 0.3rem 0.6rem;">Review</a>
+                                            </td>
                                         </tr>
                                         <tr style="border-color: #E8E6E1;">
                                             <td style="padding: 1rem;"><strong>Seaside Resort</strong></td>
                                             <td style="padding: 1rem;">Barcelona, Spain</td>
                                             <td style="padding: 1rem;">Carlos Rodriguez</td>
                                             <td style="padding: 1rem;">Jan 14, 2024</td>
-                                            <td style="padding: 1rem;"><span class="badge badge-pending">Pending</span></td>
-                                            <td style="padding: 1rem;"><a href="hotel-detail.html" class="btn btn-sm" style="background: var(--primary); color: var(--dark); border: none; border-radius: 6px; padding: 0.3rem 0.6rem;">Review</a></td>
+                                            <td style="padding: 1rem;"><span class="badge badge-pending">Pending</span>
+                                            </td>
+                                            <td style="padding: 1rem;"><a href="hotel-detail.html" class="btn btn-sm"
+                                                    style="background: var(--primary); color: var(--dark); border: none; border-radius: 6px; padding: 0.3rem 0.6rem;">Review</a>
+                                            </td>
                                         </tr>
                                         <tr style="border-color: #E8E6E1;">
                                             <td style="padding: 1rem;"><strong>Alpine Retreat</strong></td>
                                             <td style="padding: 1rem;">Zermatt, Switzerland</td>
                                             <td style="padding: 1rem;">Hans Mueller</td>
                                             <td style="padding: 1rem;">Jan 13, 2024</td>
-                                            <td style="padding: 1rem;"><span class="badge badge-approved">Approved</span></td>
-                                            <td style="padding: 1rem;"><span style="color: #999; font-size: 0.875rem;">—</span></td>
+                                            <td style="padding: 1rem;"><span
+                                                    class="badge badge-approved">Approved</span></td>
+                                            <td style="padding: 1rem;"><span
+                                                    style="color: #999; font-size: 0.875rem;">—</span></td>
                                         </tr>
                                         <tr style="border-color: #E8E6E1;">
                                             <td style="padding: 1rem;"><strong>Tokyo Executive</strong></td>
                                             <td style="padding: 1rem;">Tokyo, Japan</td>
                                             <td style="padding: 1rem;">Yuki Tanaka</td>
                                             <td style="padding: 1rem;">Jan 12, 2024</td>
-                                            <td style="padding: 1rem;"><span class="badge badge-approved">Approved</span></td>
-                                            <td style="padding: 1rem;"><span style="color: #999; font-size: 0.875rem;">—</span></td>
+                                            <td style="padding: 1rem;"><span
+                                                    class="badge badge-approved">Approved</span></td>
+                                            <td style="padding: 1rem;"><span
+                                                    style="color: #999; font-size: 0.875rem;">—</span></td>
                                         </tr>
                                         <tr style="border-color: #E8E6E1;">
                                             <td style="padding: 1rem;"><strong>Desert Dreams</strong></td>
                                             <td style="padding: 1rem;">Dubai, UAE</td>
                                             <td style="padding: 1rem;">Ahmed Al-Mansouri</td>
                                             <td style="padding: 1rem;">Jan 10, 2024</td>
-                                            <td style="padding: 1rem;"><span class="badge badge-rejected">Rejected</span></td>
-                                            <td style="padding: 1rem;"><span style="color: #999; font-size: 0.875rem;">—</span></td>
+                                            <td style="padding: 1rem;"><span
+                                                    class="badge badge-rejected">Rejected</span></td>
+                                            <td style="padding: 1rem;"><span
+                                                    style="color: #999; font-size: 0.875rem;">—</span></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -252,7 +286,7 @@
                         </div>
                         <div class="col-12 col-sm-6 text-center text-sm-end">
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            Designed By <a href="{{ route('/app') }}">YouCode Team</a>
+                            Designed By <a href="#">YouCode Team</a>
                         </div>
                     </div>
                 </div>

@@ -42,6 +42,7 @@ Route::prefix('hotels')->name('hotels.')->group(function () {
     Route::delete('/{hotel}', [HotelController::class, 'destroy'])->name('destroy');
 });
 
+
 Route::get('/admin',function(){
     return view('admin.dashboard');
 });
@@ -55,6 +56,7 @@ Route::middleware('guest')->group(function () {
     Route::get('/signup', function(){
         return view('auth.signup');
     });
+});
     
 Route::get('/stripe', [StripeController::class, 'index'])->name('stripe.index');
 Route::post('/checkout', [StripeController::class, 'checkout'])->name('stripe.checkout');
@@ -81,5 +83,5 @@ Route::middleware('auth')->group(function() {
     Route::delete('/logout', [SessionController::class, 'destroy']);
     Route::get('/admin', function() {
         return view('dashboard.index');
-    });
+    })->middleware('role:Admin');
 });
