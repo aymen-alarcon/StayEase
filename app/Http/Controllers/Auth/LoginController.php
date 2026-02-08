@@ -46,10 +46,9 @@ class LoginController extends Controller
         
         $user = Auth::user();
 
-        switch ($user->role->name) {
-            case 'admin':
-                // redirect to admin dashboard
-                break;
+        switch ($user->roles->name) {
+            case 'Admin':
+                return redirect('/admin');
             case 'Gerant':
                 // redirect to client page with message
                 break;
@@ -57,7 +56,6 @@ class LoginController extends Controller
                 // redirect to Clietn page
             default:
                 return redirect('/');
-                break;
         }
     }
 

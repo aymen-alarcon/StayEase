@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\StripeController;
-use Laravel\Cashier\Checkout;
+// use Laravel\Cashier\Checkout;
 
 Route::get('/', function () {
     return view('index');
@@ -62,6 +62,14 @@ Route::get('/success', [StripeController::class, 'success'])->name('stripe.succe
 Route::get("/Payments/Create", [PaymentController::class, "create"])->name("payment.create");
 Route::post("/Payments/Store", [PaymentController::class, "store"]);
 
+Route::middleware('guest')->group(function () {
+    Route::get('/login', function(){
+        return view('Auth.login');
+    });
+
+    Route::get('/signup', function(){
+        return view('Auth.signup');
+    });
 
     Route::post('/signup', [RegisterController::class, 'store']);
     
@@ -71,4 +79,7 @@ Route::post("/Payments/Store", [PaymentController::class, "store"]);
 
 Route::middleware('auth')->group(function() {
     Route::delete('/logout', [SessionController::class, 'destroy']);
+    Route::get('/admin', function() {
+        return view('dashboard.index');
+    });
 });
