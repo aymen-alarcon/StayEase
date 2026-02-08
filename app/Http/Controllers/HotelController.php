@@ -11,13 +11,13 @@ class HotelController extends Controller
 {
     public function index(Request $request)
     {
-        $q = Hotel::where('statut', 'approved');
+        $h = Hotel::where('statut', 'approved');
 
         //  $hoteladdress = Hotel::where('status', 'approved')->select('addresse') ->pluck('address');
 
 
 
-         $hotels = $q->paginate(6);
+         $hotels = $h->paginate(6);
 
         return view('gerant.index', compact('hotels'));
     }
@@ -42,7 +42,7 @@ class HotelController extends Controller
 
         Hotel::create($validated);
 
-        return redirect()->route('hotels.index');
+        return redirect()->route('gerant.index');
     }
 
     public function edit(Hotel $hotel)
@@ -68,13 +68,23 @@ class HotelController extends Controller
 
         $hotel->update($validated);
 
-        return redirect()->route('hotels.index');
+        return redirect()->route('gerant.index');
     }
 
     public function destroy(Hotel $hotel)
     {
         $hotel->delete();
 
-        return redirect()->route('hotels.index');
+        return redirect()->route('gerant.index');
+    }
+
+    public function recherche(Request $request){
+ if (request('search')) {
+        $hotels = hotel::where('name', 'like', '%' . request('search') . '%')->get();
+    } else {
+        $users = Commad::all();
+    }
+
     }
 }
+

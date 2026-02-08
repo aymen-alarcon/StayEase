@@ -17,7 +17,7 @@
     <div class="sidebar pe-4 pb-3">
         <nav class="navbar bg-light navbar-light">
             <a href="{{route('gerant.index')  }}" class="navbar-brand mx-4 mb-3">
-                <h3 class="text-primary"><i class="fa fa-bed me-2"></i>Gerant</h3>
+                <h3 class="text-primary"><i class="fa fa-bed me-2">Gerant</i></h3>
             </a>
         </nav>
     </div>
@@ -25,7 +25,7 @@
     <div class="content">
 
         <div class="container-fluid pt-4 px-4">
-            <h5 class="fw-bold">Create New Hotel</h5>
+            <h5 class="fw-bold">Creer un nouvel hotel</h5>
         </div>
 
 
@@ -51,7 +51,7 @@
                                 <input type="text"
                                        name="name"
                                        class="form-control"
-                                       value="{{ old('name') }}"
+                                       value="{{('name') }}"
                                        required>
                             </div>
 
@@ -64,7 +64,7 @@
                                 <input type="text"
                                        name="addresse"
                                        class="form-control"
-                                       value="{{ old('addresse') }}"
+                                       value="'addresse'"
                                        required>
                             </div>
 
@@ -82,9 +82,8 @@
 
                             <div class="mb-4">
                                 <label class="form-label fw-bold">Hotel Image</label>
-                                <input type="file"
-                                       name="image"
-                                       class="form-control"
+                                <input type="file" name="images[]"
+                                       class="form-control" required
                                        multiple
                                        accept="image/*">
                             </div>
@@ -109,7 +108,7 @@
 
                 <div class="col-lg-4">
                     <div class="table-container p-3">
-                        
+
                     </div>
                 </div>
 

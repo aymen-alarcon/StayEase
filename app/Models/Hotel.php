@@ -14,8 +14,11 @@ class Hotel extends Model
     return $this->hasMany(Image::class);
     }
 
-        public function User(){
+        public function Gerant(){
         return $this->belongsTo(User::class);
     }
+
+
+
 }
 
