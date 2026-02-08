@@ -6,24 +6,26 @@ use App\Models\Room;
 use Illuminate\Http\Request;
 use App\Models\Tag;
 use App\Models\Property;
+
 class RoomController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request){
+    public function index(Request $request)
+    {
         $query = Room::with('tags', 'properties');
         if ($tagId = $request->get('tag')) {
-        $query->whereHas('tags', fn($q) => $q->where('id', $tagId));
-      }
+            $query->whereHas('tags', fn($q) => $q->where('id', $tagId));
+        }
         if ($propertyId = $request->get('property')) {
-        $query->whereHas('properties', fn($q) => $q->where('id',$propertyId));
-    }
+            $query->whereHas('properties', fn($q) => $q->where('id', $propertyId));
+        }
         $rooms = $query->get();
         $allTags = Tag::all();
         $allProperties = Property::all();
-    return view('rooms.index', compact('rooms', 'allTags','allProperties'));
-}
+        return view('rooms.index', compact('rooms', 'allTags', 'allProperties'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -38,7 +40,18 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'hotel_id' => 'required|integer',
+            'number' => 'required|string',
+            'price_per_night' => 'required|numeric|min:0',
+            'capacity' => 'required|integer|min:1',
+            'description' => 'nullable|string',
+        ]);
+
+        $room = Room::create($validated);
+        $room->tags()->sync($request->get('tags', []));
+        $room->properties()->sync($request->get('properties', []));
+        return redirect()->route('rooms.show', $room);
     }
 
     /**
@@ -63,7 +76,16 @@ class RoomController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->validate([
+            'number' => 'required|string',
+            'price_per_night' => 'required|numeric|min:0',
+            'capacity' => 'required|integer|min:1',
+            'description' => 'nullable|string',
+        ]);
+
+         $rooms = Room::findOrFail($id);
+        $rooms->update($data);
+        return redirect()->route('rooms.show');
     }
 
     /**
@@ -71,7 +93,8 @@ class RoomController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $category = Room::findOrFail($id);
+        $category->delete();
+        return redirect()->route('rooms.index');
     }
 }
-

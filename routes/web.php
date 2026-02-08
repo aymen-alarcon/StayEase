@@ -91,3 +91,5 @@ Route::middleware('auth')->group(function() {
 Route::resource('tags', TagController::class);
 Route::resource('rooms', RoomController::class);
 
+
+
