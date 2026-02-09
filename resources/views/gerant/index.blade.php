@@ -96,8 +96,8 @@
                                             <td>{{ $hotel->adresse}}</td>
                                             <td>{{ $hotel->rating }} ★</td>
                                             <td>
-                                                <span class="badge badge-{{ $hotel->status }}">
-                                                    {{ ucfirst($hotel->statut) }}
+                                                <span class="badge badge-{{ $hotel->statut}}">
+                                                    {{ $hotel->statut) }}
                                                 </span>
                                             </td>
                                             <td>
