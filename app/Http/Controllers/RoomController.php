@@ -32,7 +32,10 @@ class RoomController extends Controller
      */
     public function create()
     {
-        //
+        $tags = Tag::all();
+        $properties = Property::all();
+
+        return view('rooms.create', compact('tags', 'properties'));
     }
 
     /**
@@ -66,15 +69,19 @@ class RoomController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
-        //
-    }
 
+    public function edit($id)
+    {
+        $rooms = Room::findOrFail($id);
+        $tags = Tag::all();
+        $properties = Property::all();
+
+        return view('rooms.edit', compact('room', 'tags', 'properties'));
+    }
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
         $data = $request->validate([
             'number' => 'required|string',
@@ -83,18 +90,18 @@ class RoomController extends Controller
             'description' => 'nullable|string',
         ]);
 
-         $rooms = Room::findOrFail($id);
+        $rooms = Room::findOrFail($id);
         $rooms->update($data);
-        return redirect()->route('rooms.show');
+        // return redirect()->route('rooms.show');
+        return redirect()->route('rooms.show',$id);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        $category = Room::findOrFail($id);
-        $category->delete();
+    public function destroy($id){
+        $room = Room::findOrFail($id);
+        $room->delete();
         return redirect()->route('rooms.index');
     }
 }
