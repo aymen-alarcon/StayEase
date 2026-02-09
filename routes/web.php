@@ -51,17 +51,17 @@ Route::prefix('gerant')->group(function () {
 });
 
 
-Route::get('/admin',function(){
-    return view('admin.dashboard');
-});
+// Route::get('/admin',function(){
+//     return view('admin.dashboard');
+// });
 
 
 
 
-Route::prefix('admin')->name('admin.')->group(function () {
-        Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-        Route::get('/hotels', [AdminController::class, 'hotels'])->name('admin.hotels.pending');
-        Route::get('/', [AdminController::class, 'index'])->name('index');
+Route::prefix('admin')->group(function () {
+        Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.index');
+        Route::get('/hotels', [AdminController::class, 'hotels'])->name('admin.hotels');
+        Route::get('/', [AdminController::class, 'index'])->name('admin.index');
         Route::put('/hotels/{hotel}/approve', [AdminController::class, 'approve']) ->name('hotels.approve');
         Route::put('/hotels/{hotel}/reject', [AdminController::class, 'reject'])->name('hotels.reject');
 });
@@ -80,7 +80,7 @@ Route::middleware('guest')->group(function () {
         return view('Auth.signup');
     });
 });
-    
+
 
 Route::get('/stripe', [StripeController::class, 'index'])->name('stripe.index');
 Route::post('/checkout', [StripeController::class, 'checkout'])->name('stripe.checkout');
