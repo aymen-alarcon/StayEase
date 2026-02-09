@@ -12,7 +12,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
+<<<<<<< .merge_file_8o3xAR
         //
+=======
+        $categories = Category::all();
+        return view('Categories.index', compact('categories'));
+>>>>>>> .merge_file_pMBgfW
     }
 
     /**
@@ -20,7 +25,11 @@ class CategoryController extends Controller
      */
     public function create()
     {
+<<<<<<< .merge_file_8o3xAR
         //
+=======
+        return view('Categories.create');
+>>>>>>> .merge_file_pMBgfW
     }
 
     /**
@@ -28,7 +37,17 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+<<<<<<< .merge_file_8o3xAR
         //
+=======
+        $validate = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        Category::create($validate);
+
+        return redirect()->route('categories.index')->with('success', 'Category created successfully');
+>>>>>>> .merge_file_pMBgfW
     }
 
     /**
@@ -36,7 +55,11 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
+<<<<<<< .merge_file_8o3xAR
         //
+=======
+        return view('Categories.show', compact('category'));
+>>>>>>> .merge_file_pMBgfW
     }
 
     /**
@@ -44,7 +67,11 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
+<<<<<<< .merge_file_8o3xAR
         //
+=======
+        return view('Categories.edit', compact('category'));
+>>>>>>> .merge_file_pMBgfW
     }
 
     /**
@@ -52,7 +79,17 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
+<<<<<<< .merge_file_8o3xAR
         //
+=======
+        $validate = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        $category->update($validate);
+
+        return redirect()->route('categories.index')->with('success', 'Category updated successfully');
+>>>>>>> .merge_file_pMBgfW
     }
 
     /**
@@ -60,6 +97,12 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
+<<<<<<< .merge_file_8o3xAR
         //
+=======
+        $category->delete();
+
+        return redirect()->route('categories.index')->with('success', 'Category deleted successfully');
+>>>>>>> .merge_file_pMBgfW
     }
 }

@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -193,7 +193,7 @@
                                     <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.5rem;">Current Status</p>
                                     <span class="badge badge-pending">Pending Review</span>
                                 </div>
-                                
+
                                 <hr style="border-color: var(--border-light);">
 
                                 <h6 style="color: var(--text-primary); font-weight: 700; margin-bottom: 1rem; margin-top: 1rem;">Edit Guidelines</h6>

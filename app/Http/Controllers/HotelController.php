@@ -4,26 +4,34 @@ namespace App\Http\Controllers;
 
 use App\Models\Hotel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class HotelController extends Controller
 {
-      public function index()
+    public function index(Request $request)
     {
+<<<<<<< .merge_file_hzocHi
         $hotels = Hotel::where('statut','approved')->where->get();
          return view("gerant.hotels", compact('hotels'));
 
+=======
+        $h = Hotel::where('statut', 'approved');
+
+    
+         $hotels = $h->paginate(6);
+
+        return view('index', compact('hotels'));
+>>>>>>> .merge_file_mILw6m
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        return view('hotels.create');
+
     }
 
-
     public function store(Request $request)
+<<<<<<< .merge_file_hzocHi
 {
     $h=$request->validate([
         'name'=> 'required|string|max:255',
@@ -57,43 +65,38 @@ class HotelController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
+=======
+    {
+
+    }
+
+>>>>>>> .merge_file_mILw6m
     public function edit(Hotel $hotel)
     {
-        return view('hotels', compact('hotel'));
 
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request,Hotel $hotel)
+    public function update(Request $request, Hotel $hotel)
     {
-         $valid = $request->validate([
-            'name'=> 'required|string|max:255',
-            'addresse'=> 'required|string|max:255',
-            'rating' => 'required|integer',
-            'description'=> 'required|string',
-            'image'=> 'nullable|image|mimes:jpeg,jpg,png|max:2048'
-        ]);
 
-
-        if($request->Hasfile('image')){
-            $file = $request->file('name');
-            $name =time().'_'.$file->getClientOriginalName();
-            $path = $file->storeAS('images', $name, 'public');
-            $valid['image'] = $path;
-        }
-
-        $hotel->update();
-        return redirect()->route('hotels.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Hotel $hotel)
     {
-        $hotel->delete();
-        return redirect()->route('hotels.index');
+
+    }
+<<<<<<< .merge_file_hzocHi
+}
+=======
+
+    public function recherche(Request $request){
+ if (request('search')) {
+        $hotels = hotel::where('name', 'like', '%' . request('search') . '%')->get();
+    } else {
+        $hotel = hotel::all();
+    }
+
     }
 }
+
+>>>>>>> .merge_file_mILw6m

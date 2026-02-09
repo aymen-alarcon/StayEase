@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -194,7 +194,7 @@
                                 <p style="color: var(--text-secondary); line-height: 1.6;">
                                     Experience luxury and elegance at Le Luxury Plaza, our premier 5-star hotel in the heart of Paris. Located near iconic landmarks including the Louvre Museum and Notre-Dame Cathedral, we offer world-class amenities and exceptional service to make your stay unforgettable.
                                 </p>
-                                
+
                                 <h6 style="color: var(--text-primary); font-weight: 700; margin-top: 1.5rem; margin-bottom: 1rem;">Amenities</h6>
                                 <ul style="color: var(--text-secondary); padding-left: 1.5rem;">
                                     <li>24/7 Room Service</li>
@@ -213,7 +213,7 @@
                         <div class="table-container">
                             <div style="padding: 1.5rem;">
                                 <h6 style="color: var(--text-primary); font-weight: 700; margin-bottom: 1rem;">Hotel Information</h6>
-                                
+
                                 <div style="margin-bottom: 1rem;">
                                     <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 0.25rem;">Address</p>
                                     <p style="color: var(--text-primary); font-size: 0.95rem;">42 Rue de Rivoli, 75001 Paris</p>

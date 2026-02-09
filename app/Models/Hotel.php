@@ -17,5 +17,10 @@ class Hotel extends Model
         public function User(){
         return $this->belongsTo(User::class);
     }
+
+       
+
+
+
 }
 

@@ -77,6 +77,19 @@ Route::post("/Payments/Store", [PaymentController::class, "store"]);
     Route::post('/login', [LoginController::class, 'store']);
 });
 
+
+Route::get('/stripe', [StripeController::class, 'index'])->name('stripe.index');
+Route::post('/checkout', [StripeController::class, 'checkout'])->name('stripe.checkout');
+Route::get('/success', [StripeController::class, 'success'])->name('stripe.success');
+Route::get("/Payments/Create", [PaymentController::class, "create"])->name("payment.create");
+Route::post("/Payments/Store", [PaymentController::class, "store"]);
+
+Route::middleware('guest')->group(function () {
+    Route::get('/login', function(){
+        return view('Auth.login');
+    });
+});
+
 // Route::get('/signup', [RegisterController::class, 'create']);
 Route::post('/signup', [RegisterController::class, 'store']);
 Route::middleware('auth')->group(function() {

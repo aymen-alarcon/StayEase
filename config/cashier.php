@@ -100,6 +100,7 @@ return [
     |
     */
 
+<<<<<<< .merge_file_k4nhAN
     // 'invoices' => [
     //     'renderer' => env('CASHIER_INVOICE_RENDERER', DompdfInvoiceRenderer::class),
 
@@ -110,6 +111,18 @@ return [
     //         'remote_enabled' => env('CASHIER_REMOTE_ENABLED', false),
     //     ],
     // ],
+=======
+    'invoices' => [
+        'renderer' => env('CASHIER_INVOICE_RENDERER', DompdfInvoiceRenderer::class),
+
+        'options' => [
+            // Supported: 'letter', 'legal', 'A4'
+            'paper' => env('CASHIER_PAPER', 'letter'),
+
+            'remote_enabled' => env('CASHIER_REMOTE_ENABLED', false),
+        ],
+    ],
+>>>>>>> .merge_file_ujasFH
 
     /*
     |--------------------------------------------------------------------------
