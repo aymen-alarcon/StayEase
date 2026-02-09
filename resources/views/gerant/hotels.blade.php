@@ -44,13 +44,13 @@
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
-                        <h6 class="mb-0">Moughlane</h6>
+                        <h6 class="mb-0">Mough</h6>
                         <span>Hotelier</span>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="gerant-dashboard.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <a href="gerant-hotels.html" class="nav-item nav-link active"><i class="fa fa-bed me-2"></i>My Hotels</a>
+                    <a href="{{ route('gerant.index') }}" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="gerant-hotels.html" class="nav-item nav-link active"><i class="fa fa-bed me-2"></i>Mes Hotels</a>
                     <a href="gerant-hotel-create.html" class="nav-item nav-link"><i class="fa fa-plus me-2"></i>Add Hotel</a>
                     <a href="gerant-profile.html" class="nav-item nav-link"><i class="fa fa-user me-2"></i>Profile</a>
                     <hr class="my-3" style="border-color: rgba(255,255,255,0.1);">
@@ -62,7 +62,7 @@
         <div class="content">
 
             <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
-                <a href="gerant-hotels.html" class="navbar-brand d-flex d-lg-none me-4">
+                <a href="{{ route('gerant.show') }}" class="navbar-brand d-flex d-lg-none me-4">
                     <h2 class="text-primary mb-0"><i class="fa fa-bed"></i></h2>
                 </a>
                 <a href="#" class="sidebar-toggler flex-shrink-0">
@@ -78,9 +78,9 @@
                             <span class="d-none d-lg-inline-flex">Notifications</span>
                         </a> --}}
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">15 minutes ago</a>
+                            {{-- <a href="#" class="dropdown-item">15 minutes ago</a>
                             <a href="#" class="dropdown-item">30 minutes ago</a>
-                            <a href="#" class="dropdown-item">1 hour ago</a>
+                            <a href="#" class="dropdown-item">1 hour ago</a> --}}
                         </div>
                     </div>
                 </div>
@@ -106,6 +106,7 @@
                             <div style="padding: 1.5rem;">
                                 <div class="table-responsive">
                                     <table class="table table-hover mb-0">
+                                        @foreach ($hotels as $hotel)
                                         <thead>
                                             <tr>
                                                 <th scope="col">Hotel Name</th>
@@ -117,85 +118,17 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><strong>Le Luxury Plaza</strong></td>
-                                                <td>Paris</td>
-                                                <td>4.8 ★</td>
-                                                <td><span class="badge badge-approved">Approved</span></td>
+                                                <td><strong>{{($hotel->name)}}</strong></td>
+                                                <td>{{ ($hotel->adresse) }}</td>
+                                                <td>{{ ($hotel->rating) }}</td>
+                                                <td><span class="badge badge-approved">{{ ($hotel->statut) }}</span></td>
                                                 <td>
                                                     <a href="{{ route('gerant.show') }}" class="btn btn-sm btn-review me-2">View</a>
                                                     <a href="{{ route('gerant.edit') }}" class="btn btn-sm btn-review">Edit</a>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td><strong>Cote Azur Resort</strong></td>
-                                                <td>Nice</td>
-                                                <td>4.5 ★</td>
-                                                <td><span class="badge badge-pending">Pending</span></td>
-                                                <td>
-                                                    <a href="gerant-hotel-show.html" class="btn btn-sm btn-review me-2">View</a>
-                                                    <a href="gerant-hotel-edit.html" class="btn btn-sm btn-review">Edit</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Alpine Retreat</strong></td>
-                                                <td>Chamonix</td>
-                                                <td>4.6 ★</td>
-                                                <td><span class="badge badge-approved">Approved</span></td>
-                                                <td>
-                                                    <a href="gerant-hotel-show.html" class="btn btn-sm btn-review me-2">View</a>
-                                                    <a href="gerant-hotel-edit.html" class="btn btn-sm btn-review">Edit</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Provence Dreams</strong></td>
-                                                <td>Avignon</td>
-                                                <td>—</td>
-                                                <td><span class="badge badge-rejected">Rejected</span></td>
-                                                <td>
-                                                    <a href="gerant-hotel-show.html" class="btn btn-sm btn-review me-2">View</a>
-                                                    <a href="gerant-hotel-edit.html" class="btn btn-sm btn-review">Edit</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Riviera Boutique</strong></td>
-                                                <td>Cannes</td>
-                                                <td>4.7 ★</td>
-                                                <td><span class="badge badge-approved">Approved</span></td>
-                                                <td>
-                                                    <a href="gerant-hotel-show.html" class="btn btn-sm btn-review me-2">View</a>
-                                                    <a href="gerant-hotel-edit.html" class="btn btn-sm btn-review">Edit</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Montagne Blanche</strong></td>
-                                                <td>Val d'Isere</td>
-                                                <td>4.9 ★</td>
-                                                <td><span class="badge badge-approved">Approved</span></td>
-                                                <td>
-                                                    <a href="gerant-hotel-show.html" class="btn btn-sm btn-review me-2">View</a>
-                                                    <a href="gerant-hotel-edit.html" class="btn btn-sm btn-review">Edit</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Cote Belle</strong></td>
-                                                <td>Antibes</td>
-                                                <td>4.4 ★</td>
-                                                <td><span class="badge badge-approved">Approved</span></td>
-                                                <td>
-                                                    <a href="gerant-hotel-show.html" class="btn btn-sm btn-review me-2">View</a>
-                                                    <a href="gerant-hotel-edit.html" class="btn btn-sm btn-review">Edit</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Lac Serenity</strong></td>
-                                                <td>Annecy</td>
-                                                <td>4.6 ★</td>
-                                                <td><span class="badge badge-pending">Pending</span></td>
-                                                <td>
-                                                    <a href="gerant-hotel-show.html" class="btn btn-sm btn-review me-2">View</a>
-                                                    <a href="gerant-hotel-edit.html" class="btn btn-sm btn-review">Edit</a>
-                                                </td>
-                                            </tr>
+                                           @endforeach
+
                                         </tbody>
                                     </table>
                                 </div>

@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
 <head>
     <meta charset="utf-8">
     <title>Admin Dashboard</title>
@@ -10,7 +8,7 @@
 
     <link href="img/favicon.ico" rel="icon">
 
-=======
+
 >>>>>>> 5214f9676498459cc7088c6ec0e2fe5e31bbb7c0
 
 <head>
@@ -24,17 +22,14 @@
     <link href="img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
-<<<<<<< HEAD
-=======
->>>>>>> 0fa1e2ababba3080ffb25546a32e63ff88a10795
->>>>>>> 5214f9676498459cc7088c6ec0e2fe5e31bbb7c0
+
+
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
@@ -45,26 +40,21 @@
 <body>
 <div class="container-fluid position-relative bg-white d-flex p-0">
 
-   
+
     <div class="sidebar pe-4 pb-3">
         <nav class="navbar bg-light navbar-light">
-            <a href="{{ route('admin.dashboard') }}" class="navbar-brand mx-4 mb-3">
+            <a href="{{ route('admin.index') }}" class="navbar-brand mx-4 mb-3">
                 <h3 class="text-primary"><i class="fa fa-building me-2"></i>Admin</h3>
             </a>
 
             <div class="navbar-nav w-100">
-                <a href="{{ route('admin.dashboard') }}" class="nav-item nav-link active">
+                <a href="{{ route('admin.index') }}" class="nav-item nav-link active">
                     <i class="fa fa-tachometer-alt me-2"></i>Dashboard
                 </a>
-                <a href="{{ route('admin.hotels.pending') }}" class="nav-item nav-link">
+                <a href="{{ route('admin.hotels') }}" class="nav-item nav-link">
                     <i class="fa fa-hourglass-half me-2"></i>Pending Hotels
                 </a>
-                <a href="{{ route('admin.hotels.approved') }}" class="nav-item nav-link">
-                    <i class="fa fa-check-circle me-2"></i>Approved Hotels
-                </a>
-                <a href="{{ route('admin.hotels.rejected') }}" class="nav-item nav-link">
-                    <i class="fa fa-times-circle me-2"></i>Rejected Hotels
-                </a>
+
             </div>
         </nav>
     </div>
@@ -77,34 +67,40 @@
             <h4 class="m-0 text-primary">Admin Dashboard</h4>
         </nav>
 
+@php
+    $t=$hotels->count();
+    $p = $hotels->where('statut', 'pending')->count();
+    $app = $hotels->where('statut', 'approved')->count();
+    $r = $hotels->where('statut','rejected')->count();
 
+@endphp
         <div class="container-fluid pt-4 px-4">
             <div class="row g-4">
                 <div class="col-sm-6 col-xl-3">
                     <div class="kpi-card p-4">
-                        <p class="kpi-label">Total Hotels</p>
-                        <h6 class="kpi-value">{{ $totalHotels }}</h6>
+                        <p class="kpi-label">Total Hotels:</p>
+                        <h6 class="kpi-value">{{$t}}  hotels</h6>
                     </div>
                 </div>
 
                 <div class="col-sm-6 col-xl-3">
                     <div class="kpi-card p-4">
                         <p class="kpi-label">Pending</p>
-                        <h6 class="kpi-value text-warning">{{ $pendingHotels }}</h6>
+                        <h6 class="kpi-value text-warning">{{ $p }}pending hotels</h6>
                     </div>
                 </div>
 
                 <div class="col-sm-6 col-xl-3">
                     <div class="kpi-card p-4">
                         <p class="kpi-label">Approved</p>
-                        <h6 class="kpi-value text-success">{{ $approvedHotels }}</h6>
+                        <h6 class="kpi-value text-success">{{ $ap }} approved hotels</h6>
                     </div>
                 </div>
 
                 <div class="col-sm-6 col-xl-3">
                     <div class="kpi-card p-4">
                         <p class="kpi-label">Rejected</p>
-                        <h6 class="kpi-value text-danger">{{ $rejectedHotels }}</h6>
+                        <h6 class="kpi-value text-danger">{{ $r}} rejected hotels</h6>
                     </div>
                 </div>
             </div>
@@ -128,22 +124,20 @@
                         </thead>
                         <tbody>
 
-                        @forelse($recentHotels as $hotel)
+                        @foreach($recentHotels as $hotel)
                             <tr>
                                 <td><strong>{{ $hotel->name }}</strong></td>
                                 <td>{{ $hotel->adresse }}</td>
                                 <td>{{ $hotel->rating  }}</td>
                                 <td>
-                                    <span class="badge
-                                        @if($hotel->status === 'pending') badge-pending
-                                        @elseif($hotel->status === 'approved') badge-approved
-                                        @else badge-rejected @endif">
+                                    <span class="badge"
+
                                         {{ ($hotel->status) }}
                                     </span>
                                 </td>
                                 <td>
                                     @if($hotel->status === 'pending')
-                                        <a href="{{ route('admin.hotels.pending') }}" class="btn btn-sm btn-primary">
+                                        <a href="{{ route('admin.hotels') }}" class="btn btn-sm btn-primary">
                                             Review
                                         </a>
                                     @else

@@ -38,30 +38,30 @@
         <div class="container-fluid pt-4 px-4">
             <div class="row g-4">
                 @php
-                    $total = $hotels->count();
-                    $pending = $hotels->where('statut', 'pending')->count();
-                    $approved = $hotels->where('statut', 'approved')->count();
+                    $t = $hotels->count();
+                    $p = $hotels->where('statut', 'pending')->count();
+                    $ap = $hotels->where('statut', 'approved')->count();
 
                 @endphp
                 <div class="col-sm-6 col-xl-3">
                     <div class="kpi-card p-4 text-center">
                         <i class="fa fa-bed fa-3x kpi-icon primary-gold"></i>
                         <p class="kpi-label">Total Hotels</p>
-                        <h6 class="kpi-value">{{ $total }}</h6>
+                        <h6 class="kpi-value">{{ $t }}</h6>
                     </div>
                 </div>
                 <div class="col-sm-6 col-xl-3">
                     <div class="kpi-card p-4 text-center">
                         <i class="fa fa-hourglass-half fa-3x kpi-icon warning-gold"></i>
                         <p class="kpi-label">Pending Review</p>
-                        <h6 class="kpi-value" style="color: var(--warning);">{{ $pending }}</h6>
+                        <h6 class="kpi-value" style="color: var(--warning);">{{ $p }}</h6>
                     </div>
                 </div>
                 <div class="col-sm-6 col-xl-3">
                     <div class="kpi-card p-4 text-center">
                         <i class="fa fa-check-circle fa-3x kpi-icon success-green"></i>
                         <p class="kpi-label">Approved</p>
-                        <h6 class="kpi-value" style="color: var(--success);">{{ $approved }}</h6>
+                        <h6 class="kpi-value" style="color: var(--success);">{{ $ap }}</h6>
                     </div>
                 </div>
 
@@ -74,7 +74,7 @@
                 <div class="col-12">
                     <div class="table-container p-3">
                         <div class="d-flex align-items-center justify-content-between mb-4">
-                            <h6 class="mb-0">My Hotels</h6>
+                            <h6 class="mb-0">Mes Hotels</h6>
                             <a href="{{ route('gerant.index') }}" class="btn btn-primary btn-sm">View All</a>
                         </div>
 
@@ -105,7 +105,7 @@
                                             </td>
                                         </tr>
                                     @endforeach
-                                    @if($hotels)
+                                    @if(count($hotels)==0)
                                         <tr>
                                             <td colspan="5" class="text-center">No hotels found.</td>
                                         </tr>

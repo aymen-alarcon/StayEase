@@ -3,13 +3,11 @@
 
 <head>
     <meta charset="utf-8">
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
     <title>Pending Hotels | Admin</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-   
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -30,27 +28,19 @@
 
     <div class="sidebar pe-4 pb-3">
         <nav class="navbar bg-light navbar-light">
-            <a href="{{ route('admin.dashboard') }}" class="navbar-brand mx-4 mb-3">
+            <a href="{{ route('admin.index') }}" class="navbar-brand mx-4 mb-3">
                 <h3 class="text-primary">
                     <i class="fa fa-building me-2"></i>ADMIN
                 </h3>
             </a>
 
             <div class="navbar-nav w-100">
-                <a href="{{ route('admin.dashboard') }}" class="nav-item nav-link">
+                <a href="{{ route('admin.index') }}" class="nav-item nav-link">
                     <i class="fa fa-tachometer-alt me-2"></i>Dashboard
                 </a>
 
-                <a href="{{ route('admin.hotels.pending') }}" class="nav-item nav-link active">
+                <a href="{{ route('admin.hotels') }}" class="nav-item nav-link active">
                     <i class="fa fa-hourglass-half me-2"></i>Pending Hotels
-                </a>
-
-                <a href="{{ route('admin.hotels.approved') }}" class="nav-item nav-link">
-                    <i class="fa fa-check-circle me-2"></i>Approved Hotels
-                </a>
-
-                <a href="{{ route('admin.hotels.rejected') }}" class="nav-item nav-link">
-                    <i class="fa fa-times-circle me-2"></i>Rejected Hotels
                 </a>
             </div>
         </nav>
@@ -71,7 +61,8 @@
 
             <div class="row g-4">
 
-                @forelse ($hotels as $hotel)
+                @foreach ($hotels as $hotel)
+                @if($hotels)
                     <div class="col-sm-12 col-lg-6 col-xl-4">
                         <div class="hotel-card">
 
@@ -103,7 +94,7 @@
                                     <div class="d-flex gap-2">
 
 
-                                        <form action="{{ route('admin.hotels.approve', $hotel->id) }}" method="POST">
+                                        <form action="{{ route('hotels.approve', $hotel->id) }}" method="POST">
                                             @csrf
                                             @method('PUT')
                                             <button class="btn btn-success w-100">
@@ -112,7 +103,7 @@
                                         </form>
 
 
-                                        <form action="{{ route('admin.hotels.reject', $hotel->id) }}" method="POST">
+                                        <form action="{{ route('hotels.reject', $hotel->id) }}" method="POST">
                                             @csrf
                                             @method('PUT')
                                             <button class="btn btn-danger w-100">
@@ -127,11 +118,11 @@
 
                         </div>
                     </div>
-                @empty
+                @else
                     <div class="col-12 text-center text-muted">
                         <p>No pending hotels found.</p>
                     </div>
-                @endforelse
+                @endforeach
 
             </div>
         </div>
@@ -152,8 +143,7 @@
 <script src= '/js/main1.js' ></script>
 
 </body>
-=======
->>>>>>> 5214f9676498459cc7088c6ec0e2fe5e31bbb7c0
+
     <title>Pending Hotels - Hotel Moderation</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
@@ -166,7 +156,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -197,7 +187,7 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
                 <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><i class="fa fa-building me-2"></i>HÔTEL MODERATION</h3>
+                    <h3 class="text-primary"><i class="fa fa-building me-2"></i>HoTEL MODERATION</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
@@ -336,7 +326,7 @@
                         </div>
                     </div>
 
-                    <!-- Hotel Card 4 -->
+
                     <div class="col-sm-12 col-lg-6 col-xl-4">
                         <div class="hotel-card">
                             <div class="hotel-card-image">
@@ -361,7 +351,7 @@
                         </div>
                     </div>
 
-                    <!-- Hotel Card 5 -->
+
                     <div class="col-sm-12 col-lg-6 col-xl-4">
                         <div class="hotel-card">
                             <div class="hotel-card-image">
@@ -386,7 +376,6 @@
                         </div>
                     </div>
 
-                    <!-- Hotel Card 6 -->
                     <div class="col-sm-12 col-lg-6 col-xl-4">
                         <div class="hotel-card">
                             <div class="hotel-card-image">
@@ -413,17 +402,17 @@
                 </div>
             </div>
 
-            <!-- Footer -->
+
             <div class="container-fluid pt-4 px-4">
                 <div class="text-center text-muted" style="padding: 2rem 0; border-top: 1px solid #E8E6E1;">
                     <small>&copy; 2024 Hotel Moderation System. All rights reserved.</small>
                 </div>
             </div>
         </div>
-        <!-- Content End -->
+
     </div>
 
-    <!-- JavaScript Libraries -->
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/chart/chart.min.js"></script>
@@ -434,12 +423,9 @@
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
-    <!-- Template Javascript -->
+
     <script src="js/main.js"></script>
 </body>
 
-<<<<<<< HEAD
-=======
->>>>>>> 0fa1e2ababba3080ffb25546a32e63ff88a10795
->>>>>>> 5214f9676498459cc7088c6ec0e2fe5e31bbb7c0
+
 </html>
