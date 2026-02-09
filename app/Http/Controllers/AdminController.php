@@ -9,40 +9,29 @@ class AdminController extends Controller
 {
     public function index(){
         $hotels=Hotel::where('statut','pending')->get();
-        return view('admin.hotel',compact('hotels'));
-    }
-        public function dashboard()
-    {
-        return view('admin.dashboard');
+        return view('dashboard.index',compact('hotels'));
     }
 
-    public function hotels()
-    {
-        $hotels = Hotel::where('status', 'pending')
-            ->with('user')
-            ->get();
 
-        return view('admin.hotels', compact('hotels'));
-    }
 
     public function approve(Hotel $hotel)
     {
         $hotel->update(['status' => 'approved']);
 
-        return redirect()->route('admin.hotels');
+        return redirect()->route('admin.index');
     }
 
     public function reject(Hotel $hotel)
     {
         $hotel->update(['status' => 'rejected']);
 
-        return redirect()->route('admin.hotels');
+        return redirect()->route('admin.index');
     }
 
 
 
     public function create(){
-        return view('admin.create');
+
     }
     public function show(){}
 
