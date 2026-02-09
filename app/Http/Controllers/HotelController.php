@@ -24,32 +24,32 @@ class HotelController extends Controller
 
     public function create()
     {
-       
+
     }
 
     public function store(Request $request)
     {
-      
+
     }
 
     public function edit(Hotel $hotel)
     {
-      
+
     }
 
     public function update(Request $request, Hotel $hotel)
     {
-        
+
     }
 
     public function destroy(Hotel $hotel)
     {
-       
+
     }
 
     public function recherche(Request $request){
- if ($request->input('search')) {
-        $hotels = hotel::where('name', 'like', '%' . $request->('search') . '%')->get();
+ if (request('search')) {
+        $hotels = hotel::where('name', 'like', '%' . request('search') . '%')->get();
     } else {
         $hotel = hotel::all();
     }
