@@ -50,11 +50,34 @@ Route::prefix('admin')->group( function (){
 });
 
 
+<<<<<<< HEAD
 Route::get('/admin',function(){
     return view('dahsboard.index');
 });
 
 
+=======
+// Route::get('/admin',function(){
+//     return view('admin.dashboard');
+// });
+
+
+
+
+Route::prefix('admin')->group(function () {
+        Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.index');
+        Route::get('/hotels', [AdminController::class, 'hotels'])->name('admin.hotels');
+        Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+        Route::put('/hotels/{hotel}/approve', [AdminController::class, 'approve']) ->name('hotels.approve');
+        Route::put('/hotels/{hotel}/reject', [AdminController::class, 'reject'])->name('hotels.reject');
+});
+
+// Route::get('/admin',function(){
+//     return view('dashboard.index');
+// });
+
+
+>>>>>>> develop
 Route::middleware('guest')->group(function () {
     Route::get('/login', function(){
         return view('auth.login');

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,6 +37,17 @@
 </head>
 
 <body>
+=======
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Header Start -->
+>>>>>>> develop
     <div class="container-fluid bg-dark px-0">
         <div class="row gx-0">
             <div class="col-lg-3 bg-dark d-none d-lg-block">
@@ -46,9 +58,12 @@
             </div>
             <div class="col-lg-9">
                 <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
+<<<<<<< HEAD
                     <a href="index.html" class="navbar-brand d-block d-lg-none">
                         <h1 class="m-0 text-primary text-uppercase">Hotelier</h1>
                     </a>
+=======
+>>>>>>> develop
                     <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
                         data-bs-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
@@ -63,10 +78,10 @@
                             @endguest
 
                             @auth
-                                <form action="/logout" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="nav-item nav-link" id="logout">
+                                <form action="/logout" method="post" class="d-flex align-items-center">
+                                @csrf
+                                @method('DELETE')
+                                    <button type="submit" class="nav-item nav-link btn btn-link p-0 m-0">
                                         Log Out
                                     </button>
                                 </form>
@@ -77,5 +92,9 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     <!-- Header End -->
 </body>
+=======
+    <!-- Header End -->
+>>>>>>> develop
