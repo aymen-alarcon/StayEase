@@ -8,7 +8,7 @@ use App\Models\Hotel;
 class AdminController extends Controller
 {
     public function index(){
-        $hotels=Hotel::where('statut','pending')->get();
+        $hotels=Hotel::all();
         return view('dashboard.index',compact('hotels'));
     }
 
