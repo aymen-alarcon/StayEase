@@ -85,7 +85,3 @@ Route::middleware('auth')->group(function() {
         return view('dashboard.index');
     })->middleware('role:Admin');
 });
-
-Route::get('/booking', function() {
-    return view('testimonial');
-});
