@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Reservation;
 use App\Models\Room;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
@@ -19,19 +20,20 @@ class ReservationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Reservation $reservation)
     {
-        $validate = Request::validate([
+        $validate = $request->validate([
             "date_debut" => "required",
             "date_fin" => "required",
-            "user_id" => "required",
             "room_id" => "required",
-            "status" => "not paid",
+            "status" => "required",
         ]);
 
-        Reservation::create($validate);
+        $validate["user_id"] = Auth::id();
 
-        return redirect()->route("Home");
+        $reservation->create($validate);
+
+        return redirect()->route("payment.create");
     }
 
     /**
@@ -39,11 +41,11 @@ class ReservationController extends Controller
      */
     public function update(Request $request, Reservation $reservation)
     {
-        $validate = Request::validate([
+        $validate = $request->validate([
             "status" => "paid",
         ]);
 
-        Reservation::update($validate);
+        $reservation->update($validate);
 
         return redirect()->route("Home");
     }
