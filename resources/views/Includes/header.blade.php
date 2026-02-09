@@ -31,10 +31,10 @@
                             @endguest
 
                             @auth
-                                <form action="/logout" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="nav-item nav-link" id="logout">
+                                <form action="/logout" method="post" class="d-flex align-items-center">
+                                @csrf
+                                @method('DELETE')
+                                    <button type="submit" class="nav-item nav-link btn btn-link p-0 m-0">
                                         Log Out
                                     </button>
                                 </form>
