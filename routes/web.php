@@ -50,13 +50,13 @@ Route::prefix('admin')->group( function (){
 });
 
 
-<<<<<<< HEAD
+
 Route::get('/admin',function(){
     return view('dahsboard.index');
 });
 
 
-=======
+
 // Route::get('/admin',function(){
 //     return view('admin.dashboard');
 // });
