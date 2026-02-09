@@ -12,11 +12,6 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->redirectGuestsTo('/login');
-<<<<<<< .merge_file_zZK0KJ
-=======
-
-        $middleware->alias([ 'role' => \App\Http\Middleware\RoleMiddleware::class, ]);
->>>>>>> .merge_file_MnwDcj
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

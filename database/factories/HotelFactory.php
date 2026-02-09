@@ -20,18 +20,11 @@ class HotelFactory extends Factory
 
           return [
 
-<<<<<<< .merge_file_39bIJZ
             'name' => $this->faker->company(),
             'adresse' => $this->faker->address(),
             'rating' => $this->faker->numberBetween(1, 5),
             'created_at' => now(),
             'updated_at'=> now(),
-=======
-            'name' => $this->faker->name(),
-            'adresse' => $this->faker->address(),
-            'rating' => $this->faker->numberBetween(1, 5),
-
->>>>>>> .merge_file_sdGbCk
         ];
 
 
