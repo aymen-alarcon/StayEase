@@ -2,13 +2,15 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\HotelController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\SessionController;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HotelController;
+use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\StripeController;
+// use Laravel\Cashier\Checkout;
+use App\Http\Controllers\CategoryController;
 
 use Laravel\Cashier\Checkout;
 
@@ -49,6 +51,9 @@ Route::prefix('gerant')->group(function () {
 });
 
 
+Route::get('/admin',function(){
+    return view('admin.dashboard');
+});
 
 
 
@@ -59,13 +64,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('index');
         Route::put('/hotels/{hotel}/approve', [AdminController::class, 'approve']) ->name('hotels.approve');
         Route::put('/hotels/{hotel}/reject', [AdminController::class, 'reject'])->name('hotels.reject');
-    });
-
-
-
-
-
-
+});
 
 // Route::get('/admin',function(){
 //     return view('dashboard.index');
@@ -80,6 +79,8 @@ Route::middleware('guest')->group(function () {
     Route::get('/signup', function(){
         return view('Auth.signup');
     });
+});
+    
 
 Route::get('/stripe', [StripeController::class, 'index'])->name('stripe.index');
 Route::post('/checkout', [StripeController::class, 'checkout'])->name('stripe.checkout');
@@ -87,6 +88,14 @@ Route::get('/success', [StripeController::class, 'success'])->name('stripe.succe
 Route::get("/Payments/Create", [PaymentController::class, "create"])->name("payment.create");
 Route::post("/Payments/Store", [PaymentController::class, "store"]);
 
+Route::middleware('guest')->group(function () {
+    Route::get('/login', function(){
+        return view('Auth.login');
+    });
+
+    Route::get('/signup', function(){
+        return view('Auth.signup');
+    });
 
     Route::post('/signup', [RegisterController::class, 'store']);
 
@@ -96,10 +105,11 @@ Route::post("/Payments/Store", [PaymentController::class, "store"]);
 
 Route::middleware('auth')->group(function() {
     Route::delete('/logout', [SessionController::class, 'destroy']);
+    Route::get('/admin', function() {
+        return view('dashboard.index');
+    })->middleware('role:Admin');
 });
-
-
-
+// });
 //
 Route::get("/Dashboard/Categories/index", [CategoryController::class, "index"])->name("categories.index");
 Route::get("/Dashboard/Categories/Create", [CategoryController::class, "create"]);

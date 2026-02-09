@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8">
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
     <title>Pending Hotels | Admin</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -151,6 +153,7 @@
 
 </body>
 =======
+>>>>>>> 5214f9676498459cc7088c6ec0e2fe5e31bbb7c0
     <title>Pending Hotels - Hotel Moderation</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
@@ -435,5 +438,8 @@
     <script src="js/main.js"></script>
 </body>
 
+<<<<<<< HEAD
+=======
 >>>>>>> 0fa1e2ababba3080ffb25546a32e63ff88a10795
+>>>>>>> 5214f9676498459cc7088c6ec0e2fe5e31bbb7c0
 </html>
