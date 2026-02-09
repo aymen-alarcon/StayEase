@@ -55,6 +55,16 @@
 
                         <div class="d-flex gap-2">
                             <a href="{{ route('rooms.show', $room->id) }}" class="btn btn-warning text-white flex-grow-1">VIEW DETAIL</a>
+
+                            @if(auth()->user()->roles('Gerant'))
+                          <a href="{{ route('rooms.edit', $room->id) }}" class="btn btn-primary">updite</a>
+
+                             <form action="{{ route('rooms.destroy', $room->id) }}" method="POST" onsubmit="return confirm('Sure?')">
+                             @csrf
+                            @method('DELETE')
+                           <button type="submit" class="btn btn-danger">Delete</button>
+                       </form>
+                       @endif
                         </div>
                     </div>
                 </div>

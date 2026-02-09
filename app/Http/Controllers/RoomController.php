@@ -105,4 +105,4 @@ class RoomController extends Controller
         return redirect()->route('rooms.index');
     }
 }
-?>
+
