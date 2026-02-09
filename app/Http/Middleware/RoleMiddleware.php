@@ -18,13 +18,9 @@ class RoleMiddleware
     {
         if (!Auth::check()) return redirect('/login');
 
-        if (Auth::user()->roles->name === 'Admin') {
-            return $next($request);
-        }
+        if (Auth::user()->roles->name === 'Admin') return $next($request);
 
-        if (Auth::user()->roles->name !== $roleName) {
-            return abort(403, 'Unauthorized');
-        }
+        if (Auth::user()->roles->name !== $roleName) return abort(403, 'Unauthorized');
 
         return $next($request);
     }
