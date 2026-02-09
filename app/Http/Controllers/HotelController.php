@@ -13,10 +13,7 @@ class HotelController extends Controller
     {
         $h = Hotel::where('statut', 'approved');
 
-        //  $hoteladdress = Hotel::where('status', 'approved')->select('addresse') ->pluck('address');
-
-
-
+    
          $hotels = $h->paginate(6);
 
         return view('index', compact('hotels'));
