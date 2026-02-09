@@ -55,7 +55,7 @@ Route::prefix('gerant')->group(function () {
 
 Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-        Route::get('/hotels', [AdminController::class, 'hotels'])->name('admin.hotels');
+        Route::get('/hotels', [AdminController::class, 'hotels'])->name('admin.hotels.pending');
         Route::get('/', [AdminController::class, 'index'])->name('index');
         Route::put('/hotels/{hotel}/approve', [AdminController::class, 'approve']) ->name('hotels.approve');
         Route::put('/hotels/{hotel}/reject', [AdminController::class, 'reject'])->name('hotels.reject');
