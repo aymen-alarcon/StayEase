@@ -40,7 +40,7 @@ class PaymentController extends Controller
 
         $payment->create($validate);
 
-        return redirect()->route("stripe.index");
+        return redirect()->route("Reservation.update");
     }
 
     /**

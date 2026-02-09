@@ -8,12 +8,13 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\SessionController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\StripeController;
 use Laravel\Cashier\Checkout;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name("Home");
 
 
 Route::get('/geron',function(){
@@ -55,6 +56,7 @@ Route::post('/checkout', [StripeController::class, 'checkout'])->name('stripe.ch
 Route::get('/success', [StripeController::class, 'success'])->name('stripe.success');
 Route::get("/Payments/Create", [PaymentController::class, "create"])->name("payment.create");
 Route::post("/Payments/Store", [PaymentController::class, "store"]);
+Route::get("/Reservation/Update", [ReservationController::class, "update"])->name("Reservation.update");
 
 
     Route::post('/signup', [RegisterController::class, 'store']);

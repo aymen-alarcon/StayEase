@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reservation;
+use App\Models\Room;
 use Illuminate\Http\Request;
 
 class ReservationController extends Controller
@@ -10,17 +11,9 @@ class ReservationController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Room $room)
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return view("Reservation.index", compact("room"));
     }
 
     /**
@@ -28,23 +21,17 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $validate = Request::validate([
+            "date_debut" => "required",
+            "date_fin" => "required",
+            "user_id" => "required",
+            "room_id" => "required",
+            "status" => "not paid",
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Reservation $reservation)
-    {
-        //
-    }
+        Reservation::create($validate);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Reservation $reservation)
-    {
-        //
+        return redirect()->route("Home");
     }
 
     /**
@@ -52,14 +39,12 @@ class ReservationController extends Controller
      */
     public function update(Request $request, Reservation $reservation)
     {
-        //
-    }
+        $validate = Request::validate([
+            "status" => "paid",
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Reservation $reservation)
-    {
-        //
+        Reservation::update($validate);
+
+        return redirect()->route("Home");
     }
 }
