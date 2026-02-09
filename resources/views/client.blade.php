@@ -52,7 +52,6 @@ section class="hero">
                                     ($hotel->rating))
                                         <i class="fas fa-star"></i>
 
-                                @endfor
                                 <span style="color: var(--text-secondary); margin-left: 8px;">{{ $hotel->rating }}/5</span>
                             </div>
 
@@ -64,7 +63,7 @@ section class="hero">
         </div>
 
         <div class="d-flex justify-content-center mt-5">
-            {{ $hotels->links() }}
+            {{ $hotels }}
         </div>
     @else
         <div class="text-center py-5">
