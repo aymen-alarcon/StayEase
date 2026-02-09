@@ -8,13 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Hotel extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','adresse', 'rating'];
+    protected $fillable = ['name','adresse', 'rating','image'];
 
-    public function Images(){
+    public function images(){
     return $this->hasMany(Image::class);
     }
 
-        public function Gerant(){
+        public function User(){
         return $this->belongsTo(User::class);
     }
 

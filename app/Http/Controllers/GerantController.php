@@ -27,6 +27,7 @@ class GerantController extends Controller
             'description' => 'required',
             'addresse'    => 'required|string|max:255',
             'image'       => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            
         ]);
 
         if ($r->hasFile('images')) {
