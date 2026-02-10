@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardUserManagement;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -30,9 +31,9 @@ Route::prefix('gerant')->group(function () {
 });
 
 Route::prefix('admin')->group(function () {
-        Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.index');
+        // Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.index');
         Route::get('/hotels', [AdminController::class, 'hotels'])->name('admin.hotels');
-        Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+        // Route::get('/', [AdminController::class, 'index'])->name('admin.index');
         Route::put('/hotels/{hotel}/approve', [AdminController::class, 'approve']) ->name('hotels.approve');
         Route::put('/hotels/{hotel}/reject', [AdminController::class, 'reject'])->name('hotels.reject');
 });
@@ -62,9 +63,9 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function() {
     Route::delete('/logout', [SessionController::class, 'destroy']);
-    Route::get('/admin', function() {
-        return view('dashboard.index');
-    })->middleware('role:Admin');
+    // Route::get('/admin', function() {
+    //     return view('dashboard.index');
+    // })->middleware('role:Admin');
     Route::get('/user-status', function() {
         return view('dashboard.user-status');
     })->middleware('role:Admin');
@@ -77,3 +78,5 @@ Route::post("/Dashboard/Categories/Create/Store", [CategoryController::class, "s
 Route::get("/Dashboard/Categories/Edit/{category}", [CategoryController::class, "edit"]);
 Route::put("/Dashboard/Categories/Update/{category}", [CategoryController::class, "update"]);
 Route::delete("/Dashboard/Categories/Destroy/{category}", [CategoryController::class, "destroy"]);
+
+Route::get("/user-management", [DashboardUserManagement::class, 'index']);

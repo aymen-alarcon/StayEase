@@ -636,3 +636,17 @@
     color: var(--text-primary);
     box-shadow: 0 3px 8px rgba(212, 175, 55, 0.25);
 }
+
+
+button {
+    border: none;
+}
+
+.submit {
+    background-color: transparent;
+}
+
+.submit:hover {
+    width: 100%;
+    background-color: #c8ad4b;
+}

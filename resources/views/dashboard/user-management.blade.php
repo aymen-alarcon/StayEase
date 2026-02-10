@@ -136,10 +136,12 @@
                         <div class="kpi-card">
                             <div class="p-4">
                                 <div class="d-flex align-items-center justify-content-between mb-3">
-                                    <i class="fa fa-building fa-3x kpi-icon"></i>
+                                    <i class="fa fa-solid fa-users fa-3x kpi-icon"></i>
                                 </div>
-                                <p class="kpi-label">Total Hotels</p>
-                                <h6 class="kpi-value">184</h6>
+                                <p class="kpi-label">Total Clients</p>
+                                <h6 class="kpi-value">
+                                    {{ $clientNumber }}
+                                </h6>
                             </div>
                         </div>
                     </div>
@@ -147,10 +149,12 @@
                         <div class="kpi-card">
                             <div class="p-4">
                                 <div class="d-flex align-items-center justify-content-between mb-3">
-                                    <i class="fa fa-hourglass-half fa-3x kpi-icon" style="color: var(--warning);"></i>
+                                    <i class="fa fa-user fa-3x kpi-icon" style="color: var(--warning);"></i>
                                 </div>
-                                <p class="kpi-label">Pending </p>
-                                <h6 class="kpi-value" style="color: var(--warning);">23</h6>
+                                <p class="kpi-label">Admins </p>
+                                <h6 class="kpi-value" style="color: var(--warning);">
+                                    {{ $adminNumber }}
+                                </h6>
                             </div>
                         </div>
                     </div>
@@ -158,10 +162,12 @@
                         <div class="kpi-card">
                             <div class="p-4">
                                 <div class="d-flex align-items-center justify-content-between mb-3">
-                                    <i class="fa fa-check-circle fa-3x kpi-icon" style="color: var(--success);"></i>
+                                    <i class="fa fa-user fa-3x kpi-icon" style="color: var(--success);"></i>
                                 </div>
-                                <p class="kpi-label">Approved Hotels</p>
-                                <h6 class="kpi-value" style="color: var(--success);">156</h6>
+                                <p class="kpi-label">Managers</p>
+                                <h6 class="kpi-value" style="color: var(--success);">
+                                    {{ $managerNumber }}
+                                </h6>
                             </div>
                         </div>
                     </div>
@@ -171,7 +177,7 @@
                                 <div class="d-flex align-items-center justify-content-between mb-3">
                                     <i class="fa fa-times-circle fa-3x kpi-icon" style="color: var(--danger);"></i>
                                 </div>
-                                <p class="kpi-label">Rejected Hotels</p>
+                                <p class="kpi-label">Banned users</p>
                                 <h6 class="kpi-value" style="color: var(--danger);">5</h6>
                             </div>
                         </div>
@@ -198,12 +204,12 @@
                                     <thead
                                         style="background: linear-gradient(135deg, var(--secondary) 0%, var(--primary-dark) 100%); color: white;">
                                         <tr>
-                                            <th scope="col" style="padding: 1rem; border: none;">Hotel Name</th>
-                                            <th scope="col" style="padding: 1rem; border: none;">Location</th>
-                                            <th scope="col" style="padding: 1rem; border: none;">Submitted By</th>
-                                            <th scope="col" style="padding: 1rem; border: none;">Date</th>
-                                            <th scope="col" style="padding: 1rem; border: none;">Status</th>
-                                            <th scope="col" style="padding: 1rem; border: none;">Action</th>
+                                            <th scope="col" style="background-color: white; padding: 1rem; border: none;">id</th>
+                                            <th scope="col" style="background-color: white; padding: 1rem; border: none;">firstname</th>
+                                            <th scope="col" style="background-color: white; padding: 1rem; border: none;">lastname</th>
+                                            <th scope="col" style="background-color: white; padding: 1rem; border: none;">email</th>
+                                            <th scope="col" style="background-color: white; padding: 1rem; border: none;">role</th>
+                                            <th scope="col" style="background-color: white; padding: 1rem; border: none;">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -214,8 +220,10 @@
                                             <td style="padding: 1rem;">Jan 15, 2024</td>
                                             <td style="padding: 1rem;"><span class="badge badge-pending">Pending</span>
                                             </td>
-                                            <td style="padding: 1rem;"><a href="hotel-detail.html" class="btn btn-sm"
-                                                    style="background: var(--primary); color: var(--dark); border: none; border-radius: 6px; padding: 0.3rem 0.6rem;">Review</a>
+                                            <td style="padding: 1rem;">
+                                                <a href="hotel-detail.html" class="btn btn-sm"
+                                                    style="background: var(--primary); color: var(--dark); border: none; border-radius: 6px; padding: 0.3rem 0.6rem;">Review
+                                                </a>
                                             </td>
                                         </tr>
                                         <tr style="border-color: #E8E6E1;">
@@ -305,4 +313,4 @@
     <script src="js/main.js"></script>
 </body>
 
-</html>
+</html> 
