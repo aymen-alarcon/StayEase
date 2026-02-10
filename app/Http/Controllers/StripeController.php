@@ -25,7 +25,7 @@ class StripeController extends Controller
                     'price_data' => [
                         'currency' => 'mad',
                         'product_data' => [
-                            'name' => 'Send Money',
+                            'product_name' => $reservation->room_id,
                         ],
                         'unit_amount' => $reservation->total_price * 100,
                     ],
