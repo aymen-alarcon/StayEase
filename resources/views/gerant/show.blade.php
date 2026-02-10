@@ -27,7 +27,7 @@
 
 
         <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
-            <a href="#" class="sidebar-toggler flex-shrink-0">
+            <a href="#" class="sidebar-toggler ">
                 <i class="fa fa-bars"></i>
             </a>
         </nav>
@@ -58,7 +58,7 @@
                 <div class="col-md-6">
                     <div class="table-container p-3">
                         <p class="text-secondary mb-1">Hotel Status</p>
-                        <span class="badge badge-{{ $hotel->statut }}">{{ ucfirst($hotel->statut) }}</span>
+                        <span class="badge ">{{ $hotel->statut }}</span>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -94,12 +94,12 @@
                 <div class="col-lg-4">
                     <div class="table-container p-3">
                         <h6 class="fw-bold text-primary mb-2">Hotel Information</h6>
-                        <p class="text-secondary mb-1">Address</p>
+                        <p class="text-secondary mb-1">Address:</p>
                         <p class="text-primary mb-2">{{ $hotel->addresse }}</p>
 
 
 
-                        <p class="text-secondary mb-1">Star Rating</p>
+                        <p class="text-secondary mb-1">Star Rating:</p>
                         <p class="text-primary mb-2">{{ $hotel->rating }} Stars</p>
 
                         <hr>

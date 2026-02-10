@@ -17,7 +17,7 @@
     <div class="sidebar pe-4 pb-3">
         <nav class="navbar bg-light navbar-light">
             <a href="{{ route('gerant.index') }}" class="navbar-brand mx-4 mb-3">
-                <h3 class="text-primary"><i class="fa fa-bed me-2"></i>GERANT</h3>
+                <h3 class="text-primary"><i class="fa fa-bed me-2"></i></h3>
             </a>
         </nav>
     </div>
@@ -35,7 +35,7 @@
             <div class="container-fluid pt-4 px-4">
                 <div class="alert alert-warning">
                     <i class="fa fa-exclamation-triangle me-2"></i>
-                    This hotel is currently pending review. Modifications will require admin approval.
+                    Cet hotel est actuellement en attente d examen.
                 </div>
             </div>
         @endif
@@ -60,7 +60,7 @@
 
                             <div class="mb-3">
                                 <label class="form-label fw-bold">Addresse </label>
-                                <input type="text" name="address" class="form-control"
+                                <input type="text" name="addresse" class="form-control"
                                        value="{{ old('addresse', $hotel->addresse) }}" required>
                             </div>
 
@@ -83,7 +83,7 @@
                             <div class="mb-4">
                                 <label class="form-label fw-bold">Hotel Images</label>
                                 <input type="file" name="images[]" class="form-control" multiple accept="image/*">
-                                <small class="text-muted d-block mt-2">Upload up to 10 images (JPG, PNG)</small>
+                                <small class="text-muted d-block mt-2">Telechargez jusqu’aux images (JPG, PNG)</small>
                             </div>
 
 
@@ -103,9 +103,9 @@
                 <div class="col-lg-4">
                     <div class="table-container p-3">
                         <h6 class="fw-bold">Hotel Status</h6>
-                        <p>Current Status: <span class="badge">{{($hotel->status) }}</span></p>
+                        <p>Status: <span class="badge">{{($hotel->statut)}}</span></p>
                         <hr>
-                       
+
                     </div>
                 </div>
 

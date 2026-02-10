@@ -23,6 +23,7 @@ class HotelFactory extends Factory
             'name' => $this->faker->name(),
             'adresse' => $this->faker->address(),
             'rating' => $this->faker->numberBetween(1, 5),
+        
 
         ];
 

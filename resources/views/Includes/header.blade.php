@@ -44,9 +44,6 @@
             </div>
             <div class="col-lg-9">
                 <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
-                    <a href="index.html" class="navbar-brand d-block d-lg-none">
-                        <h1 class="m-0 text-primary text-uppercase">StayEase</h1>
-                    </a>
                     <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
                         data-bs-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
@@ -61,10 +58,10 @@
                             @endguest
 
                             @auth
-                                <form action="/logout" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="nav-item nav-link" id="logout">
+                                <form action="/logout" method="post" class="d-flex align-items-center">
+                                @csrf
+                                @method('DELETE')
+                                    <button type="submit" class="nav-item nav-link btn btn-link p-0 m-0">
                                         Log Out
                                     </button>
                                 </form>

@@ -18,7 +18,7 @@
 <body>
 <div class="container-fluid position-relative bg-white d-flex p-0">
 
-    {{-- SIDEBAR --}}
+    
     <div class="sidebar pe-4 pb-3">
         <nav class="navbar bg-light navbar-light">
             <a href="{{ route('admin.index') }}" class="navbar-brand mx-4 mb-3">
@@ -85,7 +85,7 @@
                     </div>
                 </div>
 
-              
+
                 <div class="col-lg-4">
 
 
@@ -93,7 +93,7 @@
                         <h5 class="fw-bold mb-3">Moderation Actions</h5>
 
                         @if($hotel->status === 'pending')
-                            <form method="POST" action="{{ route('admin.hotels.approve', $hotel) }}">
+                            <form method="POST" action="{{ route('hotels.approve', $hotel) }}">
                                 @csrf
                                 @method('PUT')
                                 <button class="btn btn-success w-100 mb-2">
@@ -101,7 +101,7 @@
                                 </button>
                             </form>
 
-                            <form method="POST" action="{{ route('admin.hotels.reject', $hotel) }}">
+                            <form method="POST" action="{{ route('hotels.reject', $hotel) }}">
                                 @csrf
                                 @method('PUT')
                                 <button class="btn btn-danger w-100">
