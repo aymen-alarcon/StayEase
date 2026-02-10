@@ -13,6 +13,10 @@ class DashboardUserManagement extends Controller
      */
     public function index()
     {
+        $users = User::with('roles')->whereHas('roles',
+        fn($query) => $query->where('name', '!=', 'Admin'))
+        ->get();
+
         $adminNumber = User::with('roles')->whereHas('roles', 
         fn($query) => $query->where('name', 'Admin'))
         ->count();
@@ -25,9 +29,10 @@ class DashboardUserManagement extends Controller
         fn($query) => $query->where('name', 'Gerant'))
         ->count();
         
+        $banned = User::where('is_banned', true)->count();
 
         return view('dashboard.user-management', compact( 'clientNumber',
-         'adminNumber', 'managerNumber'));
+         'adminNumber', 'managerNumber', 'banned', 'users'));
     }
 
     /**

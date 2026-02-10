@@ -69,7 +69,8 @@
                         User Management
                     </a>
                     <hr class="my-3" style="border-color: rgba(255,255,255,0.1);">
-                    <a href="/logout" class="nav-item nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <a href="/logout" class="nav-item nav-link"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class="fa fa-sign-out-alt me-2"></i>
                         Log Out
                     </a>
@@ -178,7 +179,9 @@
                                     <i class="fa fa-times-circle fa-3x kpi-icon" style="color: var(--danger);"></i>
                                 </div>
                                 <p class="kpi-label">Banned users</p>
-                                <h6 class="kpi-value" style="color: var(--danger);">5</h6>
+                                <h6 class="kpi-value" style="color: var(--danger);">
+                                    {{ $banned }}
+                                </h6>
                             </div>
                         </div>
                     </div>
@@ -204,69 +207,38 @@
                                     <thead
                                         style="background: linear-gradient(135deg, var(--secondary) 0%, var(--primary-dark) 100%); color: white;">
                                         <tr>
-                                            <th scope="col" style="background-color: white; padding: 1rem; border: none;">id</th>
-                                            <th scope="col" style="background-color: white; padding: 1rem; border: none;">firstname</th>
-                                            <th scope="col" style="background-color: white; padding: 1rem; border: none;">lastname</th>
-                                            <th scope="col" style="background-color: white; padding: 1rem; border: none;">email</th>
-                                            <th scope="col" style="background-color: white; padding: 1rem; border: none;">role</th>
-                                            <th scope="col" style="background-color: white; padding: 1rem; border: none;">Action</th>
+                                            <th scope="col"
+                                                style="background-color: white; padding: 1rem; border: none;">id</th>
+                                            <th scope="col"
+                                                style="background-color: white; padding: 1rem; border: none;">firstname
+                                            </th>
+                                            <th scope="col"
+                                                style="background-color: white; padding: 1rem; border: none;">lastname
+                                            </th>
+                                            <th scope="col"
+                                                style="background-color: white; padding: 1rem; border: none;">email</th>
+                                            <th scope="col"
+                                                style="background-color: white; padding: 1rem; border: none;">role</th>
+                                            <th scope="col"
+                                                style="background-color: white; padding: 1rem; border: none;">Action
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr style="border-color: #E8E6E1;">
-                                            <td style="padding: 1rem;"><strong>Le Luxury Plaza</strong></td>
-                                            <td style="padding: 1rem;">Paris, France</td>
-                                            <td style="padding: 1rem;">Marie Dupont</td>
-                                            <td style="padding: 1rem;">Jan 15, 2024</td>
-                                            <td style="padding: 1rem;"><span class="badge badge-pending">Pending</span>
-                                            </td>
-                                            <td style="padding: 1rem;">
-                                                <a href="hotel-detail.html" class="btn btn-sm"
-                                                    style="background: var(--primary); color: var(--dark); border: none; border-radius: 6px; padding: 0.3rem 0.6rem;">Review
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr style="border-color: #E8E6E1;">
-                                            <td style="padding: 1rem;"><strong>Seaside Resort</strong></td>
-                                            <td style="padding: 1rem;">Barcelona, Spain</td>
-                                            <td style="padding: 1rem;">Carlos Rodriguez</td>
-                                            <td style="padding: 1rem;">Jan 14, 2024</td>
-                                            <td style="padding: 1rem;"><span class="badge badge-pending">Pending</span>
-                                            </td>
-                                            <td style="padding: 1rem;"><a href="hotel-detail.html" class="btn btn-sm"
-                                                    style="background: var(--primary); color: var(--dark); border: none; border-radius: 6px; padding: 0.3rem 0.6rem;">Review</a>
-                                            </td>
-                                        </tr>
-                                        <tr style="border-color: #E8E6E1;">
-                                            <td style="padding: 1rem;"><strong>Alpine Retreat</strong></td>
-                                            <td style="padding: 1rem;">Zermatt, Switzerland</td>
-                                            <td style="padding: 1rem;">Hans Mueller</td>
-                                            <td style="padding: 1rem;">Jan 13, 2024</td>
-                                            <td style="padding: 1rem;"><span
-                                                    class="badge badge-approved">Approved</span></td>
-                                            <td style="padding: 1rem;"><span
-                                                    style="color: #999; font-size: 0.875rem;">—</span></td>
-                                        </tr>
-                                        <tr style="border-color: #E8E6E1;">
-                                            <td style="padding: 1rem;"><strong>Tokyo Executive</strong></td>
-                                            <td style="padding: 1rem;">Tokyo, Japan</td>
-                                            <td style="padding: 1rem;">Yuki Tanaka</td>
-                                            <td style="padding: 1rem;">Jan 12, 2024</td>
-                                            <td style="padding: 1rem;"><span
-                                                    class="badge badge-approved">Approved</span></td>
-                                            <td style="padding: 1rem;"><span
-                                                    style="color: #999; font-size: 0.875rem;">—</span></td>
-                                        </tr>
-                                        <tr style="border-color: #E8E6E1;">
-                                            <td style="padding: 1rem;"><strong>Desert Dreams</strong></td>
-                                            <td style="padding: 1rem;">Dubai, UAE</td>
-                                            <td style="padding: 1rem;">Ahmed Al-Mansouri</td>
-                                            <td style="padding: 1rem;">Jan 10, 2024</td>
-                                            <td style="padding: 1rem;"><span
-                                                    class="badge badge-rejected">Rejected</span></td>
-                                            <td style="padding: 1rem;"><span
-                                                    style="color: #999; font-size: 0.875rem;">—</span></td>
-                                        </tr>
+                                        @foreach ($users as $user)
+                                            <tr style="border-color: #E8E6E1;">
+                                                <td style="padding: 1rem;"><strong>{{ $user->id }}</strong></td>
+                                                <td style="padding: 1rem;">{{ $user->firstname }}</td>
+                                                <td style="padding: 1rem;">{{ $user->lastname }}</td>
+                                                <td style="padding: 1rem;">{{ $user->email }}</td>
+                                                <td style="padding: 1rem;">{{ $user->roles->name }}</td>
+                                                <td style="padding: 1rem;">
+                                                    <a href="hotel-detail.html" class="btn btn-sm"
+                                                        style="background: var(--primary); color: var(--dark); border: none; border-radius: 6px; padding: 0.3rem 0.6rem;">Review
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -313,4 +285,4 @@
     <script src="js/main.js"></script>
 </body>
 
-</html> 
+</html>
