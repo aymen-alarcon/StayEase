@@ -1,174 +1,134 @@
 @include('Includes.header')
-<div class="container-fluid position-relative bg-white d-flex p-0">
-
-
-    <div class="sidebar pe-4 pb-3">
-        <nav class="navbar bg-light navbar-light">
-            <a href="{{ route('admin.index') }}" class="navbar-brand mx-4 mb-3">
-                <h3 class="text-primary"><i class="fa fa-building me-2"></i>Admin</h3>
-            </a>
-
-            <div class="navbar-nav w-100">
-                <a href="{{ route('admin.index') }}" class="nav-item nav-link active">
-                    <i class="fa fa-tachometer-alt me-2"></i>Dashboard
-                </a>
-                <a href="{{ route('admin.hotels') }}" class="nav-item nav-link">
-                    <i class="fa fa-hourglass-half me-2"></i>Pending Hotels
-                </a>
-
-            </div>
-        </nav>
-    </div>
-
-
-    <div class="content">
-
-
-        <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
-            <h4 class="m-0 text-primary">Admin Dashboard</h4>
-        </nav>
-
-@php
-    $t=$hotels->count();
-    $p = $hotels->where('statut', 'pending')->count();
-    $app = $hotels->where('statut', 'approved')->count();
-    $r = $hotels->where('statut','rejected')->count();
-
-@endphp
-        <div class="container-fluid pt-4 px-4">
-            <div class="row g-4">
-                <div class="col-sm-6 col-xl-3">
-                    <div class="kpi-card p-4">
-                        <p class="kpi-label">Total Hotels:</p>
-                        <h6 class="kpi-value">{{$t}}  hotels</h6>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-xl-3">
-                    <div class="kpi-card p-4">
-                        <p class="kpi-label">Pending</p>
-                        <h6 class="kpi-value text-warning">{{ $p }}pending hotels</h6>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-xl-3">
-                    <div class="kpi-card p-4">
-                        <p class="kpi-label">Approved</p>
-                        <h6 class="kpi-value text-success">{{ $ap }} approved hotels</h6>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-xl-3">
-                    <div class="kpi-card p-4">
-                        <p class="kpi-label">Rejected</p>
-                        <h6 class="kpi-value text-danger">{{ $r}} rejected hotels</h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="container-fluid pt-4 px-4">
-            <div class="bg-white rounded p-4 shadow-sm">
-                <h6 class="mb-4 fw-bold">Recent Hotel Submissions</h6>
-
-                <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Adresse</th>
-                            <th>Rating</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        @foreach($recentHotels as $hotel)
-                            <tr>
-                                <td><strong>{{ $hotel->name }}</strong></td>
-                                <td>{{ $hotel->adresse }}</td>
-                                <td>{{ $hotel->rating  }}</td>
-                                <td>
-                                    <span class="badge"
-
-                                        {{ ($hotel->status) }}
-                                    </span>
-                                </td>
-                                <td>
-                                    @if($hotel->status === 'pending')
-                                        <a href="{{ route('admin.hotels') }}" class="btn btn-sm btn-primary">
-                                            Review
-                                        </a>
-                                    @else
-                                        —
-                                    @endif
-                                </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="5" class="text-center text-muted">
-                                    No hotels found
-                                </td>
-                            </tr>
-                        @endforelse
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="container-fluid pt-4 px-4">
-            <div class="bg-light rounded-top p-4 text-center">
-                &copy;  Hotels Platform
-            </div>
-        </div>
-
-    </div>
-</div>
-
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/js/main1.js"></script>
-
-</body>
-=======
->>>>>>> 5214f9676498459cc7088c6ec0e2fe5e31bbb7c0
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-</head>
-
-<body>
     <div class="container-fluid position-relative bg-white d-flex p-0">
-        <!-- Spinner Start -->
-<<<<<<< HEAD
-        <div id="spinner"
-            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-=======
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
->>>>>>> 5214f9676498459cc7088c6ec0e2fe5e31bbb7c0
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
+        <div class="sidebar pe-4 pb-3">
+            <nav class="navbar bg-light navbar-light">
+                <a href="{{ route('admin.index') }}" class="navbar-brand mx-4 mb-3">
+                    <h3 class="text-primary"><i class="fa fa-building me-2"></i>Admin</h3>
+                </a>
+
+                <div class="navbar-nav w-100">
+                    <a href="{{ route('admin.index') }}" class="nav-item nav-link active">
+                        <i class="fa fa-tachometer-alt me-2"></i>Dashboard
+                    </a>
+                    <a href="{{ route('admin.hotels') }}" class="nav-item nav-link">
+                        <i class="fa fa-hourglass-half me-2"></i>Pending Hotels
+                    </a>
+
+                </div>
+            </nav>
         </div>
-        <!-- Spinner End -->
 
 
-        <!-- Sidebar Start -->
+        <div class="content">
+
+
+            <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+                <h4 class="m-0 text-primary">Admin Dashboard</h4>
+            </nav>
+
+    @php
+        $t=$hotels->count();
+        $p = $hotels->where('statut', 'pending')->count();
+        $app = $hotels->where('statut', 'approved')->count();
+        $r = $hotels->where('statut','rejected')->count();
+
+    @endphp
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="kpi-card p-4">
+                            <p class="kpi-label">Total Hotels:</p>
+                            <h6 class="kpi-value">{{$t}}  hotels</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="kpi-card p-4">
+                            <p class="kpi-label">Pending</p>
+                            <h6 class="kpi-value text-warning">{{ $p }}pending hotels</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="kpi-card p-4">
+                            <p class="kpi-label">Approved</p>
+                            <h6 class="kpi-value text-success">{{ $ap }} approved hotels</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="kpi-card p-4">
+                            <p class="kpi-label">Rejected</p>
+                            <h6 class="kpi-value text-danger">{{ $r}} rejected hotels</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-white rounded p-4 shadow-sm">
+                    <h6 class="mb-4 fw-bold">Recent Hotel Submissions</h6>
+
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Adresse</th>
+                                <th>Rating</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            @foreach($recentHotels as $hotel)
+                                <tr>
+                                    <td><strong>{{ $hotel->name }}</strong></td>
+                                    <td>{{ $hotel->adresse }}</td>
+                                    <td>{{ $hotel->rating  }}</td>
+                                    <td>
+                                        <span class="badge">
+
+                                            {{ ($hotel->status) }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        @if($hotel->status === 'pending')
+                                            <a href="{{ route('admin.hotels') }}" class="btn btn-sm btn-primary">
+                                                Review
+                                            </a>
+                                        @else
+                                            —
+                                        @endif
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="5" class="text-center text-muted">
+                                        No hotels found
+                                    </td>
+                                </tr>
+                            @endforelse
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-light rounded-top p-4 text-center">
+                    &copy;  Hotels Platform
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid position-relative bg-white d-flex p-0">
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
                 <a href="index.html" class="navbar-brand mx-4 mb-3">

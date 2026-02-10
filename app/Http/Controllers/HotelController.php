@@ -11,12 +11,9 @@ class HotelController extends Controller
 {
     public function index(Request $request)
     {
-        $h = Hotel::where('statut', 'approved');
+        $hotels = Hotel::where('statut','approved')->where->get();
+         return view("gerant.hotels", compact('hotels'));
 
-    
-         $hotels = $h->paginate(6);
-
-        return view('index', compact('hotels'));
     }
 
     public function create()
@@ -24,10 +21,10 @@ class HotelController extends Controller
 
     }
 
-    public function store(Request $request)
-    {
+    public function store(Request $request){
 
     }
+
 
     public function edit(Hotel $hotel)
     {

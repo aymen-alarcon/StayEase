@@ -2,21 +2,20 @@
     <div class="container-fluid booking pb-5 wow fadeIn " data-wow-delay="0.1s">
         <div class="d-flex justify-content-center vh-100 align-items-center">
             <div class="bg-white shadow w-50" style="padding: 35px;">
-                <form action="/Reservation/store" method="POST" class="row g-2">
+                <form action="/Reservation/store/{{ $room->id }}" method="POST" class="row g-2">
                     @csrf
                     @method("POST")
                     <div class="col-md-10">
                         <div class="row g-2">
-                            <div class="col-md-6">
-                                <input type="text" name="status" value="not paid" hidden>
-                                <input type="text" name="room_id" value="1" hidden>
+                            <div class="col-md-4">
+                                <input type="text" name="room_id" value="{{ $room->id }}" hidden>
                                 <div class="date" id="date1" data-target-input="nearest">
-                                    <input type="date" name="date_debut" class="form-control" placeholder="Check in"/>
+                                    <input type="date" min="2026-02-10" name="date_debut" class="form-control" placeholder="Check in"/>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="date" id="date2" data-target-input="nearest">
-                                    <input type="date" name="date_fin" class="form-control" placeholder="Check out"/>
+                                    <input type="date" min="2026-02-10" name="date_fin" class="form-control" placeholder="Check out"/>
                                 </div>
                             </div>
                         </div>
