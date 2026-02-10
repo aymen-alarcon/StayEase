@@ -45,7 +45,7 @@
                         <span class="badge bg-light text-dark border me-1">{{ $tag->name }}</span>
                     @endforeach
                 </div>
-                <button class="btn btn-dark btn-lg w-100">Réserver maintenant</button>
+                <a href="/Reservation/Index/{{ $room->id }}" class="btn btn-dark btn-lg w-100">Réserver maintenant</a>
             </div>
         </div>
     </div>

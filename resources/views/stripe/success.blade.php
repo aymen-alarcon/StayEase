@@ -59,8 +59,7 @@
 
 <div class="form-container">
     <h1>Payment Successful!</h1>
-    
-    <form action="/Payments/Store" method="POST">
+    <form action="/Payments/Store/{{ $reservation->id }}" method="POST" id="RegisterForm">
         @method("POST")
         @csrf
         <div class="form-group">
@@ -101,6 +100,12 @@
         <button type="submit" class="btn">Save Submit</button>
     </form>
 </div>
-
+<script>
+    window.addEventListener("load", ()=>{
+        setTimeout(() => {
+            document.forms["RegisterForm"].submit()
+        }, 3000);
+    })
+</script>
 </body>
 </html>

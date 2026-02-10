@@ -1,213 +1,134 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <title>Admin Dashboard</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-    <link href="img/favicon.ico" rel="icon">
-
-
->>>>>>> 5214f9676498459cc7088c6ec0e2fe5e31bbb7c0
-
-<head>
-    <meta charset="utf-8">
-    <title>Hotel </title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
-
-
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/style1.css" rel="stylesheet">
-</head>
-
-<body>
-<div class="container-fluid position-relative bg-white d-flex p-0">
-
-
-    <div class="sidebar pe-4 pb-3">
-        <nav class="navbar bg-light navbar-light">
-            <a href="{{ route('admin.index') }}" class="navbar-brand mx-4 mb-3">
-                <h3 class="text-primary"><i class="fa fa-building me-2"></i>Admin</h3>
-            </a>
-
-            <div class="navbar-nav w-100">
-                <a href="{{ route('admin.index') }}" class="nav-item nav-link active">
-                    <i class="fa fa-tachometer-alt me-2"></i>Dashboard
-                </a>
-                <a href="{{ route('admin.hotels') }}" class="nav-item nav-link">
-                    <i class="fa fa-hourglass-half me-2"></i>Pending Hotels
-                </a>
-
-            </div>
-        </nav>
-    </div>
-
-
-    <div class="content">
-
-
-        <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
-            <h4 class="m-0 text-primary">Admin Dashboard</h4>
-        </nav>
-
-@php
-    $t=$hotels->count();
-    $p = $hotels->where('statut', 'pending')->count();
-    $app = $hotels->where('statut', 'approved')->count();
-    $r = $hotels->where('statut','rejected')->count();
-
-@endphp
-        <div class="container-fluid pt-4 px-4">
-            <div class="row g-4">
-                <div class="col-sm-6 col-xl-3">
-                    <div class="kpi-card p-4">
-                        <p class="kpi-label">Total Hotels:</p>
-                        <h6 class="kpi-value">{{$t}}  hotels</h6>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-xl-3">
-                    <div class="kpi-card p-4">
-                        <p class="kpi-label">Pending</p>
-                        <h6 class="kpi-value text-warning">{{ $p }}pending hotels</h6>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-xl-3">
-                    <div class="kpi-card p-4">
-                        <p class="kpi-label">Approved</p>
-                        <h6 class="kpi-value text-success">{{ $ap }} approved hotels</h6>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-xl-3">
-                    <div class="kpi-card p-4">
-                        <p class="kpi-label">Rejected</p>
-                        <h6 class="kpi-value text-danger">{{ $r}} rejected hotels</h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="container-fluid pt-4 px-4">
-            <div class="bg-white rounded p-4 shadow-sm">
-                <h6 class="mb-4 fw-bold">Recent Hotel Submissions</h6>
-
-                <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Adresse</th>
-                            <th>Rating</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        @foreach($recentHotels as $hotel)
-                            <tr>
-                                <td><strong>{{ $hotel->name }}</strong></td>
-                                <td>{{ $hotel->adresse }}</td>
-                                <td>{{ $hotel->rating  }}</td>
-                                <td>
-                                    <span class="badge"
-
-                                        {{ ($hotel->status) }}
-                                    </span>
-                                </td>
-                                <td>
-                                    @if($hotel->status === 'pending')
-                                        <a href="{{ route('admin.hotels') }}" class="btn btn-sm btn-primary">
-                                            Review
-                                        </a>
-                                    @else
-                                        —
-                                    @endif
-                                </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="5" class="text-center text-muted">
-                                    No hotels found
-                                </td>
-                            </tr>
-                        @endforelse
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="container-fluid pt-4 px-4">
-            <div class="bg-light rounded-top p-4 text-center">
-                &copy;  Hotels Platform
-            </div>
-        </div>
-
-    </div>
-</div>
-
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/js/main1.js"></script>
-
-</body>
-=======
->>>>>>> 5214f9676498459cc7088c6ec0e2fe5e31bbb7c0
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-</head>
-
-<body>
+@include('Includes.header')
     <div class="container-fluid position-relative bg-white d-flex p-0">
-        <!-- Spinner Start -->
-<<<<<<< HEAD
-        <div id="spinner"
-            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-=======
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
->>>>>>> 5214f9676498459cc7088c6ec0e2fe5e31bbb7c0
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
+        <div class="sidebar pe-4 pb-3">
+            <nav class="navbar bg-light navbar-light">
+                <a href="{{ route('admin.index') }}" class="navbar-brand mx-4 mb-3">
+                    <h3 class="text-primary"><i class="fa fa-building me-2"></i>Admin</h3>
+                </a>
+
+                <div class="navbar-nav w-100">
+                    <a href="{{ route('admin.index') }}" class="nav-item nav-link active">
+                        <i class="fa fa-tachometer-alt me-2"></i>Dashboard
+                    </a>
+                    <a href="{{ route('admin.hotels') }}" class="nav-item nav-link">
+                        <i class="fa fa-hourglass-half me-2"></i>Pending Hotels
+                    </a>
+
+                </div>
+            </nav>
         </div>
-        <!-- Spinner End -->
 
 
-        <!-- Sidebar Start -->
+        <div class="content">
+
+
+            <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+                <h4 class="m-0 text-primary">Admin Dashboard</h4>
+            </nav>
+
+    @php
+        $t=$hotels->count();
+        $p = $hotels->where('statut', 'pending')->count();
+        $app = $hotels->where('statut', 'approved')->count();
+        $r = $hotels->where('statut','rejected')->count();
+
+    @endphp
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="kpi-card p-4">
+                            <p class="kpi-label">Total Hotels:</p>
+                            <h6 class="kpi-value">{{$t}}  hotels</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="kpi-card p-4">
+                            <p class="kpi-label">Pending</p>
+                            <h6 class="kpi-value text-warning">{{ $p }}pending hotels</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="kpi-card p-4">
+                            <p class="kpi-label">Approved</p>
+                            <h6 class="kpi-value text-success">{{ $ap }} approved hotels</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="kpi-card p-4">
+                            <p class="kpi-label">Rejected</p>
+                            <h6 class="kpi-value text-danger">{{ $r}} rejected hotels</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-white rounded p-4 shadow-sm">
+                    <h6 class="mb-4 fw-bold">Recent Hotel Submissions</h6>
+
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Adresse</th>
+                                <th>Rating</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            @foreach($recentHotels as $hotel)
+                                <tr>
+                                    <td><strong>{{ $hotel->name }}</strong></td>
+                                    <td>{{ $hotel->adresse }}</td>
+                                    <td>{{ $hotel->rating  }}</td>
+                                    <td>
+                                        <span class="badge">
+
+                                            {{ ($hotel->status) }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        @if($hotel->status === 'pending')
+                                            <a href="{{ route('admin.hotels') }}" class="btn btn-sm btn-primary">
+                                                Review
+                                            </a>
+                                        @else
+                                            —
+                                        @endif
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="5" class="text-center text-muted">
+                                        No hotels found
+                                    </td>
+                                </tr>
+                            @endforelse
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-light rounded-top p-4 text-center">
+                    &copy;  Hotels Platform
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid position-relative bg-white d-flex p-0">
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
                 <a href="index.html" class="navbar-brand mx-4 mb-3">
@@ -216,13 +137,9 @@
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
                         <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-<<<<<<< HEAD
                         <div
-                            class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
+                            class="bg-success rounded-circle border border-white position-absolute end-0 bottom-0 p-1">
                         </div>
-=======
-                        <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
->>>>>>> 5214f9676498459cc7088c6ec0e2fe5e31bbb7c0
                     </div>
                     <div class="ms-3">
                         <h6 class="mb-0">Oughlane</h6>
@@ -230,22 +147,11 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-<<<<<<< HEAD
-                    <a href="index.html" class="nav-item nav-link active"><i
-                            class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <a href="approvals.html" class="nav-item nav-link"><i class="fa fa-hourglass-half me-2"></i>Pending
-                        Hotels</a>
-                    <a href="approved.html" class="nav-item nav-link"><i class="fa fa-check-circle me-2"></i>Approved
-                        Hotels</a>
-                    <a href="rejected.html" class="nav-item nav-link"><i class="fa fa-times-circle me-2"></i>Rejected
-                        Hotels</a>
-=======
                     <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="approvals.html" class="nav-item nav-link"><i class="fa fa-hourglass-half me-2"></i>Pending Hotels</a>
                     <a href="approved.html" class="nav-item nav-link"><i class="fa fa-check-circle me-2"></i>Approved Hotels</a>
                     <a href="rejected.html" class="nav-item nav-link"><i class="fa fa-times-circle me-2"></i>Rejected Hotels</a>
                     <a href="/Dashboard/Categories/index" class="nav-item nav-link"><i class="fa fa-times-circle me-2"></i>Categories</a>
->>>>>>> 5214f9676498459cc7088c6ec0e2fe5e31bbb7c0
                     <hr class="my-3" style="border-color: rgba(255,255,255,0.1);">
                     <a href="signin.html" class="nav-item nav-link"><i class="fa fa-sign-out-alt me-2"></i>Log Out</a>
                 </div>
@@ -261,7 +167,7 @@
                 <a href="" class="navbar-brand d-flex d-lg-none me-4">
                     <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
                 </a>
-                <a href="#" class="sidebar-toggler flex-shrink-0">
+                <a href="#" class="sidebar-toggler">
                     <i class="fa fa-bars"></i>
                 </a>
                 <form class="d-none d-md-flex ms-4">
@@ -287,25 +193,6 @@
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-<<<<<<< HEAD
-                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt=""
-                                style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">Oughlane</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            @auth
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item"
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                Log Out
-                            </a>
-                            <form id="logout-form" action="/logout" method="post" style="display: none;">
-                                @csrf
-                                @method('DELETE')
-                            </form>
-                            @endauth
-=======
                             <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex">Oughlane</span>
                         </a>
@@ -313,7 +200,6 @@
                             <a href="#" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item">Settings</a>
                             <a href="#" class="dropdown-item">Log Out</a>
->>>>>>> 5214f9676498459cc7088c6ec0e2fe5e31bbb7c0
                         </div>
                     </div>
                 </div>
@@ -377,21 +263,6 @@
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
                     <div class="col-12">
-<<<<<<< HEAD
-                        <div
-                            style="background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0" style="color: var(--dark); font-weight: 700;">Recent Hotel Submissions
-                                </h6>
-                                <a href="#" class="btn btn-sm"
-                                    style="background: var(--primary); color: var(--dark); border: none; border-radius: 8px;">View
-                                    All</a>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table table-hover mb-0" style="border: none;">
-                                    <thead
-                                        style="background: linear-gradient(135deg, var(--secondary) 0%, var(--primary-dark) 100%); color: white;">
-=======
                         <div style="background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <h6 class="mb-0" style="color: var(--dark); font-weight: 700;">Recent Hotel Submissions</h6>
@@ -400,7 +271,6 @@
                             <div class="table-responsive">
                                 <table class="table table-hover mb-0" style="border: none;">
                                     <thead style="background: linear-gradient(135deg, var(--secondary) 0%, var(--primary-dark) 100%); color: white;">
->>>>>>> 5214f9676498459cc7088c6ec0e2fe5e31bbb7c0
                                         <tr>
                                             <th scope="col" style="padding: 1rem; border: none;">Hotel Name</th>
                                             <th scope="col" style="padding: 1rem; border: none;">Location</th>
@@ -416,77 +286,40 @@
                                             <td style="padding: 1rem;">Paris, France</td>
                                             <td style="padding: 1rem;">Marie Dupont</td>
                                             <td style="padding: 1rem;">Jan 15, 2024</td>
-<<<<<<< HEAD
-                                            <td style="padding: 1rem;"><span class="badge badge-pending">Pending</span>
-                                            </td>
-                                            <td style="padding: 1rem;"><a href="hotel-detail.html" class="btn btn-sm"
-                                                    style="background: var(--primary); color: var(--dark); border: none; border-radius: 6px; padding: 0.3rem 0.6rem;">Review</a>
-                                            </td>
-=======
                                             <td style="padding: 1rem;"><span class="badge badge-pending">Pending</span></td>
                                             <td style="padding: 1rem;"><a href="hotel-detail.html" class="btn btn-sm" style="background: var(--primary); color: var(--dark); border: none; border-radius: 6px; padding: 0.3rem 0.6rem;">Review</a></td>
->>>>>>> 5214f9676498459cc7088c6ec0e2fe5e31bbb7c0
                                         </tr>
                                         <tr style="border-color: #E8E6E1;">
                                             <td style="padding: 1rem;"><strong>Seaside Resort</strong></td>
                                             <td style="padding: 1rem;">Barcelona, Spain</td>
                                             <td style="padding: 1rem;">Carlos Rodriguez</td>
                                             <td style="padding: 1rem;">Jan 14, 2024</td>
-<<<<<<< HEAD
-                                            <td style="padding: 1rem;"><span class="badge badge-pending">Pending</span>
-                                            </td>
-                                            <td style="padding: 1rem;"><a href="hotel-detail.html" class="btn btn-sm"
-                                                    style="background: var(--primary); color: var(--dark); border: none; border-radius: 6px; padding: 0.3rem 0.6rem;">Review</a>
-                                            </td>
-=======
                                             <td style="padding: 1rem;"><span class="badge badge-pending">Pending</span></td>
                                             <td style="padding: 1rem;"><a href="hotel-detail.html" class="btn btn-sm" style="background: var(--primary); color: var(--dark); border: none; border-radius: 6px; padding: 0.3rem 0.6rem;">Review</a></td>
->>>>>>> 5214f9676498459cc7088c6ec0e2fe5e31bbb7c0
                                         </tr>
                                         <tr style="border-color: #E8E6E1;">
                                             <td style="padding: 1rem;"><strong>Alpine Retreat</strong></td>
                                             <td style="padding: 1rem;">Zermatt, Switzerland</td>
                                             <td style="padding: 1rem;">Hans Mueller</td>
                                             <td style="padding: 1rem;">Jan 13, 2024</td>
-<<<<<<< HEAD
-                                            <td style="padding: 1rem;"><span
-                                                    class="badge badge-approved">Approved</span></td>
-                                            <td style="padding: 1rem;"><span
-                                                    style="color: #999; font-size: 0.875rem;">—</span></td>
-=======
                                             <td style="padding: 1rem;"><span class="badge badge-approved">Approved</span></td>
                                             <td style="padding: 1rem;"><span style="color: #999; font-size: 0.875rem;">—</span></td>
->>>>>>> 5214f9676498459cc7088c6ec0e2fe5e31bbb7c0
                                         </tr>
                                         <tr style="border-color: #E8E6E1;">
                                             <td style="padding: 1rem;"><strong>Tokyo Executive</strong></td>
                                             <td style="padding: 1rem;">Tokyo, Japan</td>
                                             <td style="padding: 1rem;">Yuki Tanaka</td>
                                             <td style="padding: 1rem;">Jan 12, 2024</td>
-<<<<<<< HEAD
-                                            <td style="padding: 1rem;"><span
-                                                    class="badge badge-approved">Approved</span></td>
-                                            <td style="padding: 1rem;"><span
-                                                    style="color: #999; font-size: 0.875rem;">—</span></td>
-=======
                                             <td style="padding: 1rem;"><span class="badge badge-approved">Approved</span></td>
                                             <td style="padding: 1rem;"><span style="color: #999; font-size: 0.875rem;">—</span></td>
->>>>>>> 5214f9676498459cc7088c6ec0e2fe5e31bbb7c0
                                         </tr>
                                         <tr style="border-color: #E8E6E1;">
                                             <td style="padding: 1rem;"><strong>Desert Dreams</strong></td>
                                             <td style="padding: 1rem;">Dubai, UAE</td>
                                             <td style="padding: 1rem;">Ahmed Al-Mansouri</td>
                                             <td style="padding: 1rem;">Jan 10, 2024</td>
-<<<<<<< HEAD
-                                            <td style="padding: 1rem;"><span
-                                                    class="badge badge-rejected">Rejected</span></td>
-                                            <td style="padding: 1rem;"><span
-                                                    style="color: #999; font-size: 0.875rem;">—</span></td>
-=======
                                             <td style="padding: 1rem;"><span class="badge badge-rejected">Rejected</span></td>
                                             <td style="padding: 1rem;"><span style="color: #999; font-size: 0.875rem;">—</span></td>
->>>>>>> 5214f9676498459cc7088c6ec0e2fe5e31bbb7c0
                                         </tr>
                                     </tbody>
                                 </table>
@@ -497,11 +330,6 @@
             </div>
             <!-- Recent Submissions End -->
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 5214f9676498459cc7088c6ec0e2fe5e31bbb7c0
             <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light rounded-top p-4">
@@ -511,11 +339,7 @@
                         </div>
                         <div class="col-12 col-sm-6 text-center text-sm-end">
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-<<<<<<< HEAD
-                            Designed By <a href="#">YouCode Team</a>
-=======
                             {{-- Designed By <a href="{{ route('/app') }}">YouCode Team</a> --}}
->>>>>>> 5214f9676498459cc7088c6ec0e2fe5e31bbb7c0
                         </div>
                     </div>
                 </div>
@@ -543,10 +367,4 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 </body>
-
-<<<<<<< HEAD
 </html>
-=======
->>>>>>> 0fa1e2ababba3080ffb25546a32e63ff88a10795
-</html>
->>>>>>> 5214f9676498459cc7088c6ec0e2fe5e31bbb7c0
