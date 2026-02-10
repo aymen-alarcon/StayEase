@@ -2,11 +2,14 @@
 
 namespace Database\Seeders;
 
+use HotelSeeder;
 use App\Models\User;
-use Database\Seeders\TagSeeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use illuminate\Database\DB;
+use Database\Seeders\TagSeeder;
+use Illuminate\Database\Seeder;
+use Database\Seeders\RoomSeeder;
+use Database\Seeders\PropertySeeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DatabaseSeeder extends Seeder
 {

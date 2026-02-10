@@ -77,7 +77,7 @@ Route::prefix('admin')->group(function () {
 // });
 
 
->>>>>>> develop
+
 Route::middleware('guest')->group(function () {
     Route::get('/login', function(){
         return view('auth.login');
