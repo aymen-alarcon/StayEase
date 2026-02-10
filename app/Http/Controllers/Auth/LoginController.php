@@ -36,16 +36,16 @@ class LoginController extends Controller
         ]);
 
         $result = Auth::attempt($validate);
-        
+
         if(!$result){
             return back()->withErrors([
                 'email' => 'incorrect email',
                 'password' => 'incorrect password'
             ]);
         }
-        
-        $user = Auth::user();
 
+        $user = Auth::user();
+        
         switch ($user->roles->name) {
             case 'Admin':
                 return redirect('/admin');
