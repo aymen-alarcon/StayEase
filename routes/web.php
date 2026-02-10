@@ -11,34 +11,13 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\StripeController;
 // use Laravel\Cashier\Checkout;
 use App\Http\Controllers\CategoryController;
-
 use Laravel\Cashier\Checkout;
 
 Route::get('/', function () {
     return view('index');
 });
 
-
-Route::get('/geron',function(){
-    return '<h1>bonjour gerant</h1>' ;
-});
-// Route::get('/hotel',function(){
-//     return view('hotel.index');
-// });
-// Route::post('/hotel',function(){
-//     return view('hotel.store');
-// });
-// Route::get('/hotel/{hotel}',function(){
-
-
-
-
-
-
-
-
-
-
+// Oughlane Routes
 Route::prefix('gerant')->group(function () {
 
     Route::get('/', [HotelController::class, 'index'])->name('gerant.index');
@@ -50,14 +29,6 @@ Route::prefix('gerant')->group(function () {
     Route::delete('/{hotel}', [HotelController::class, 'destroy'])->name('gerant.destroy');
 });
 
-
-// Route::get('/admin',function(){
-//     return view('admin.dashboard');
-// });
-
-
-
-
 Route::prefix('admin')->group(function () {
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.index');
         Route::get('/hotels', [AdminController::class, 'hotels'])->name('admin.hotels');
@@ -66,28 +37,14 @@ Route::prefix('admin')->group(function () {
         Route::put('/hotels/{hotel}/reject', [AdminController::class, 'reject'])->name('hotels.reject');
 });
 
-// Route::get('/admin',function(){
-//     return view('dashboard.index');
-// });
-
-
-Route::middleware('guest')->group(function () {
-    Route::get('/login', function(){
-        return view('Auth.login');
-    });
-
-    Route::get('/signup', function(){
-        return view('Auth.signup');
-    });
-});
-
-
+// Aymane routes
 Route::get('/stripe', [StripeController::class, 'index'])->name('stripe.index');
 Route::post('/checkout', [StripeController::class, 'checkout'])->name('stripe.checkout');
 Route::get('/success', [StripeController::class, 'success'])->name('stripe.success');
 Route::get("/Payments/Create", [PaymentController::class, "create"])->name("payment.create");
 Route::post("/Payments/Store", [PaymentController::class, "store"]);
 
+// Hamza Routes
 Route::middleware('guest')->group(function () {
     Route::get('/login', function(){
         return view('Auth.login');
@@ -108,9 +65,12 @@ Route::middleware('auth')->group(function() {
     Route::get('/admin', function() {
         return view('dashboard.index');
     })->middleware('role:Admin');
+    Route::get('/user-status', function() {
+        return view('dashboard.user-status');
+    })->middleware('role:Admin');
 });
-// });
-//
+
+// 
 Route::get("/Dashboard/Categories/index", [CategoryController::class, "index"])->name("categories.index");
 Route::get("/Dashboard/Categories/Create", [CategoryController::class, "create"]);
 Route::post("/Dashboard/Categories/Create/Store", [CategoryController::class, "store"]);

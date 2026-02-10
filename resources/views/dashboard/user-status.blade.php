@@ -8,7 +8,6 @@
 
     <link href="img/favicon.ico" rel="icon">
 
-<head>
     <meta charset="utf-8">
     <title>Hotel </title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -19,9 +18,6 @@
     <link href="img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
-
-
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -34,170 +30,9 @@
     <link href="/css/style1.css" rel="stylesheet">
 </head>
 
-<body>
-<div class="container-fluid position-relative bg-white d-flex p-0">
-
-
-    <div class="sidebar pe-4 pb-3">
-        <nav class="navbar bg-light navbar-light">
-            <a href="{{ route('admin.index') }}" class="navbar-brand mx-4 mb-3">
-                <h3 class="text-primary"><i class="fa fa-building me-2"></i>Admin</h3>
-            </a>
-
-            <div class="navbar-nav w-100">
-                <a href="{{ route('admin.index') }}" class="nav-item nav-link active">
-                    <i class="fa fa-tachometer-alt me-2"></i>Dashboard
-                </a>
-                <a href="{{ route('admin.hotels') }}" class="nav-item nav-link">
-                    <i class="fa fa-hourglass-half me-2"></i>Pending Hotels
-                </a>
-
-            </div>
-        </nav>
-    </div>
-
-
-    <div class="content">
-
-
-        <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
-            <h4 class="m-0 text-primary">Admin Dashboard</h4>
-        </nav>
-
-@php
-    $t=$hotels->count();
-    $p = $hotels->where('statut', 'pending')->count();
-    $app = $hotels->where('statut', 'approved')->count();
-    $r = $hotels->where('statut','rejected')->count();
-
-@endphp
-        <div class="container-fluid pt-4 px-4">
-            <div class="row g-4">
-                <div class="col-sm-6 col-xl-3">
-                    <div class="kpi-card p-4">
-                        <p class="kpi-label">Total Hotels:</p>
-                        <h6 class="kpi-value">{{$t}}  hotels</h6>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-xl-3">
-                    <div class="kpi-card p-4">
-                        <p class="kpi-label">Pending</p>
-                        <h6 class="kpi-value text-warning">{{ $p }}pending hotels</h6>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-xl-3">
-                    <div class="kpi-card p-4">
-                        <p class="kpi-label">Approved</p>
-                        <h6 class="kpi-value text-success">{{ $ap }} approved hotels</h6>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-xl-3">
-                    <div class="kpi-card p-4">
-                        <p class="kpi-label">Rejected</p>
-                        <h6 class="kpi-value text-danger">{{ $r}} rejected hotels</h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="container-fluid pt-4 px-4">
-            <div class="bg-white rounded p-4 shadow-sm">
-                <h6 class="mb-4 fw-bold">Recent Hotel Submissions</h6>
-
-                <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Adresse</th>
-                            <th>Rating</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        @foreach($recentHotels as $hotel)
-                            <tr>
-                                <td><strong>{{ $hotel->name }}</strong></td>
-                                <td>{{ $hotel->adresse }}</td>
-                                <td>{{ $hotel->rating  }}</td>
-                                <td>
-                                    <span class="badge"
-
-                                        {{ ($hotel->status) }}
-                                    </span>
-                                </td>
-                                <td>
-                                    @if($hotel->status === 'pending')
-                                        <a href="{{ route('admin.hotels') }}" class="btn btn-sm btn-primary">
-                                            Review
-                                        </a>
-                                    @else
-                                        —
-                                    @endif
-                                </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="5" class="text-center text-muted">
-                                    No hotels found
-                                </td>
-                            </tr>
-                        @endforelse
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="container-fluid pt-4 px-4">
-            <div class="bg-light rounded-top p-4 text-center">
-                &copy;  Hotels Platform
-            </div>
-        </div>
-
-    </div>
-</div>
-
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/js/main1.js"></script>
-
-</body>
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-</head>
 
 <body>
     <div class="container-fluid position-relative bg-white d-flex p-0">
-        <!-- Spinner Start -->
-        <div id="spinner"
-            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-        <!-- Spinner End -->
-
-
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
@@ -232,7 +67,6 @@
         </div>
         <!-- Sidebar End -->
 
-
         <!-- Content Start -->
         <div class="content">
             <!-- Navbar Start -->
@@ -248,21 +82,14 @@
                 </form>
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
-
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-
-
                             <hr class="dropdown-divider">
-
-
                             </a>
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item text-center"></a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
-
-
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
@@ -272,23 +99,22 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             @auth
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item"
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                Log Out
-                            </a>
-                            <form id="logout-form" action="/logout" method="post" style="display: none;">
-                                @csrf
-                                @method('DELETE')
-                            </form>
+                                <a href="#" class="dropdown-item">My Profile</a>
+                                <a href="#" class="dropdown-item">Settings</a>
+                                <a href="#" class="dropdown-item"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    Log Out
+                                </a>
+                                <form id="logout-form" action="/logout" method="post" style="display: none;">
+                                    @csrf
+                                    @method('DELETE')
+                                </form>
                             @endauth
                         </div>
                     </div>
                 </div>
             </nav>
             <!-- Navbar End -->
-
 
             <!-- Hotel Stats Start -->
             <div class="container-fluid pt-4 px-4">
@@ -340,7 +166,6 @@
                 </div>
             </div>
             <!-- Hotel Stats End -->
-
 
             <!-- Recent Submissions Start -->
             <div class="container-fluid pt-4 px-4">
@@ -430,8 +255,6 @@
             </div>
             <!-- Recent Submissions End -->
 
-
-
             <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light rounded-top p-4">
@@ -449,7 +272,6 @@
             <!-- Footer End -->
         </div>
         <!-- Content End -->
-
 
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
@@ -469,4 +291,5 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 </body>
+
 </html>
