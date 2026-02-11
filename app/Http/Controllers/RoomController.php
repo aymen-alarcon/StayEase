@@ -24,7 +24,7 @@ class RoomController extends Controller
 
         $rooms = $query->get();
         $allTags = Tag::all();
-        dd($query);
+        // dd($query);
         $allProperties = Property::all();
         return view('rooms.index', compact('rooms', 'allTags', 'allProperties'));
     }
