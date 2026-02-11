@@ -75,38 +75,34 @@
                 <p>Create your account</p>
             </div>
 
-            <form method="post" class="login-form" id="loginForm" novalidate>
+            <form method="post" class="login-form" id="loginForm">
                 @csrf
                 <div class="form-group">
                     <div class="input-wrapper">
-                        <input type="text" id="email" name="firstname" required autocomplete="First name">
                         <label for="firstname">First name</label>
+                        <input type="text" name="firstname" required >
                         <span class="focus-border"></span>
                     </div>
-                    <span class="error-message" id="emailError"></span>
                 </div>
 
                 <div class="form-group">
                     <div class="input-wrapper">
-                        <input type="text" id="email" name="lastname" required autocomplete="Last name">
                         <label for="lastname">Last name</label>
+                        <input type="text" name="lastname" required >
                         <span class="focus-border"></span>
                     </div>
-                    <span class="error-message" id="emailError"></span>
                 </div>
 
                 <div class="form-group">
                     <div class="input-wrapper">
-                        <input type="email" id="email" name="email" required autocomplete="email">
                         <label for="email">Email Address</label>
-                        <span class="focus-border"></span>
+                        <input type="email" name="email" required >
                     </div>
-                    <span class="error-message" id="emailError"></span>
                 </div>
 
                 <div class="form-group">
                     <div class="input-wrapper password-wrapper">
-                        <input type="password" id="password" name="password" required autocomplete="current-password">
+                        <input type="password" id="password" name="password" required>
                         <label for="password">Password</label>
                         <button type="button" class="password-toggle" id="passwordToggle"
                             aria-label="Toggle password visibility">

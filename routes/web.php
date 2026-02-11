@@ -9,13 +9,14 @@ use App\Http\Controllers\HotelController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ReservationController;
 
 use App\Http\Controllers\Auth\SessionController;
 use App\Http\Controllers\Auth\RegisterController;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name("Home");
 
 
 Route::get('/geron',function(){
@@ -87,13 +88,6 @@ Route::middleware('guest')->group(function () {
         return view('auth.signup');
     });
 
-Route::get('/stripe', [StripeController::class, 'index'])->name('stripe.index');
-Route::post('/checkout', [StripeController::class, 'checkout'])->name('stripe.checkout');
-Route::get('/success', [StripeController::class, 'success'])->name('stripe.success');
-Route::get("/Payments/Create", [PaymentController::class, "create"])->name("payment.create");
-Route::post("/Payments/Store", [PaymentController::class, "store"]);
-
-
     Route::post('/signup', [RegisterController::class, 'store']);
 
     Route::get('/login', [LoginController::class, 'create']);
@@ -101,11 +95,28 @@ Route::post("/Payments/Store", [PaymentController::class, "store"]);
 });
 
 
-Route::get('/stripe', [StripeController::class, 'index'])->name('stripe.index');
-Route::post('/checkout', [StripeController::class, 'checkout'])->name('stripe.checkout');
-Route::get('/success', [StripeController::class, 'success'])->name('stripe.success');
-Route::get("/Payments/Create", [PaymentController::class, "create"])->name("payment.create");
-Route::post("/Payments/Store", [PaymentController::class, "store"]);
+
+
+
+// Aymen Root
+
+Route::get('/stripe', [StripeController::class, 'index'])->name( 'stripe.index');
+Route::post('/checkout/{reservation}', [StripeController::class, 'checkout'])->name("stripe.checkout");
+Route::get('/success/{reservation}', [StripeController::class, 'success'])->name('stripe.success');
+Route::get("/Payments/Create/{reservation}", [PaymentController::class, "create"])->name("payment.create");
+Route::post("/Payments/Store/{reservation}", [PaymentController::class, "store"]);
+Route::get("/Reservation/Index/{room}", [ReservationController::class, "index"])->name("Reservation.index");
+Route::post("/Reservation/store/{room}", [ReservationController::class, "store"]);
+Route::get("/Reservation/Update/{reservation}", [ReservationController::class, "update"])->name("Reservation.update");
+
+
+
+
+
+
+
+
+
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', function(){
