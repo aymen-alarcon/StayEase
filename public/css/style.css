@@ -71,6 +71,10 @@ i.text-primary {
     z-index: 99;
 }
 
+#logout {
+    background-color: #0F172B;
+    border: none;
+}
 
 /*** Spinner ***/
 #spinner {

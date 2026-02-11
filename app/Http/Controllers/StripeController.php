@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Stripe\Checkout\Session;
 use Stripe\Stripe;
 
 class StripeController extends Controller
 {
-    public function index()
+    public function index(Reservation $reservation)
     {
-        return view('stripe.index');
+        return view('stripe.index', compact($reservation));
     }
 
-    public function checkout()
-    {
+    public function checkout(Reservation $reservation)
+    {        
         Stripe::setApiKey(config('services.stripe.secret'));
 
         $session = Session::create([
@@ -24,9 +25,9 @@ class StripeController extends Controller
                     'price_data' => [
                         'currency' => 'mad',
                         'product_data' => [
-                            'name' => 'Send Money',
+                            'product_name' => $reservation->room_id,
                         ],
-                        'unit_amount' => 50000,
+                        'unit_amount' => $reservation->total_price * 100,
                     ],
                     'quantity' => 1,
                 ],
@@ -35,19 +36,19 @@ class StripeController extends Controller
                 'type' => 'send_money',
             ],
             'mode' => 'payment',
-            'success_url' => route('stripe.success') . '?session_id={CHECKOUT_SESSION_ID}',
+            'success_url' => route('stripe.success', $reservation) . '?session_id={CHECKOUT_SESSION_ID}',
             'cancel_url' => route('stripe.index'),
         ]);
 
         return redirect()->away($session->url);
     }
 
-    public function success(Request $request)
+    public function success(Request $request, Reservation $reservation)
     {
         Stripe::setApiKey(config('services.stripe.secret'));
 
         $session = Session::retrieve($request->session_id);
 
-        return view('stripe.success', compact('session'));
+        return view('stripe.success', compact('session', 'reservation'));
     }
 }

@@ -100,16 +100,16 @@ return [
     |
     */
 
-    'invoices' => [
-        'renderer' => env('CASHIER_INVOICE_RENDERER', DompdfInvoiceRenderer::class),
+    // 'invoices' => [
+    //     'renderer' => env('CASHIER_INVOICE_RENDERER', DompdfInvoiceRenderer::class),
 
-        'options' => [
-            // Supported: 'letter', 'legal', 'A4'
-            'paper' => env('CASHIER_PAPER', 'letter'),
+    //     'options' => [
+    //         // Supported: 'letter', 'legal', 'A4'
+    //         'paper' => env('CASHIER_PAPER', 'letter'),
 
-            'remote_enabled' => env('CASHIER_REMOTE_ENABLED', false),
-        ],
-    ],
+    //         'remote_enabled' => env('CASHIER_REMOTE_ENABLED', false),
+    //     ],
+    // ],
 
     /*
     |--------------------------------------------------------------------------

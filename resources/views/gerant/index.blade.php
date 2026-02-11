@@ -41,27 +41,26 @@
                     $t = $hotels->count();
                     $p = $hotels->where('statut', 'pending')->count();
                     $ap = $hotels->where('statut', 'approved')->count();
-
                 @endphp
                 <div class="col-sm-6 col-xl-3">
                     <div class="kpi-card p-4 text-center">
                         <i class="fa fa-bed fa-3x kpi-icon primary-gold"></i>
                         <p class="kpi-label">Total Hotels</p>
-                        <h6 class="kpi-value">{{ $t }}</h6>
+                        <h6 class="kpi-value">{{ ($t) }}</h6>
                     </div>
                 </div>
                 <div class="col-sm-6 col-xl-3">
                     <div class="kpi-card p-4 text-center">
                         <i class="fa fa-hourglass-half fa-3x kpi-icon warning-gold"></i>
                         <p class="kpi-label">Pending Review</p>
-                        <h6 class="kpi-value" style="color: var(--warning);">{{ $p }}</h6>
+                        <h6 class="kpi-value" style="color: var(--warning);">{{ ($p) }}</h6>
                     </div>
                 </div>
                 <div class="col-sm-6 col-xl-3">
                     <div class="kpi-card p-4 text-center">
                         <i class="fa fa-check-circle fa-3x kpi-icon success-green"></i>
                         <p class="kpi-label">Approved</p>
-                        <h6 class="kpi-value" style="color: var(--success);">{{ $ap }}</h6>
+                        <h6 class="kpi-value" style="color: var(--success);">{{ ($ap) }}</h6>
                     </div>
                 </div>
 

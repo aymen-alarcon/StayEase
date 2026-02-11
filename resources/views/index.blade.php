@@ -1,42 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <title>Hotelier - Hotel HTML </title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-    
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-    
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-</head>
-
-<body>
-    @include('includes.header')
-    <!-- Carousel Start -->
+@include('Includes.header')
     <div class="container-fluid p-0 mb-5">
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -81,7 +43,7 @@
 
 
     <!-- Booking Start -->
-    <!-- <div class="container-fluid booking pb-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container-fluid booking pb-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container">
             <div class="bg-white shadow" style="padding: 35px;">
                 <div class="row g-2">
@@ -123,7 +85,7 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
     <!-- Booking End -->
 
 
@@ -228,7 +190,7 @@
                                 sed diam stet diam sed stet lorem.</p>
                             <div class="d-flex justify-content-between">
                                 <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
-                                <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
+                                <a class="btn btn-sm btn-dark rounded py-2 px-4" href="/Reservation/Index">Book Now</a>
                             </div>
                         </div>
                     </div>
@@ -446,7 +408,7 @@
                     <p>Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam
                         stet. Est stet ea lorem amet est kasd kasd et erat magna eos</p>
                     <div class="d-flex align-items-center">
-                        <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-1.jpg"
+                        <img class="img-fluid rounded" src="img/testimonial-1.jpg"
                             style="width: 45px; height: 45px;">
                         <div class="ps-3">
                             <h6 class="fw-bold mb-1">Client Name</h6>
@@ -459,7 +421,7 @@
                     <p>Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam
                         stet. Est stet ea lorem amet est kasd kasd et erat magna eos</p>
                     <div class="d-flex align-items-center">
-                        <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-2.jpg"
+                        <img class="img-fluid rounded" src="img/testimonial-2.jpg"
                             style="width: 45px; height: 45px;">
                         <div class="ps-3">
                             <h6 class="fw-bold mb-1">Client Name</h6>
@@ -472,7 +434,7 @@
                     <p>Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam
                         stet. Est stet ea lorem amet est kasd kasd et erat magna eos</p>
                     <div class="d-flex align-items-center">
-                        <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-3.jpg"
+                        <img class="img-fluid rounded" src="img/testimonial-3.jpg"
                             style="width: 45px; height: 45px;">
                         <div class="ps-3">
                             <h6 class="fw-bold mb-1">Client Name</h6>
