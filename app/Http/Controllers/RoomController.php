@@ -16,13 +16,15 @@ class RoomController extends Controller
     {
         $query = Room::with('tags', 'properties');
         if ($tagId = $request->get('tag')) {
-            $query->whereHas('tags', fn($q) => $q->where('id', $tagId));
+            $query->whereHas('tags', fn($q) => $q->where('tags.id', $tagId));
         }
         if ($propertyId = $request->get('property')) {
-            $query->whereHas('properties', fn($q) => $q->where('id', $propertyId));
+            $query->whereHas('properties', fn($q) => $q->where('properties.id', $propertyId));
         }
+
         $rooms = $query->get();
         $allTags = Tag::all();
+        // dd($query);
         $allProperties = Property::all();
         return view('rooms.index', compact('rooms', 'allTags', 'allProperties'));
     }
@@ -76,7 +78,7 @@ class RoomController extends Controller
         $tags = Tag::all();
         $properties = Property::all();
 
-        return view('rooms.edit', compact('room', 'tags', 'properties'));
+        return view('rooms.edit', compact('rooms', 'tags', 'properties'));
     }
     /**
      * Update the specified resource in storage.
@@ -92,6 +94,7 @@ class RoomController extends Controller
 
         $rooms = Room::findOrFail($id);
         $rooms->update($data);
+        // dd($rooms);
         // return redirect()->route('rooms.show');
         return redirect()->route('rooms.index',$id);
     }
