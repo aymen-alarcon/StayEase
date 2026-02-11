@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardUserManagement;
+// use Laravel\Cashier\Checkout;
+use App\Http\Controllers\CategoryController;
 use Laravel\Cashier\Checkout;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TagController;
@@ -10,7 +13,6 @@ use App\Http\Controllers\StripeController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ReservationController;
-
 use App\Http\Controllers\Auth\SessionController;
 use App\Http\Controllers\Auth\RegisterController;
 
@@ -18,22 +20,7 @@ Route::get('/', function () {
     return view('index');
 })->name("Home");
 
-
-Route::get('/geron',function(){
-    return '<h1>bonjour gerant</h1>' ;
-});
-// Route::get('/hotel',function(){
-//     return view('hotel.index');
-// });
-// Route::post('/hotel',function(){
-//     return view('hotel.store');
-// });
-// Route::get('/hotel/{hotel}',function(){
-
-
-
-
-
+// Oughlane routes
 Route::prefix('hotels')->group(function () {
     Route::get('/', [HotelController::class, 'index'])->name('index');
     Route::get('/create', [HotelController::class, 'create'])->name('create');
@@ -44,41 +31,23 @@ Route::prefix('hotels')->group(function () {
     Route::delete('/{hotel}', [HotelController::class, 'destroy'])->name('destroy');
 });
 
-
-
 Route::prefix('admin')->group( function (){
     Route::get('/',[AdminController::class,'index']);
 });
-
-
 
 Route::get('/admin',function(){
     return view('dahsboard.index');
 });
 
-
-
-// Route::get('/admin',function(){
-//     return view('admin.dashboard');
-// });
-
-
-
-
 Route::prefix('admin')->group(function () {
-        Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.index');
+        // Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.index');
         Route::get('/hotels', [AdminController::class, 'hotels'])->name('admin.hotels');
-        Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+        // Route::get('/', [AdminController::class, 'index'])->name('admin.index');
         Route::put('/hotels/{hotel}/approve', [AdminController::class, 'approve']) ->name('hotels.approve');
         Route::put('/hotels/{hotel}/reject', [AdminController::class, 'reject'])->name('hotels.reject');
 });
 
-// Route::get('/admin',function(){
-//     return view('dashboard.index');
-// });
-
-
-
+// Hamza Routes
 Route::middleware('guest')->group(function () {
     Route::get('/login', function(){
         return view('auth.login');
@@ -94,10 +63,6 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [LoginController::class, 'store']);
 });
 
-
-
-
-
 // Aymen Root
 
 Route::get('/stripe', [StripeController::class, 'index'])->name( 'stripe.index');
@@ -109,34 +74,35 @@ Route::get("/Reservation/Index/{room}", [ReservationController::class, "index"])
 Route::post("/Reservation/store/{room}", [ReservationController::class, "store"]);
 Route::get("/Reservation/Update/{reservation}", [ReservationController::class, "update"])->name("Reservation.update");
 
-
-
-
-
-
-
-
-
-
 Route::middleware('guest')->group(function () {
     Route::get('/login', function(){
         return view('Auth.login');
     });
 });
 
-// Route::get('/signup', [RegisterController::class, 'create']);
 Route::post('/signup', [RegisterController::class, 'store']);
 Route::middleware('auth')->group(function() {
     Route::delete('/logout', [SessionController::class, 'destroy']);
+    // Route::get('/admin', function() {
+    //     return view('dashboard.index');
+    // })->middleware('role:Admin');
+    Route::get('/user-status', function() {
+        return view('dashboard.user-status');
+    })->middleware('role:Admin');
+    Route::get("/user-management", [DashboardUserManagement::class, 'index'])
+    ->middleware('role:Admin');
 });
 
-
+// 
+Route::get("/Dashboard/Categories/index", [CategoryController::class, "index"])->name("categories.index");
+Route::get("/Dashboard/Categories/Create", [CategoryController::class, "create"]);
+Route::post("/Dashboard/Categories/Create/Store", [CategoryController::class, "store"]);
+Route::get("/Dashboard/Categories/Edit/{category}", [CategoryController::class, "edit"]);
+Route::put("/Dashboard/Categories/Update/{category}", [CategoryController::class, "update"]);
+Route::delete("/Dashboard/Categories/Destroy/{category}", [CategoryController::class, "destroy"]);
 
 
 
 //-------Roome ghizlane----//
 Route::resource('tags', TagController::class);
 Route::resource('rooms', RoomController::class);
-
-
-

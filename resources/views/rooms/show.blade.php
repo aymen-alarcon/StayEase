@@ -3,11 +3,52 @@
         <div class="row">
             <div class="col-lg-8">
                 <img src="https://d17k8relgo9zj1.cloudfront.net/rcimg/2/uRUIu0ccm0Imst2jM930XfI571HOCieekQ-LBAiiRy4/fit/0/2000/ce/1/aHR0cHM6Ly9yb29tY2FyZC1wdWJsaWMtZGF0YS04MmhkazJraHNkLnMzLWV1LXdlc3QtMS5hbWF6b25hd3MuY29tL3Jvb21jYXJkL2hvdGVscy9pbWFnZXMvdGhlLXJpdHotY2FybHRvbi10b3JvbnRvLXRvcm9udG8tZDI0ZWYxZTkuanBn.jpg" class="img-fluid rounded shadow-sm mb-4" alt="Chambre">
+    <div class="container-fluid bg-dark px-0">
+        <div class="row gx-0">
+            <div class="col-lg-3 bg-dark d-none d-lg-block">
+                <a href="index.html"
+                    class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                    <h1 class="m-0 text-primary text-uppercase">Hotelier</h1>
+                </a>
+            </div>
+            <div class="col-lg-9">
+                <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
+                    <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
+                        data-bs-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto py-0">
+                            <a href="index.html" class="nav-item nav-link active">Home</a>
+                            <a href="{{ route('rooms.index') }}" class="nav-item nav-link">Rooms</a>
+                            @guest
+                                <a href="/signup" class="nav-item nav-link">SignUp</a>
+                                <a href="/login" class="nav-item nav-link">Login</a>
+                            @endguest
 
-                <div class="d-flex justify-content-between align-items-start mb-3">
-                    <h1>Chambre {{ $room->number }}</h1>
-                    <h2 class="text-warning">{{ $room->price_per_night }} € <small class="text-muted fs-6">/ nuit</small></h2>
-                </div>
+                            @auth
+                                <form action="/logout" method="post" class="d-flex align-items-center">
+                                @csrf
+                                @method('DELETE')
+                                    <button type="submit" class="nav-item nav-link btn btn-link p-0 m-0">
+                                        Log Out
+                                    </button>
+                                </form>
+                            @endauth
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <img src="https://d17k8relgo9zj1.cloudfront.net/rcimg/2/uRUIu0ccm0Imst2jM930XfI571HOCieekQ-LBAiiRy4/fit/0/2000/ce/1/aHR0cHM6Ly9yb29tY2FyZC1wdWJsaWMtZGF0YS04MmhkazJraHNkLnMzLWV1LXdlc3QtMS5hbWF6b25hd3MuY29tL3Jvb21jYXJkL2hvdGVscy9pbWFnZXMvdGhlLXJpdHotY2FybHRvbi10b3JvbnRvLXRvcm9udG8tZDI0ZWYxZTkuanBn.jpg" class="img-fluid rounded shadow-sm mb-4" alt="Chambre">
 
                 <hr>
 

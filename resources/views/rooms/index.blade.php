@@ -15,13 +15,22 @@
             <select name="property" class="form-select">
                 <option value="">Toutes les propriétés</option>
                 @foreach ($allProperties as $prop)
-                    <option value="{{ $prop->id }}">{{ $prop->name }}</option>
+                    <option value="{{ $prop->id }}">{{ $prop->nom }}</option>
                 @endforeach
             </select>
         </div>
         <div class="col-md-4">
             <button type="submit" class="btn btn-dark w-100">Filtrer les résultats</button>
         </div>
+        <div class="col-md-4">
+            @auth
+            @if(Auth::user()->roles->name === 'Gerant')
+            <a href="{{ route('rooms.create')}}" class="btn btn-primary">Ajourte</a>
+            @endif
+            @endauth
+        </div>
+
+
     </form>
 
     <div class="row">
@@ -49,23 +58,19 @@
                                 @endforeach
                             </div>
 
-                            <p class="card-text text-secondary small">
-                                Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.
-                            </p>
+                        <div class="d-flex gap-2">
+                            <a href="{{ route('rooms.show', $room->id) }}" class="btn btn-warning text-white flex-grow-1">VIEW DETAIL</a>
+                            @auth
+                            @if(Auth::user()->roles->name === 'Gerant')
+                          <a href="{{ route('rooms.edit', $room->id) }}" class="btn btn-primary">update</a>
 
-                            <div class="d-flex gap-2">
-                                <a href="{{ route('rooms.show', $room->id) }}" class="btn btn-warning text-white">VIEW DETAIL</a>
-
-                                {{-- @if(Auth::user()->roles->name === 'Gerant')
-                            <a href="{{ route('rooms.', $room->id) }}" class="btn btn-primary">update</a>
-
-                                <form action="{{ route('rooms.destroy', $room->id) }}" method="POST" onsubmit="return confirm('Sure?')">
-                                @csrf
-                                @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                        @endif --}}
-                            </div>
+                             <form action="{{ route('rooms.destroy', $room->id) }}" method="POST" onsubmit="return confirm('Sure?')">
+                             @csrf
+                            @method('DELETE')
+                           <button type="submit" class="btn btn-danger">Delete</button>
+                       </form>
+                       @endif
+                       @endauth
                         </div>
                     </div>
                 </div>
@@ -73,8 +78,5 @@
         @endforeach
     </div>
 </div>
-
-
-
 </body>
 </html>
