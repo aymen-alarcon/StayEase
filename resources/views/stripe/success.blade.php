@@ -53,9 +53,38 @@
         .btn:hover {
             background: #0056b3;
         }
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey background */
+  border-top: 16px solid #3498db; /* Blue top border (the spinning part) */
+  border-radius: 50%; /* Makes it a circle */
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite; /* Applies the spin animation */
+}
+
+/* Keyframes for the animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* CSS for the screen reader only class (sr-only) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
     </style>
 </head>
 <body>
+<div class="loader" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
 
 <div class="form-container">
     <h1>Payment Successful!</h1>
