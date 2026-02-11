@@ -91,7 +91,8 @@ class RoomController extends Controller
         ]);
 
         $rooms = Room::findOrFail($id);
-        $rooms->update($data);
+        
+        
         // return redirect()->route('rooms.show');
         return redirect()->route('rooms.index',$id);
     }
