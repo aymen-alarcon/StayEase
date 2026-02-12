@@ -1,9 +1,59 @@
 /********** Template CSS **********/
+
 :root {
-    --primary: #FEA116;
-    --light: #F1F8FF;
-    --dark: #0F172B;
+    --primary: #ff961e;
 }
+
+/* Text color */
+.text-primary {
+    color: #ff961e !important;
+}
+
+/* Background color */
+.bg-primary {
+    background-color: #ff961e !important;
+}
+
+/* Border color */
+.border-primary {
+    border-color: #ff961e !important;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #ff961e !important;
+    border-color: #ff961e !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #e69510 !important; /* slightly darker */
+    border-color: #e69510 !important;
+}
+
+/* Outline buttons */
+.btn-outline-primary {
+    color: #ff961e !important;
+    border-color: #ff961e !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: #ff961e !important;
+    color: #fff !important;
+}
+
+/* Links */
+a.text-primary:hover,
+a:hover {
+    color: #e69510;
+}
+
+/* Icons */
+.text-primary i,
+i.text-primary {
+    color: #ff961e !important;
+}
+
 
 .fw-medium {
     font-weight: 500 !important;
@@ -21,6 +71,10 @@
     z-index: 99;
 }
 
+#logout {
+    background-color: #0F172B;
+    border: none;
+}
 
 /*** Spinner ***/
 #spinner {
